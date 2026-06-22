@@ -51,33 +51,28 @@ export const CoreCapabilities = () => {
 
       const scrollWidth = track.scrollWidth - window.innerWidth;
 
-      // Update active index as the track scrolls
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        pin: true,
-        scrub: 1.2,
-        start: "top top",
-        end: `+=${scrollWidth}`,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          const idx = Math.min(
-            CAPABILITIES.length - 1,
-            Math.floor(self.progress * CAPABILITIES.length)
-          );
-          setActiveIdx(idx);
-        },
-      });
-
+      // Single ScrollTrigger handles both the animation AND active index update.
+      // Previously there were TWO pin:true triggers on the same element which
+      // caused GSAP to inject two spacers → massive blank gap before footer.
       gsap.to(track, {
         x: -scrollWidth,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           pin: true,
+          pinSpacing: true,
           scrub: 1.2,
           start: "top top",
           end: `+=${scrollWidth}`,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const idx = Math.min(
+              CAPABILITIES.length - 1,
+              Math.floor(self.progress * CAPABILITIES.length)
+            );
+            setActiveIdx(idx);
+          },
         },
       });
     }, sectionRef);
