@@ -41,8 +41,8 @@ export const Navbar = () => {
   const { scrollY } = useScroll();
   const activeSection = useActiveSection(["approach", "capabilities", "impact"]);
 
-  // Transparent → glass transition
-  useMotionValueEvent(scrollY, "change", (v) => setIsScrolled(v > 60));
+  // Transparent → glass transition at exactly 50px
+  useMotionValueEvent(scrollY, "change", (v) => setIsScrolled(v > 50));
 
   // Lock body scroll with mobile menu
   useEffect(() => {
@@ -72,10 +72,10 @@ export const Navbar = () => {
         className="fixed top-0 left-0 right-0 z-50"
         aria-label="Main Navigation"
       >
-        <div className={`mx-4 mt-4 rounded-2xl px-6 transition-all duration-500 ease-in-out ${
+        <div className={`mx-4 mt-4 rounded-2xl px-6 transition-all duration-[400ms] ease-in-out ${
           isScrolled
-            ? "py-3 glass shadow-[0_8px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.05)]"
-            : "py-5 bg-transparent"
+            ? "py-3 glass border border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+            : "py-5 bg-transparent border border-transparent"
         }`}>
           <div className="flex items-center justify-between max-w-7xl mx-auto">
 

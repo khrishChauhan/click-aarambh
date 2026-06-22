@@ -119,3 +119,15 @@ body {
   from { transform: rotate(0deg); }
   to   { transform: rotate(-360deg); }
 }
+
+/* Metric chip floating bob */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-9px); }
+}
+
+/* Core ring breathing pulse */
+@keyframes ring-pulse {
+  0%, 70%, 100% { opacity: 1;   transform: scale(1);    }
+  35%           { opacity: 0.5; transform: scale(1.07);  }
+}
