@@ -142,11 +142,11 @@ export const CoreCapabilities = () => {
 
               {/* Right: Metric card */}
               <div className="flex flex-col items-start md:items-end">
-                <div className="glass rounded-3xl border border-white/5 p-10 md:p-12 shadow-[0_32px_80px_rgba(0,0,0,0.5)] noise relative overflow-hidden w-full max-w-xs">
+                <div className="glass rounded-3xl border border-white/5 p-8 md:p-10 shadow-[0_32px_80px_rgba(0,0,0,0.5)] noise relative overflow-hidden w-full max-w-sm">
                   {/* Noise texture rendered via CSS .noise::after */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#82C21C]/5 via-transparent to-transparent pointer-events-none rounded-3xl" />
                   <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-white/30 mb-4">{cap.tag} · {cap.id}</span>
-                  <div className="text-[clamp(3rem,6vw,5rem)] font-bold tracking-[-0.04em] text-[#82C21C] leading-none mb-2">
+                  <div className="text-[clamp(3rem,5vw,4.5rem)] font-bold tracking-[-0.04em] text-[#82C21C] leading-none mb-2 whitespace-nowrap">
                     {cap.metric}
                   </div>
                   <div className="text-sm text-white/40 font-medium">{cap.metricLabel}</div>

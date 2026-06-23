@@ -151,3 +151,10 @@ body {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* About CTA — slow background grid drift (top-to-bottom) */
+/* GPU-accelerated via transform, not background-position  */
+@keyframes grid-drift {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(33.333%); }
+}
