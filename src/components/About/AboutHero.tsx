@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useDecryptText } from "@/hooks/useDecryptText";
 import { EASE } from "@/lib/motion";
 
 /* ─── Framer Motion variant factory ───────────────────────────── */
@@ -10,41 +9,6 @@ const fadeUp = (delay: number, y = 20) => ({
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.9, delay, ease: EASE },
 });
-
-/* ─── The isolated decrypt span ────────────────────────────────── */
-function DecryptWord({
-  word,
-  delay,
-  reducedMotion,
-}: {
-  word: string;
-  delay: number;
-  reducedMotion: boolean;
-}) {
-  // Hook fires after `delay` ms and scrambles for 600 ms before locking.
-  const display = useDecryptText({
-    word,
-    duration: 600,
-    interval: 40,
-    startDelay: reducedMotion ? 0 : delay,
-  });
-
-  return (
-    <span
-      className="text-[#9CDF3B]"
-      style={{
-        textShadow: reducedMotion
-          ? "none"
-          : "0 0 40px rgba(156, 223, 59, 0.35), 0 0 80px rgba(156, 223, 59, 0.12)",
-        fontVariantNumeric: "tabular-nums",
-        fontFamily: "inherit",
-      }}
-      aria-label={word}
-    >
-      {display}
-    </span>
-  );
-}
 
 /* ─── Main Hero component ───────────────────────────────────────── */
 export default function AboutHero() {
@@ -135,19 +99,29 @@ export default function AboutHero() {
         </motion.div>
 
         {/* Headline — T=0.30s */}
-        {/* Only the word "Growth" undergoes the decrypt effect.         */}
         <motion.h1
-          {...fadeUp(reducedMotion ? 0 : 0.3, 24)}
-          className="mb-10 text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-white"
+          className="mb-10 text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-white flex flex-wrap justify-center gap-x-4"
+          initial="initial"
+          animate="animate"
+          variants={{
+            animate: { transition: { staggerChildren: 0.1, delayChildren: reducedMotion ? 0 : 0.3 } }
+          }}
         >
-          We Build{" "}
-          <DecryptWord
-            word="Growth"
-            /* Decrypt starts at T=0.30s, runs 0.60s, locks at T=0.90s */
-            delay={300}
-            reducedMotion={reducedMotion}
-          />{" "}
-          Infrastructure.
+          {["We", "Build", "Growth", "Infrastructure."].map((word, idx) => (
+            <motion.span
+              key={idx}
+              variants={{
+                initial: { opacity: 0, y: reducedMotion ? 0 : 24 },
+                animate: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } }
+              }}
+              className={word === "Growth" ? "text-[#9CDF3B]" : ""}
+              style={word === "Growth" && !reducedMotion ? {
+                textShadow: "0 0 40px rgba(156, 223, 59, 0.35), 0 0 80px rgba(156, 223, 59, 0.12)"
+              } : {}}
+            >
+              {word}
+            </motion.span>
+          ))}
         </motion.h1>
 
         {/* Subheadline — T=1.00s */}
