@@ -61,6 +61,17 @@
   .shadow-brand-intense {
     box-shadow: 0 0 0 1px rgba(130,194,28,0.3), 0 0 40px rgba(130,194,28,0.15), 0 0 120px rgba(130,194,28,0.06);
   }
+
+  .ease-apple {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .brutal-glass {
+    background: rgba(8, 34, 32, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
 }
 
 /* ── Base ──────────────────────────────────────────────────── */
@@ -140,10 +151,11 @@ body {
   100% { transform: translateY(100vh); }
 }
 
-/* Ambient emerald glow gentle breath — infinite loop           */
+/* Ambient emerald glow gentle breath — scale-based, no opacity  */
+/* conflict with glow-fade-in which also animates opacity.        */
 @keyframes glow-breath {
-  0%, 100% { opacity: 0.03; }
-  50%       { opacity: 0.07; }
+  0%, 100% { transform: scale(1);    }
+  50%       { transform: scale(1.08); }
 }
 
 /* Initial fade-in of the ambient glow at T=1.20s */
@@ -157,4 +169,11 @@ body {
 @keyframes grid-drift {
   0%   { transform: translateY(0); }
   100% { transform: translateY(33.333%); }
+}
+
+/* About Hero — scroll indicator drip animation             */
+/* Contained within the parent element height; not 100vh.  */
+@keyframes drip-down {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
 }

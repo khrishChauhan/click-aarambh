@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
+import { ensureGSAP, gsap } from "@/lib/gsap";
 import { motion } from "framer-motion";
+import { EASE } from "@/lib/motion";
 
 /* ── Phrase data ──────────────────────────────────────────────── */
 const PHRASES = [
@@ -15,15 +15,16 @@ const PHRASES = [
 const SUPPORTING =
   "We reject the disconnected stack. Every campaign, every line of code, every automation we build exists inside a single, unified growth architecture — engineered to compound, not fragment.";
 
-/* ── Shared easing ────────────────────────────────────────────── */
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-/* ── Mobile IntersectionObserver reveal ─────────────────────── */
-/* Used when GSAP scrub is disabled (mobile / reduced-motion)   */
+/* ── Mobile IntersectionObserver reveal ───────────────────────
+   Accepts `enabled` flag so the hook is called unconditionally
+   (no Rules-of-Hooks violation) but is a no-op when disabled.  */
 function useMobileReveal(
-  refs: React.MutableRefObject<(HTMLSpanElement | null)[]>
+  refs: React.MutableRefObject<(HTMLSpanElement | null)[]>,
+  enabled: boolean
 ) {
   useEffect(() => {
+    if (!enabled) return;
+
     const els = refs.current.filter(Boolean) as HTMLSpanElement[];
     const observers: IntersectionObserver[] = [];
 
@@ -34,7 +35,6 @@ function useMobileReveal(
             setTimeout(() => {
               el.style.color = "rgba(255,255,255,0.9)";
               el.style.textShadow = "none";
-              el.style.opacity = "1";
             }, i * 200);
             obs.disconnect();
           }
@@ -46,7 +46,9 @@ function useMobileReveal(
     });
 
     return () => observers.forEach((o) => o.disconnect());
-  }, [refs]);
+  // refs.current is stable (useRef), enabled is primitive — no stale closure risk
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enabled]);
 }
 
 /* ── Main Mission component ───────────────────────────────────── */
@@ -56,19 +58,22 @@ export default function Mission() {
   const supportingRef = useRef<HTMLParagraphElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
-  /* Mobile / reduced-motion reveal ─────────────────────────── */
-  const isMobileOrReduced =
-    typeof window !== "undefined" &&
-    (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      window.innerWidth < 768);
+  /* Safe client-side detection — never runs on the server.
+     useState(false) default ensures SSR/hydration renders phrases
+     visible (no-JS friendly: color starts at rgba(255,255,255,0.9))
+     until the effect fires and GSAP takes over.                   */
+  const [isMobileOrReduced, setIsMobileOrReduced] = useState(false);
 
-  useMobileReveal(
-    isMobileOrReduced
-      ? phraseRefs
-      : ({ current: [] } as React.MutableRefObject<(HTMLSpanElement | null)[]>)
-  );
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mobile = window.innerWidth < 768;
+    setIsMobileOrReduced(reduced || mobile);
+  }, []);
 
-  /* Desktop GSAP scrub ─────────────────────────────────────── */
+  /* Always-unconditional hook — enabled flag disables effect body */
+  useMobileReveal(phraseRefs, isMobileOrReduced);
+
+  /* Desktop GSAP scrub ─────────────────────────────────────────  */
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -76,78 +81,82 @@ export default function Mission() {
     const isMobile = window.innerWidth < 768;
 
     if (prefersReducedMotion || isMobile) {
-      /* Snap immediately to final state */
+      /* Snap to final state immediately — no GSAP needed */
       phraseRefs.current.forEach((el) => {
-        if (el) {
-          el.style.color = "rgba(255,255,255,0.9)";
-          el.style.opacity = "1";
-        }
+        if (el) el.style.color = "rgba(255,255,255,0.9)";
       });
       if (supportingRef.current) supportingRef.current.style.opacity = "1";
       return;
     }
 
-    gsap.registerPlugin(ScrollTrigger);
+    ensureGSAP();
 
     const ctx = gsap.context(() => {
+      /* Set initial states synchronously (before first paint on
+         most browsers), minimising any flash of visible content  */
+      gsap.set(phraseRefs.current.filter(Boolean), {
+        color: "rgba(255,255,255,0.08)",
+      });
+      gsap.set(supportingRef.current, { opacity: 0 });
+      gsap.set(glowRef.current, { opacity: 0 });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 65%",
-          end: "bottom 35%",
-          scrub: 0.8,
+          /* Extended scroll bandwidth — wider window gives the
+             phrase illumination a cinematic, unhurried pace.     */
+          start: "top 75%",
+          end: "bottom 25%",
+          scrub: 1.0,
         },
       });
 
-      /* Phase durations — each phrase gets equal scroll bandwidth */
-      const segDuration = 1 / PHRASES.length;
+      /* Each phrase gets an equal share of the scroll timeline   */
+      const seg = 1 / PHRASES.length;
 
       PHRASES.forEach((_, i) => {
         const el = phraseRefs.current[i];
         if (!el) return;
 
-        const segStart = i * segDuration;
-        const activeStart = segStart + segDuration * 0.1;
-        const activeEnd = segStart + segDuration * 0.6;
-        const resolveEnd = segStart + segDuration;
+        const segStart = i * seg;
+        const activeStart = segStart + seg * 0.1;
+        const activeEnd = segStart + seg * 0.6;
 
-        /* Dim → Active accent (Bio-Lime) */
+        /* Resting → Active (Bio-Lime accent) */
         tl.fromTo(
           el,
           { color: "rgba(255,255,255,0.08)" },
           {
             color: "#9CDF3B",
             textShadow: "0 0 35px rgba(156,223,59,0.25)",
-            duration: segDuration * 0.5,
+            duration: seg * 0.5,
             ease: "power2.out",
           },
           activeStart
         );
 
-        /* Active accent → Resolved white */
+        /* Active → Resolved (near-white, full legibility) */
         tl.to(
           el,
           {
             color: "rgba(255,255,255,0.9)",
             textShadow: "none",
-            duration: segDuration * 0.4,
+            duration: seg * 0.4,
             ease: "power2.inOut",
           },
           activeEnd
         );
-
-        _ = { ..._, id: resolveEnd.toString() }; // satisfy linter — resolveEnd is used implicitly
       });
 
-      /* Supporting paragraph fades in at 70% scroll progress */
+      /* Supporting paragraph fades in late in the scroll arc     */
       tl.fromTo(
         supportingRef.current,
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-        0.7
+        0.72
       );
 
-      /* Ambient glow pulses with the section */
+      /* Ambient glow rises early — atmospheric backdrop          */
       tl.fromTo(
         glowRef.current,
         { opacity: 0 },
@@ -163,7 +172,7 @@ export default function Mission() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#001715] py-[20vh]"
+      className="relative w-full py-[20vh]"
       aria-label="Our Mission"
     >
       {/* ── Background grid texture ──────────────────────────── */}
@@ -177,22 +186,28 @@ export default function Mission() {
         }}
       />
 
-      {/* ── Ambient emerald glow ─────────────────────────────── */}
+      {/* ── Ambient glow — clipped by its own wrapper ────────── */}
+      {/* overflow-hidden is on this inner wrapper, NOT on the    */}
+      {/* section, so the page noise layer is never clipped.      */}
       <div
-        ref={glowRef}
         aria-hidden="true"
-        className="pointer-events-none absolute left-[-10%] top-[20%] h-[80vh] w-[60vw] rounded-full opacity-0"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(156,223,59,0.06) 0%, transparent 65%)",
-          filter: "blur(80px)",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div
+          ref={glowRef}
+          className="absolute left-[-10%] top-[20%] h-[80vh] w-[60vw] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(156,223,59,0.06) 0%, transparent 65%)",
+            filter: "blur(80px)",
+          }}
+        />
+      </div>
 
       {/* ── 12-Column editorial grid ─────────────────────────── */}
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-12 gap-x-4 px-6 md:px-12 lg:px-24">
 
-        {/* Eyebrow — col 2-12 */}
+        {/* Eyebrow */}
         <motion.div
           className="col-start-1 col-end-13 mb-16 md:col-start-2"
           initial={{ opacity: 0, y: 12 }}
@@ -208,10 +223,10 @@ export default function Mission() {
           </div>
         </motion.div>
 
-        {/* Main phrase stack — col 1-11 */}
+        {/* Main phrase stack — col 2-12 on md+ */}
         <div className="col-start-1 col-end-13 space-y-2 md:col-start-2 md:col-end-12">
           {PHRASES.map((phrase, i) => (
-            <div key={phrase.id} aria-label={phrase.text}>
+            <div key={phrase.id}>
               <span
                 ref={(el) => {
                   phraseRefs.current[i] = el;
@@ -219,10 +234,11 @@ export default function Mission() {
                 className="block text-left font-extrabold leading-[1.05] tracking-[-0.03em]"
                 style={{
                   fontSize: "clamp(2.4rem, 5.5vw, 5rem)",
-                  color: "rgba(255,255,255,0.08)",
-                  /* Will be animated by GSAP / IntersectionObserver */
+                  /* No-JS friendly: phrases start fully visible.
+                     GSAP's gsap.set() dims them before any scroll
+                     event fires, so there is no perceptible flash. */
+                  color: "rgba(255,255,255,0.9)",
                   willChange: "color",
-                  transition: "color 0.3s ease, text-shadow 0.3s ease",
                 }}
               >
                 {phrase.text}
@@ -231,12 +247,11 @@ export default function Mission() {
           ))}
         </div>
 
-        {/* Supporting paragraph — col 8-12 (right-aligned editorial) */}
+        {/* Supporting paragraph — right-offset on md+ */}
         <div className="col-start-1 col-end-13 mt-16 md:col-start-8 md:col-end-13">
           <p
             ref={supportingRef}
             className="text-[clamp(1rem,1.4vw,1.15rem)] leading-[1.7] text-white/50"
-            style={{ opacity: 0 }}
           >
             {SUPPORTING}
           </p>

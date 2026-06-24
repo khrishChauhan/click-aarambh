@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { Navbar } from "@/components/Navbar/Navbar";
+import Navbar from "@/components/Global/Navbar";
+import Footer from "@/components/Global/Footer";
 import { ScrollProgress } from "@/components/MicroConversions/ScrollProgress";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,11 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased bg-[#061917] text-white min-h-screen selection:bg-[#82C21C]/30`} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased bg-[#061917] text-white min-h-screen flex flex-col selection:bg-[#82C21C]/30`} suppressHydrationWarning>
         <SmoothScrollProvider>
-          <ScrollProgress />
-          <Navbar />
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <ScrollProgress />
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </SmoothScrollProvider>
       </body>
     </html>

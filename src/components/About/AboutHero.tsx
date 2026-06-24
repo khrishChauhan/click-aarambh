@@ -2,9 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useDecryptText } from "@/hooks/useDecryptText";
-
-/* ─── Shared easing — same premium cubic bezier as homepage ─── */
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { EASE } from "@/lib/motion";
 
 /* ─── Framer Motion variant factory ───────────────────────────── */
 const fadeUp = (delay: number, y = 20) => ({
@@ -58,25 +56,37 @@ export default function AboutHero() {
       aria-label="About Hero"
     >
       {/* ── Layer 1: Ambient Emerald Glow ── */}
-      {/* Fades in at T=1.20s, then breathes on an infinite 8s loop.   */}
-      {/* Sits BEHIND the content; purely atmospheric.                  */}
+      {/* Two nested elements so fade-in (opacity) and breath     */}
+      {/* (transform:scale) animate separate properties — no CSS  */}
+      {/* property conflict and no opacity jump between them.     */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         style={{
+          /* Outer: opacity 0 initially, glow-fade-in brings it to 1 */
+          opacity: 0,
           animation: reducedMotion
             ? "none"
-            : "glow-fade-in 0.8s ease-out 1.2s both, glow-breath 8s ease-in-out 2s infinite",
+            : "glow-fade-in 0.8s ease-out 1.2s forwards",
         }}
       >
+        {/* Inner: glow-breath uses transform:scale — never touches opacity */}
         <div
-          className="h-[700px] w-[700px] rounded-full"
           style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(156,223,59,0.12) 0%, rgba(156,223,59,0.04) 40%, transparent 70%)",
-            filter: "blur(60px)",
+            animation: reducedMotion
+              ? "none"
+              : "glow-breath 8s ease-in-out 2.2s infinite",
           }}
-        />
+        >
+          <div
+            className="h-[700px] w-[700px] rounded-full"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, rgba(156,223,59,0.12) 0%, rgba(156,223,59,0.04) 40%, transparent 70%)",
+              filter: "blur(60px)",
+            }}
+          />
+        </div>
       </div>
 
       {/* ── Layer 2: Vertical Scan-Line ── */}
@@ -166,7 +176,7 @@ export default function AboutHero() {
               style={{
                 animation: reducedMotion
                   ? "none"
-                  : "scan-line 2s ease-in-out infinite",
+                  : "drip-down 2s ease-in-out infinite",
               }}
             />
           </div>

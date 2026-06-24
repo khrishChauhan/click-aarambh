@@ -2,10 +2,11 @@
 
 import { useRef, useState, useCallback } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { EASE } from "@/lib/motion";
 
 /* ── Founder data ─────────────────────────────────────────────── */
 const FOUNDER = {
-  name: "Khrish Chauhan",
+  name: "Abhishek Kumar",
   title: "Founder & Growth Architect",
   shortStory:
     "Built to challenge the fragmented agency model. Click Aarambh was founded on the premise that business growth cannot be delegated to disconnected specialists — it requires a unified system that aligns software, strategy, and data into one coherent engine.",
@@ -18,26 +19,58 @@ const FOUNDER = {
   vision:
     "A world where ambitious businesses have access to the same interconnected, data-driven infrastructure that enterprise conglomerates use — without the overhead.",
   status: "Available for Consultation",
-  location: "India",
   focus: "Growth Systems Architecture",
 };
 
-/* ── Framer Motion shared easing ─────────────────────────────── */
-const EASE = [0.22, 1, 0.36, 1] as const;
+/* ── Portrait placeholder layers ────────────────────────────────
+   Color layer (always present) sits beneath a grayscale overlay
+   layer whose opacity animates on hover. Only opacity is animated
+   — always GPU-composited, never causes a paint. No filter jank. */
+function PortraitContent({ aria }: { aria?: boolean }) {
+  return (
+    <>
+      {/* Background gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(160deg, #0f2e2b 0%, #061917 40%, #020f0d 100%)",
+        }}
+      />
+      {/* Large initials watermark */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span
+          className="select-none font-extrabold tracking-[-0.04em] text-white/10"
+          style={{ fontSize: "clamp(5rem,15vw,12rem)" }}
+          aria-hidden="true"
+        >
+          AK
+        </span>
+      </div>
+      {/* Noise texture */}
+      {!aria && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+            opacity: 0.04,
+          }}
+        />
+      )}
+    </>
+  );
+}
 
-/* ── Spotlight Effect logic ─────────────────────────────────────
-   Uses CSS custom properties updated via onMouseMove to drive a
-   radial glow at the cursor position — zero React re-renders.    */
-function FounderPortrait({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
+/* ── Founder Portrait ──────────────────────────────────────────── */
+function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
+  const containerRef = useRef<HTMLElement>(null);
   const [hovered, setHovered] = useState(false);
 
+  /* CSS custom-property spotlight — zero React re-renders on move */
   const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: React.MouseEvent<HTMLElement>) => {
       if (reducedMotion || !containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -49,15 +82,44 @@ function FounderPortrait({
   );
 
   return (
-    <div
+    /* figure + figcaption: correct semantic pattern for a portrait.
+       Screen readers announce the caption, not the decorative bg.  */
+    <figure
       ref={containerRef}
-      className="relative overflow-hidden"
-      style={{ aspectRatio: "3/4", "--mouse-x": "50%", "--mouse-y": "50%" } as React.CSSProperties}
+      /* aspect-[4/3] on mobile (short, not a tall column),
+         aspect-[3/4] on md+ (editorial portrait orientation).     */
+      className="relative overflow-hidden aspect-[4/3] md:aspect-[3/4]"
+      style={
+        {
+          "--mouse-x": "50%",
+          "--mouse-y": "50%",
+        } as React.CSSProperties
+      }
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* ── Spotlight glow layer ──────────────────────────────── */}
+      {/* ── Color base layer (always visible, bottom of stack) ── */}
+      <div className="absolute inset-0">
+        <PortraitContent />
+      </div>
+
+      {/* ── Grayscale overlay layer ───────────────────────────── */}
+      {/* Static filter (never animated) + animated opacity only. */}
+      {/* Opacity is always GPU-composited — no paint, no jank.   */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          filter: "grayscale(100%) contrast(1.15) brightness(0.8)",
+        }}
+        animate={{ opacity: reducedMotion ? 0 : hovered ? 0 : 1 }}
+        transition={{ duration: 0.8, ease: EASE }}
+        aria-hidden="true"
+      >
+        <PortraitContent aria />
+      </motion.div>
+
+      {/* ── Spotlight glow (cursor-tracked radial) ────────────── */}
       {!reducedMotion && (
         <div
           aria-hidden="true"
@@ -70,52 +132,18 @@ function FounderPortrait({
         />
       )}
 
-      {/* ── Portrait image: grayscale → color on hover ──────── */}
-      {/*   Using a styled placeholder — replace src with real   */}
-      {/*   founder photo when available.                        */}
+      {/* ── Hover border accent ───────────────────────────────── */}
       <motion.div
-        className="relative h-full w-full overflow-hidden"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 border"
         animate={{
-          filter: reducedMotion
-            ? "none"
-            : hovered
-            ? "grayscale(0%) contrast(1)"
-            : "grayscale(100%) contrast(1.15) brightness(0.85)",
+          borderColor:
+            hovered && !reducedMotion
+              ? "rgba(156,223,59,0.3)"
+              : "rgba(255,255,255,0.05)",
         }}
-        transition={{ duration: 0.8, ease: EASE }}
-      >
-        {/* Portrait placeholder — dark gradient with noise texture */}
-        <div
-          className="h-full w-full"
-          style={{
-            background:
-              "linear-gradient(160deg, #0f2e2b 0%, #061917 40%, #020f0d 100%)",
-          }}
-          aria-label="Founder portrait placeholder"
-        />
-
-        {/* Initials overlay on the placeholder */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="font-extrabold tracking-[-0.04em] text-white/10 select-none"
-            style={{ fontSize: "clamp(5rem,15vw,12rem)" }}
-            aria-hidden="true"
-          >
-            KC
-          </span>
-        </div>
-
-        {/* Subtle noise texture on top */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
-            opacity: 0.04,
-          }}
-        />
-      </motion.div>
+        transition={{ duration: 0.4 }}
+      />
 
       {/* ── Glass Information Drawer ─────────────────────────── */}
       <motion.div
@@ -154,27 +182,17 @@ function FounderPortrait({
         </div>
       </motion.div>
 
-      {/* ── Hover border accent ───────────────────────────────── */}
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 border"
-        animate={{
-          borderColor: hovered && !reducedMotion
-            ? "rgba(156,223,59,0.3)"
-            : "rgba(255,255,255,0.05)",
-        }}
-        transition={{ duration: 0.4 }}
-      />
-    </div>
+      {/* Accessible caption — screen readers read this instead of */}
+      {/* attempting to interpret the decorative gradient layers.  */}
+      <figcaption className="sr-only">
+        Portrait of {FOUNDER.name}, {FOUNDER.title} at Click Aarambh
+      </figcaption>
+    </figure>
   );
 }
 
 /* ── Typographic data blocks ─────────────────────────────────── */
-function FounderData({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
   const containerVariants = {
     hidden: {},
     visible: {
@@ -203,7 +221,10 @@ function FounderData({
       viewport={{ once: true, amount: 0.2 }}
     >
       {/* Section eyebrow */}
-      <motion.div className="mb-10 flex items-center gap-3" variants={itemVariants}>
+      <motion.div
+        className="mb-10 flex items-center gap-3"
+        variants={itemVariants}
+      >
         <div className="h-px w-6 bg-[#9CDF3B] opacity-50" />
         <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#9CDF3B]/60">
           [ Meet The Team ]
@@ -227,12 +248,12 @@ function FounderData({
         {FOUNDER.title}
       </motion.p>
 
-      {/* Short Story */}
+      {/* Background */}
       <motion.div
         className="mb-12 border-t border-white/5 pt-8"
         variants={itemVariants}
       >
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30 mb-3">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
           Background
         </p>
         <p className="text-[clamp(1rem,1.3vw,1.1rem)] leading-[1.7] text-white/60">
@@ -240,17 +261,17 @@ function FounderData({
         </p>
       </motion.div>
 
-      {/* Experience */}
+      {/* Expertise */}
       <motion.div
         className="mb-12 border-t border-white/5 pt-8"
         variants={itemVariants}
       >
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30 mb-4">
+        <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
           Expertise
         </p>
         <ul className="space-y-2">
-          {FOUNDER.experience.map((item, i) => (
-            <li key={i} className="flex items-center gap-3">
+          {FOUNDER.experience.map((item) => (
+            <li key={item} className="flex items-center gap-3">
               <span
                 className="h-px w-4 flex-shrink-0"
                 style={{ background: "rgba(156,223,59,0.5)" }}
@@ -266,7 +287,7 @@ function FounderData({
         className="border-t border-white/5 pt-8"
         variants={itemVariants}
       >
-        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/30 mb-3">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
           Vision
         </p>
         <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] italic text-white/50">
@@ -283,29 +304,41 @@ export default function Founders() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#001715] py-[20vh]"
+      className="relative w-full py-[20vh]"
       aria-label="Meet The Team"
     >
-      {/* ── Ambient glow ─────────────────────────────────────── */}
+      {/* ── Ambient glow — clipped by own wrapper ─────────────── */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute right-[-5%] top-[10%] h-[70vh] w-[50vw] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(156,223,59,0.05) 0%, transparent 65%)",
-          filter: "blur(80px)",
-          animation: reducedMotion
-            ? "none"
-            : "glow-breath 10s ease-in-out infinite",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
+        <div
+          className="absolute right-[-5%] top-[10%] h-[70vh] w-[50vw] rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(156,223,59,0.05) 0%, transparent 65%)",
+            filter: "blur(80px)",
+            animation: reducedMotion
+              ? "none"
+              : "glow-breath 10s ease-in-out infinite",
+          }}
+        />
+      </div>
 
-      {/* ── Main grid ────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-16 px-6 md:grid-cols-2 md:gap-12 md:px-12 lg:gap-24 lg:px-24">
+      {/* ── Main layout grid ─────────────────────────────────── */}
+      {/* Portrait is order-2 on mobile (below data), order-1 on  */}
+      {/* desktop (left column). DOM order: Data first, Portrait  */}
+      {/* second. CSS order flips them on md+.                    */}
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-12 md:px-12 lg:gap-24 lg:px-24">
 
-        {/* LEFT: Portrait */}
+        {/* DATA — order-1 on all breakpoints (shown first on mobile) */}
+        <div className="w-full order-1">
+          <FounderData reducedMotion={reducedMotion} />
+        </div>
+
+        {/* PORTRAIT — order-2 on mobile, order-first on md+ */}
         <motion.div
-          className="w-full"
+          className="w-full order-2 md:order-first"
           initial={{ opacity: 0, clipPath: "inset(100% 0% 0% 0%)" }}
           whileInView={{
             opacity: 1,
@@ -313,18 +346,11 @@ export default function Founders() {
           }}
           viewport={{ once: true, amount: 0.15 }}
           transition={
-            reducedMotion
-              ? { duration: 0 }
-              : { duration: 1.1, ease: EASE }
+            reducedMotion ? { duration: 0 } : { duration: 1.1, ease: EASE }
           }
         >
           <FounderPortrait reducedMotion={reducedMotion} />
         </motion.div>
-
-        {/* RIGHT: Data */}
-        <div className="w-full">
-          <FounderData reducedMotion={reducedMotion} />
-        </div>
       </div>
     </section>
   );

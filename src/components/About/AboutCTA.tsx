@@ -1,11 +1,8 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-
-/* ── Shared easing ─────────────────────────────────────────────── */
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { EASE } from "@/lib/motion";
 
 /* ── Animated grid overlay ─────────────────────────────────────── */
 /* Moves slowly upward using transform — GPU-accelerated.          */
@@ -128,7 +125,7 @@ export default function AboutCTA() {
             <Link
               href="/contact"
               id="about-cta-button"
-              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl px-8 py-4 text-[1.05rem] font-semibold transition-all duration-400"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl px-8 py-4 text-[1.05rem] font-semibold transition-all duration-300"
               style={{
                 background: "rgba(8,34,32,0.5)",
                 backdropFilter: "blur(20px)",
