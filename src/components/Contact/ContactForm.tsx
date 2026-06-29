@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE } from "@/lib/motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface FormFields {
   name: string;
@@ -18,7 +19,8 @@ interface FormError {
 
 export default function ContactForm() {
   const reducedMotion = useReducedMotion() ?? false;
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle");
+  const router = useRouter();
+  const [formState, setFormState] = useState<"idle" | "submitting">("idle");
   const [error, setError] = useState<FormError | null>(null);
   const [fields, setFields] = useState<FormFields>({
     name: "",
@@ -61,7 +63,7 @@ export default function ContactForm() {
         return;
       }
 
-      setFormState("success");
+      router.push("/thank-you");
     } catch {
       setError({
         field: "global",
@@ -91,122 +93,108 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {formState === "success" ? (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: EASE }}
-              className="rounded-2xl border border-[#82C21C]/30 bg-[#82C21C]/5 p-8 backdrop-blur-md"
-            >
-              <h3 className="text-xl font-bold text-[#82C21C] mb-2">Transmission Successful.</h3>
-              <p className="text-white/70">
-                Our architects are reviewing your data. Expect a response within 24 hours to schedule the technical discovery.
-              </p>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
 
-              {/* Global Error Banner */}
-              {error?.field === "global" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="rounded-lg border border-red-500/30 bg-red-500/5 px-4 py-3"
-                >
-                  <p className="font-mono text-[11px] text-red-400">{error.message}</p>
-                </motion.div>
-              )}
+            {/* Global Error Banner */}
+            {error?.field === "global" && (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-lg border border-red-500/30 bg-red-500/5 px-4 py-3"
+              >
+                <p className="font-mono text-[11px] text-red-400">{error.message}</p>
+              </motion.div>
+            )}
 
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {/* Name Field */}
-                <div className="group relative">
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
-                  >
-                    Full Name <span className="text-[#82C21C]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={fields.name}
-                    onChange={handleChange}
-                    required
-                    className={inputClass}
-                    placeholder="Jane Doe"
-                  />
-                </div>
-
-                {/* Phone Field */}
-                <div className="group relative">
-                  <label
-                    htmlFor="phone"
-                    className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
-                  >
-                    Phone Number <span className="text-[#82C21C]">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    value={fields.phone}
-                    onChange={handleChange}
-                    required
-                    className={inputClass}
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-              </div>
-
-              {/* Email Field */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {/* Name Field */}
               <div className="group relative">
                 <label
-                  htmlFor="email"
+                  htmlFor="name"
                   className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
                 >
-                  Work Email
+                  Full Name <span className="text-[#82C21C]">*</span>
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  value={fields.email}
+                  type="text"
+                  id="name"
+                  value={fields.name}
                   onChange={handleChange}
+                  required
                   className={inputClass}
-                  placeholder="jane@company.com"
+                  placeholder="Jane Doe"
                 />
               </div>
 
-              {/* Scope Field */}
+              {/* Phone Field */}
               <div className="group relative">
                 <label
-                  htmlFor="scope"
+                  htmlFor="phone"
                   className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
                 >
-                  Project Scope / Bottleneck
+                  Phone Number <span className="text-[#82C21C]">*</span>
                 </label>
-                <textarea
-                  id="scope"
-                  value={fields.scope}
+                <input
+                  type="tel"
+                  id="phone"
+                  value={fields.phone}
                   onChange={handleChange}
-                  rows={4}
-                  className={`${inputClass} resize-none`}
-                  placeholder="Describe the current architecture and where the friction lies..."
+                  required
+                  className={inputClass}
+                  placeholder="+91 98765 43210"
                 />
               </div>
+            </div>
 
-              <div className="mt-4">
-                <button
-                  type="submit"
-                  disabled={formState === "submitting"}
-                  className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/5 px-8 py-4 transition-all duration-300 hover:border-[#82C21C]/50 hover:bg-[#82C21C]/10 hover:shadow-[0_0_20px_rgba(130,194,28,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#82C21C] disabled:opacity-50 md:w-auto"
-                >
-                  <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-white transition-colors group-hover:text-[#82C21C]">
-                    {formState === "submitting" ? "Transmitting..." : "Submit Discovery Request"}
-                  </span>
-                </button>
-              </div>
+            {/* Email Field */}
+            <div className="group relative">
+              <label
+                htmlFor="email"
+                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+              >
+                Work Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={fields.email}
+                onChange={handleChange}
+                className={inputClass}
+                placeholder="jane@company.com"
+              />
+            </div>
 
-            </form>
-          )}
+            {/* Scope Field */}
+            <div className="group relative">
+              <label
+                htmlFor="scope"
+                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+              >
+                Project Scope / Bottleneck
+              </label>
+              <textarea
+                id="scope"
+                value={fields.scope}
+                onChange={handleChange}
+                rows={4}
+                className={`${inputClass} resize-none`}
+                placeholder="Describe the current architecture and where the friction lies..."
+              />
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="submit"
+                disabled={formState === "submitting"}
+                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/5 px-8 py-4 transition-all duration-300 hover:border-[#82C21C]/50 hover:bg-[#82C21C]/10 hover:shadow-[0_0_20px_rgba(130,194,28,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#82C21C] disabled:opacity-50 md:w-auto"
+              >
+                <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-white transition-colors group-hover:text-[#82C21C]">
+                  {formState === "submitting" ? "Transmitting..." : "Submit Discovery Request"}
+                </span>
+              </button>
+            </div>
+
+          </form>
 
         </div>
       </div>
