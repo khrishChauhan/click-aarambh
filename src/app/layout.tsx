@@ -5,6 +5,7 @@ import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import Navbar from "@/components/Global/Navbar";
 import Footer from "@/components/Global/Footer";
 import { ScrollProgress } from "@/components/MicroConversions/ScrollProgress";
+import ConditionalVisibility from "@/components/Global/ConditionalVisibility";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +25,15 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <div className="flex flex-col min-h-screen">
             <ScrollProgress />
-            <Navbar />
+            <ConditionalVisibility hiddenRoutes={["/thank-you"]}>
+              <Navbar />
+            </ConditionalVisibility>
             <main className="flex-grow">
               {children}
             </main>
-            <Footer />
+            <ConditionalVisibility hiddenRoutes={["/thank-you"]}>
+              <Footer />
+            </ConditionalVisibility>
           </div>
         </SmoothScrollProvider>
       </body>

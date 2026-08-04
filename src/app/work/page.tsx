@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import WorkHero from "@/components/Work/WorkHero";
 import FeaturedCaseStudy from "@/components/Work/FeaturedCaseStudy";
 import ProcessTimeline from "@/components/Work/ProcessTimeline";
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
+  // TODO: Re-enable Work page in the future
+  redirect("/");
+
   return (
     <main className="noise bg-[#04110F]" aria-label="Work Page">
       {/* 1 — Hero */}

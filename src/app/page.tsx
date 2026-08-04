@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero";
 import Marquee from "@/components/Home/Marquee";
+import OurWork from "@/components/OurWork/OurWork";
 import { BentoGrid } from "@/components/GrowthEcosystem/BentoGrid";
 import { MidPageCTA } from "@/components/MicroConversions/MidPageCTA";
 import { CoreCapabilities } from "@/components/CoreCapabilities/CoreCapabilities";
@@ -14,6 +15,7 @@ export default function Home() {
       {/* Act 1: Hook */}
       <Hero />
       <Marquee />
+      <OurWork />
 
       {/* Act 2: Ecosystem Overview */}
       <BentoGrid />
