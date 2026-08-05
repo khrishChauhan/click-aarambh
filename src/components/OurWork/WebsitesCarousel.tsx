@@ -5,29 +5,29 @@ import { motion } from "framer-motion";
 
 const WEBSITES = [
   {
-    title: "Premium Agency Placeholder",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
-    link: "https://example.com"
+    title: "Advance Speech & Hearing",
+    image: "/websites/website-1.jpg",
+    link: "https://www.advancespeechandhearingcentre.com/"
   },
   {
-    title: "E-Commerce Experience",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    link: "https://example.com"
+    title: "Vimochana",
+    image: "/websites/website-2.jpg",
+    link: "https://vimochana.co.in/"
   },
   {
-    title: "SaaS Dashboard",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    link: "https://example.com"
+    title: "One Point Architecture",
+    image: "/websites/website-3.jpg",
+    link: "https://www.onepointarchitecture.com/"
   },
   {
-    title: "Creative Portfolio",
-    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2064&auto=format&fit=crop",
-    link: "https://example.com"
+    title: "KDS Heart Hospital",
+    image: "/websites/website-4.jpg",
+    link: "https://kdshealthcare.com/"
   },
   {
-    title: "Fintech Platform",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-    link: "https://example.com"
+    title: "Astro Bibhash Mishra",
+    image: "/websites/website-5.jpg",
+    link: "https://www.astrobibhashmishra.com/"
   }
 ];
 
