@@ -6,7 +6,7 @@ import { EASE } from "@/lib/motion";
 
 /* ── Founder data ─────────────────────────────────────────────── */
 const FOUNDER = {
-  name: "Abhishek Kumar",
+  name: "Abhishek Jha",
   title: "Founder & Growth Architect",
   shortStory:
     "Built to challenge the fragmented agency model. Click Aarambh was founded on the premise that business growth cannot be delegated to disconnected specialists — it requires a unified system that aligns software, strategy, and data into one coherent engine.",
@@ -44,7 +44,7 @@ function PortraitContent({ aria }: { aria?: boolean }) {
           style={{ fontSize: "clamp(5rem,15vw,12rem)" }}
           aria-hidden="true"
         >
-          AK
+          AJ
         </span>
       </div>
       {/* Noise texture */}
