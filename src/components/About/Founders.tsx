@@ -22,45 +22,6 @@ const FOUNDER = {
   focus: "Growth Systems Architecture",
 };
 
-/* ── Portrait placeholder layers ────────────────────────────────
-   Color layer (always present) sits beneath a grayscale overlay
-   layer whose opacity animates on hover. Only opacity is animated
-   — always GPU-composited, never causes a paint. No filter jank. */
-function PortraitContent({ aria }: { aria?: boolean }) {
-  return (
-    <>
-      {/* Background gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(160deg, #0f2e2b 0%, #061917 40%, #020f0d 100%)",
-        }}
-      />
-      {/* Founder Image */}
-      <div className="absolute inset-0">
-        <img
-          src="/about/founder.png"
-          alt="Abhishek Jha"
-          className="h-full w-full object-cover object-bottom pointer-events-none"
-        />
-      </div>
-      {/* Noise texture */}
-      {!aria && (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
-            opacity: 0.04,
-          }}
-        />
-      )}
-    </>
-  );
-}
-
 /* ── Founder Portrait ──────────────────────────────────────────── */
 function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
   const containerRef = useRef<HTMLElement>(null);
@@ -80,48 +41,49 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
   );
 
   return (
-    /* figure + figcaption: correct semantic pattern for a portrait.
-       Screen readers announce the caption, not the decorative bg.  */
     <figure
       ref={containerRef}
-      /* aspect-[4/3] on mobile (short, not a tall column),
-         aspect-[3/4] on md+ (editorial portrait orientation).     */
       className="relative overflow-hidden aspect-[4/3] md:aspect-[3/4]"
       style={
         {
           "--mouse-x": "50%",
           "--mouse-y": "50%",
+          background: "linear-gradient(160deg, #0f2e2b 0%, #061917 40%, #020f0d 100%)"
         } as React.CSSProperties
       }
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      role="img"
+      aria-label={`Portrait of ${FOUNDER.name}, ${FOUNDER.title} at Click Aarambh Ventures`}
     >
-      {/* ── Color base layer (always visible, bottom of stack) ── */}
-      <div className="absolute inset-0">
-        <PortraitContent />
-      </div>
-
-      {/* ── Grayscale overlay layer ───────────────────────────── */}
-      {/* Static filter (never animated) + animated opacity only. */}
-      {/* Opacity is always GPU-composited — no paint, no jank.   */}
-      <motion.div
-        className="absolute inset-0"
+      {/* Noise texture */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
-          filter: "grayscale(100%) contrast(1.15) brightness(0.8)",
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")",
+          opacity: 0.04,
         }}
-        animate={{ opacity: reducedMotion ? 0 : hovered ? 0 : 1 }}
+      />
+
+      {/* Founder Image */}
+      <motion.img
+        src="/about/founder.png"
+        alt=""
+        className="absolute inset-0 h-full w-full object-contain object-bottom pointer-events-none z-10"
+        initial={{ filter: "grayscale(100%)" }}
+        animate={{ filter: hovered || reducedMotion ? "grayscale(0%)" : "grayscale(100%)" }}
         transition={{ duration: 0.8, ease: EASE }}
         aria-hidden="true"
-      >
-        <PortraitContent aria />
-      </motion.div>
+      />
 
       {/* ── Spotlight glow (cursor-tracked radial) ────────────── */}
       {!reducedMotion && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300"
           style={{
             opacity: hovered ? 1 : 0,
             background:
@@ -133,7 +95,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
       {/* ── Hover border accent ───────────────────────────────── */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 border"
+        className="pointer-events-none absolute inset-0 border z-30"
         animate={{
           borderColor:
             hovered && !reducedMotion
@@ -145,7 +107,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
 
       {/* ── Glass Information Drawer ─────────────────────────── */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/5 px-6 py-5"
+        className="absolute bottom-0 left-0 right-0 z-40 border-t border-white/5 px-6 py-5"
         style={{
           background: "rgba(8,34,32,0.75)",
           backdropFilter: "blur(20px)",
@@ -179,12 +141,6 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
           </div>
         </div>
       </motion.div>
-
-      {/* Accessible caption — screen readers read this instead of */}
-      {/* attempting to interpret the decorative gradient layers.  */}
-      <figcaption className="sr-only">
-        Portrait of {FOUNDER.name}, {FOUNDER.title} at Click Aarambh Ventures
-      </figcaption>
     </figure>
   );
 }
@@ -335,9 +291,17 @@ export default function Founders() {
         </div>
 
         {/* PORTRAIT — order-2 on mobile, order-first on md+ */}
-        <div className="w-full order-2 md:order-first">
+        <motion.div
+          className="w-full order-2 md:order-first"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={
+            reducedMotion ? { duration: 0 } : { duration: 1.1, ease: EASE }
+          }
+        >
           <FounderPortrait reducedMotion={reducedMotion} />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
