@@ -3,7 +3,6 @@ import ContactHero from "@/components/Contact/ContactHero";
 import ContactChannels from "@/components/Contact/ContactChannels";
 import ContactForm from "@/components/Contact/ContactForm";
 import ContactTrust from "@/components/Contact/ContactTrust";
-import ContactCTA from "@/components/Contact/ContactCTA";
 
 export const metadata: Metadata = {
   title: "Contact | Click Aarambh",
@@ -25,10 +24,6 @@ export default function ContactPage() {
       {/* 4 — Trust Panel */}
       <ContactTrust />
 
-      {/* 5 — Final CTA */}
-      <div className="mt-12">
-        <ContactCTA />
-      </div>
     </main>
   );
 }
