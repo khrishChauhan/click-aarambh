@@ -335,15 +335,9 @@ export default function Founders() {
         </div>
 
         {/* PORTRAIT — order-2 on mobile, order-first on md+ */}
-        <motion.div
-          className="w-full order-2 md:order-first"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, ease: EASE }}
-        >
+        <div className="w-full order-2 md:order-first">
           <FounderPortrait reducedMotion={reducedMotion} />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
