@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { EASE } from "@/lib/motion";
@@ -64,9 +65,14 @@ export default function Navbar() {
             className="group relative flex items-center outline-none"
             aria-label="Click Aarambh Ventures Home"
           >
-            <span className="font-extrabold tracking-[-0.04em] text-white text-[22px] transition-colors group-hover:text-white/90">
-              Click <span className="text-[#9CDF3B]">Aarambh.</span>
-            </span>
+            <Image 
+              src="/logo.png" 
+              alt="Click Aarambh Ventures Logo" 
+              width={160} 
+              height={50} 
+              className="h-10 w-auto object-contain transition-opacity group-hover:opacity-90" 
+              priority 
+            />
           </Link>
 
           {/* Center: Desktop Navigation */}

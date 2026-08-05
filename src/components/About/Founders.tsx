@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 import { useRef, useState, useCallback } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE } from "@/lib/motion";
@@ -41,13 +39,10 @@ function PortraitContent({ aria }: { aria?: boolean }) {
       />
       {/* Founder Image */}
       <div className="absolute inset-0">
-        <Image
+        <img
           src="/about/founder.png"
           alt="Abhishek Jha"
-          fill
-          className="object-cover object-bottom pointer-events-none"
-          priority
-          sizes="(max-width: 768px) 100vw, 50vw"
+          className="h-full w-full object-cover object-bottom pointer-events-none"
         />
       </div>
       {/* Noise texture */}
