@@ -105,42 +105,6 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
         transition={{ duration: 0.4 }}
       />
 
-      {/* ── Glass Information Drawer ─────────────────────────── */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 z-40 border-t border-white/5 px-6 py-5"
-        style={{
-          background: "rgba(8,34,32,0.75)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-        }}
-        initial={{ y: "100%", opacity: 0 }}
-        animate={
-          hovered && !reducedMotion
-            ? { y: "0%", opacity: 1 }
-            : { y: "100%", opacity: 0 }
-        }
-        transition={{ duration: 0.5, ease: EASE }}
-        aria-hidden="true"
-      >
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9CDF3B]/60">
-              Status
-            </p>
-            <p className="mt-1 text-[11px] font-medium text-white/80">
-              {FOUNDER.status}
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#9CDF3B]/60">
-              Focus
-            </p>
-            <p className="mt-1 text-[11px] font-medium text-white/80">
-              {FOUNDER.focus}
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </figure>
   );
 }
