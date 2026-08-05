@@ -37,7 +37,7 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       href={website.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="website-card relative block rounded-2xl flex-shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[320px] md:w-[420px] aspect-[4/3]"
+      className="website-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-[calc((min(100vw,1400px)-96px)/3)] aspect-[4/3]"
       style={{
          // Glass card highlights
          boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4)"
@@ -144,9 +144,9 @@ export default function WebsitesCarousel() {
   };
 
   return (
-    <div className="w-full mt-32 relative">
+    <div className="container relative z-10 w-full max-w-[1400px] mx-auto px-6 mt-32">
       {/* Header Section */}
-      <div className="flex items-end justify-between mb-12 px-6 md:px-0">
+      <div className="flex items-end justify-between mb-12">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
