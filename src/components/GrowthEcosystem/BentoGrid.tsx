@@ -20,7 +20,7 @@ const BENTO_ITEMS = [
     tag: "03",
   },
   {
-    title: "Business Expansion",
+    title: "Business Growth",
     desc: "Strategic scaling blueprints for new market penetration and revenue infrastructure.",
     tag: "04",
   },

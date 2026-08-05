@@ -11,7 +11,7 @@ const SERVICES = [
   "Software Development",
   "Digital Marketing",
   "Automation Systems",
-  "Business Expansion",
+  "Business Growth",
 ];
 
 export default function Footer() {
