@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useRef, useState, useCallback } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE } from "@/lib/motion";
@@ -37,15 +39,16 @@ function PortraitContent({ aria }: { aria?: boolean }) {
             "linear-gradient(160deg, #0f2e2b 0%, #061917 40%, #020f0d 100%)",
         }}
       />
-      {/* Large initials watermark */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span
-          className="select-none font-extrabold tracking-[-0.04em] text-white/10"
-          style={{ fontSize: "clamp(5rem,15vw,12rem)" }}
-          aria-hidden="true"
-        >
-          AJ
-        </span>
+      {/* Founder Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/about/founder.png"
+          alt="Abhishek Jha"
+          fill
+          className="object-cover object-bottom pointer-events-none"
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
       {/* Noise texture */}
       {!aria && (
