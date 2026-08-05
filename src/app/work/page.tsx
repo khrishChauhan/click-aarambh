@@ -9,7 +9,7 @@ import IndustryWall from "@/components/Work/IndustryWall";
 import WorkCTA from "@/components/Work/WorkCTA";
 
 export const metadata: Metadata = {
-  title: "Work | Click Aarambh",
+  title: "Work | Click Aarambh Ventures",
   description: "Systems that yield outcomes. Explore our enterprise architecture, deployment scale, and quantifiable ROI.",
 };
 

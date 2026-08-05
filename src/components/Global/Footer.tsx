@@ -45,7 +45,7 @@ export default function Footer() {
             <Link href="/" className="inline-block outline-none group">
               <Image 
                 src="/logo.png" 
-                alt="Click Aarambh Logo" 
+                alt="Click Aarambh Ventures Logo" 
                 width={180} 
                 height={60} 
                 className="h-12 w-auto object-contain transition-opacity group-hover:opacity-90" 

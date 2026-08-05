@@ -15,7 +15,7 @@ export const Footer = () => {
           <a
             href="#"
             className="text-xl font-bold tracking-tight text-white focus-visible:ring-2 focus-visible:ring-[#82C21C] rounded"
-            aria-label="Click Aarambh Home"
+            aria-label="Click Aarambh Ventures Home"
           >
             Click <span className="text-[#82C21C]">Aarambh</span>
           </a>

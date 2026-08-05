@@ -62,7 +62,7 @@ export default function Navbar() {
           <Link 
             href="/" 
             className="group relative flex items-center outline-none"
-            aria-label="Click Aarambh Home"
+            aria-label="Click Aarambh Ventures Home"
           >
             <span className="font-extrabold tracking-[-0.04em] text-white text-[22px] transition-colors group-hover:text-white/90">
               Click <span className="text-[#9CDF3B]">Aarambh.</span>

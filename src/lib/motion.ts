@@ -1,6 +1,6 @@
 /**
  * Shared motion constants — single source of truth for the
- * Click Aarambh design system. Import from here in all components.
+ * Click Aarambh Ventures design system. Import from here in all components.
  */
 
 /** Premium cubic-bezier — Apple/Linear/Framer feel */

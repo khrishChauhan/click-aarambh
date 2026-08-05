@@ -81,10 +81,10 @@ export const Navbar = () => {
           <div className="flex items-center justify-between max-w-7xl mx-auto">
 
             {/* Logo */}
-            <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#82C21C] outline-none" aria-label="Click Aarambh Home">
+            <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#82C21C] outline-none" aria-label="Click Aarambh Ventures Home">
               <Image 
                 src="/logo.png" 
-                alt="Click Aarambh Logo" 
+                alt="Click Aarambh Ventures Logo" 
                 width={160} 
                 height={50} 
                 className="h-10 w-auto object-contain" 

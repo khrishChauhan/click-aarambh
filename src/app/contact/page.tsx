@@ -5,7 +5,7 @@ import ContactForm from "@/components/Contact/ContactForm";
 import ContactTrust from "@/components/Contact/ContactTrust";
 
 export const metadata: Metadata = {
-  title: "Contact | Click Aarambh",
+  title: "Contact | Click Aarambh Ventures",
   description: "Initiate partnership. Let's build something that scales.",
 };
 

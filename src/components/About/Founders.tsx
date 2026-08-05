@@ -11,7 +11,7 @@ const FOUNDER = {
   name: "Abhishek Jha",
   title: "Founder & Growth Architect",
   shortStory:
-    "Built to challenge the fragmented agency model. Click Aarambh was founded on the premise that business growth cannot be delegated to disconnected specialists — it requires a unified system that aligns software, strategy, and data into one coherent engine.",
+    "Built to challenge the fragmented agency model. Click Aarambh Ventures was founded on the premise that business growth cannot be delegated to disconnected specialists — it requires a unified system that aligns software, strategy, and data into one coherent engine.",
   experience: [
     "Full-stack product development",
     "Growth automation & systems design",
@@ -188,7 +188,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
       {/* Accessible caption — screen readers read this instead of */}
       {/* attempting to interpret the decorative gradient layers.  */}
       <figcaption className="sr-only">
-        Portrait of {FOUNDER.name}, {FOUNDER.title} at Click Aarambh
+        Portrait of {FOUNDER.name}, {FOUNDER.title} at Click Aarambh Ventures
       </figcaption>
     </figure>
   );

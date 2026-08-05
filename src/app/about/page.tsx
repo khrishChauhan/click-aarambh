@@ -6,7 +6,7 @@ import Pillars from "@/components/About/Pillars";
 import AboutCTA from "@/components/About/AboutCTA";
 
 export const metadata: Metadata = {
-  title: "About | Click Aarambh — Growth Infrastructure Architects",
+  title: "About | Click Aarambh Ventures — Growth Infrastructure Architects",
   description:
     "We design connected growth systems that help ambitious businesses scale with clarity, speed, and measurable results. Meet the architects behind the engine.",
 };
@@ -23,7 +23,7 @@ export default function AboutPage() {
       {/* 3 — Meet The Team (Founder Showcase) */}
       <Founders />
 
-      {/* 4 — Why Businesses Choose Click Aarambh */}
+      {/* 4 — Why Businesses Choose Click Aarambh Ventures */}
       <Pillars />
 
       {/* 5 — Final CTA */}

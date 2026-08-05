@@ -96,7 +96,7 @@ export const ParadigmShift = () => {
       // Fade out sweep line
       tl.to(morphLineRef.current, { opacity: 0, duration: 0.6, ease: "power2.in" });
 
-      // ─── CHAPTER 2: Click Aarambh Engine ────────────────────
+      // ─── CHAPTER 2: Click Aarambh Ventures Engine ────────────────────
 
       // Warm the background
       tl.to(bgGlowRef.current, { opacity: 0.1, duration: 1.5, ease: "power2.out" }, "<");
@@ -214,7 +214,7 @@ export const ParadigmShift = () => {
         aria-hidden="true"
       />
 
-      {/* ── CHAPTER 2: Click Aarambh Growth Engine ── */}
+      {/* ── CHAPTER 2: Click Aarambh Ventures Growth Engine ── */}
       <div
         ref={ch2Ref}
         className="absolute inset-0 flex flex-col items-center justify-center"

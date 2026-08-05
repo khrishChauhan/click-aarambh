@@ -50,7 +50,7 @@ export default function ThankYouPage() {
           </div>
           
           <p className="italic text-white/80 text-sm mb-4">
-            "Click Aarambh completely transformed our growth infrastructure. The depth of their technical expertise is unmatched."
+            "Click Aarambh Ventures completely transformed our growth infrastructure. The depth of their technical expertise is unmatched."
           </p>
           
           <div className="flex flex-col items-center">

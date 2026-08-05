@@ -10,7 +10,7 @@ import ConditionalVisibility from "@/components/Global/ConditionalVisibility";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Click Aarambh | Growth Engineering",
+  title: "Click Aarambh Ventures | Growth Engineering",
   description: "Technology-driven growth engineering and scalable infrastructure.",
 };
 

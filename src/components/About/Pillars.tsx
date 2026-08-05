@@ -295,7 +295,7 @@ export default function Pillars() {
             style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
           >
             Why Businesses Choose{" "}
-            <span className="text-[#9CDF3B]">Click Aarambh</span>
+            <span className="text-[#9CDF3B]">Click Aarambh Ventures</span>
           </h2>
           <p
             className="max-w-lg text-[clamp(0.95rem,1.3vw,1.05rem)] leading-[1.7] text-white/50"
