@@ -90,10 +90,10 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a 
-                href="mailto:hello@clickaarambh.com" 
+                href="mailto:support@clickaarambh.com" 
                 className="text-[14px] text-white/70 transition-colors hover:text-white"
               >
-                hello@clickaarambh.com
+                support@clickaarambh.com
               </a>
               <p className="text-[14px] text-white/50 italic">
                 Let&apos;s build systems that scale.
