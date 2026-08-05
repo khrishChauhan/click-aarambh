@@ -36,12 +36,18 @@ export default function Home() {
       <ParadigmShift />
 
       {/* Act 6: Proof of Architecture */}
+      {/* TODO: Hidden for now, re-enable later
       <ImpactStories />
+      */}
 
       {/* Act 7: Capabilities — GSAP horizontal scroll */}
+      {/* TODO: Hidden for now, re-enable later
       <CoreCapabilities />
+      */}
 
+      {/* TODO: Hidden for now, re-enable later
       <Footer />
+      */}
     </main>
   );
 }
