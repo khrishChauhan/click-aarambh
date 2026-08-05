@@ -18,13 +18,19 @@ export default function Home() {
       <OurWork />
 
       {/* Act 2: Ecosystem Overview */}
+      {/* TODO: Hidden for now, re-enable later
       <BentoGrid />
+      */}
 
       {/* Act 3: Mid-page conversion — early intent capture */}
+      {/* TODO: Hidden for now, re-enable later
       <MidPageCTA />
+      */}
 
       {/* Act 4: Philosophy — Tools vs Systems */}
+      {/* TODO: Hidden for now, re-enable later
       <StickyNarrative />
+      */}
 
       {/* Act 5: The Paradigm Shift — emotional transformation story */}
       <ParadigmShift />
