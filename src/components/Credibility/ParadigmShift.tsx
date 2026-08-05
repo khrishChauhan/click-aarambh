@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const TRAD_TEAMS = ["Marketing Team", "Development Team", "Operations Team"];
-const ENGINE_NODES = ["Software", "Marketing", "Automation", "Business Growth"];
+const ENGINE_NODES = ["Software", "Marketing", "Automation", "Business Growth Expansion"];
 
 export const ParadigmShift = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

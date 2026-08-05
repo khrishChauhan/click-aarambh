@@ -26,7 +26,7 @@ const CAPABILITIES = [
   {
     id: "03",
     tag: "Scale",
-    title: "Business\nGrowth.",
+    title: "Business Growth\nExpansion.",
     desc: "Strategic scaling blueprints. From penetrating new demographics to automating fulfillment — built as a connected system, not a project.",
     metric: "∞",
     metricLabel: "Compounding Loops",
