@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -42,9 +43,13 @@ export default function Footer() {
           {/* Col 1: Brand (Span 4) */}
           <div className="lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block outline-none group">
-              <span className="font-extrabold tracking-[-0.03em] text-white text-xl transition-colors group-hover:text-white/90">
-                Click Aarambh
-              </span>
+              <Image 
+                src="/logo.png" 
+                alt="Click Aarambh Logo" 
+                width={180} 
+                height={60} 
+                className="h-12 w-auto object-contain transition-opacity group-hover:opacity-90" 
+              />
             </Link>
             <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-white/40 leading-relaxed">
               Technology-Driven<br />Growth Partner

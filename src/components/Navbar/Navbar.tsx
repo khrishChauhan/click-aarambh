@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 
@@ -80,8 +81,15 @@ export const Navbar = () => {
           <div className="flex items-center justify-between max-w-7xl mx-auto">
 
             {/* Logo */}
-            <a href="#" className="text-lg font-bold tracking-tight text-white rounded focus-visible:ring-2 focus-visible:ring-[#82C21C]" aria-label="Click Aarambh Home">
-              Click <span className="text-[#82C21C]">Aarambh</span>
+            <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#82C21C] outline-none" aria-label="Click Aarambh Home">
+              <Image 
+                src="/logo.png" 
+                alt="Click Aarambh Logo" 
+                width={160} 
+                height={50} 
+                className="h-10 w-auto object-contain" 
+                priority 
+              />
             </a>
 
             {/* Desktop Links */}
