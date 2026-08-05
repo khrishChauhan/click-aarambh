@@ -28,6 +28,31 @@ const WEBSITES = [
     title: "Astro Bibhash Mishra",
     image: "/websites/website-5.jpg",
     link: "https://www.astrobibhashmishra.com/"
+  },
+  {
+    title: "Vada Consultancy",
+    image: "/websites/website-6.jpg",
+    link: "https://vadacounsultancy.com/"
+  },
+  {
+    title: "Begusarai Multispeciality Hospital",
+    image: "/websites/website-7.jpg",
+    link: "https://www.begusaraimultihospital.com/?v=1"
+  },
+  {
+    title: "Embroidery Roomz",
+    image: "/websites/website-8.jpg",
+    link: "https://embroideryroomz.com/"
+  },
+  {
+    title: "Agaon Construction",
+    image: "/websites/website-9.jpg",
+    link: "https://www.agaonconstruction.com/"
+  },
+  {
+    title: "Rashtrahit 28 Marketing",
+    image: "/websites/website-10.jpg",
+    link: "https://www.rashtrahit28marketing.com/"
   }
 ];
 
