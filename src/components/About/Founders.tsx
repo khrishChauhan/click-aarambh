@@ -72,7 +72,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
       <motion.img
         src="/about/founder.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top pointer-events-none z-10 scale-[1.25] origin-top md:scale-100 md:origin-center"
+        className="absolute inset-0 h-full w-full object-cover object-top pointer-events-none z-10 scale-[1.75] origin-[50%_15%] md:scale-100 md:origin-center"
         initial={{ filter: "grayscale(100%)" }}
         animate={{ filter: hovered || reducedMotion ? "grayscale(0%)" : "grayscale(100%)" }}
         transition={{ duration: 0.8, ease: EASE }}
