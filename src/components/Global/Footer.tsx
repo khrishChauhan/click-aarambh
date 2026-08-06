@@ -38,17 +38,17 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8 pb-20">
+        <div className="grid grid-cols-2 gap-y-12 gap-x-8 lg:grid-cols-12 lg:gap-8 pb-20">
           
           {/* Col 1: Brand (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col gap-6">
+          <div className="col-span-2 lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block outline-none group">
               <Image 
                 src="/logo.png" 
                 alt="Click Aarambh Ventures Logo" 
-                width={180} 
-                height={60} 
-                className="h-12 w-auto object-contain transition-opacity group-hover:opacity-90" 
+                width={240} 
+                height={80} 
+                className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90" 
               />
             </Link>
             <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-white/40 leading-relaxed">
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
 
           {/* Col 2: Navigation (Span 2) */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="col-span-1 lg:col-span-2 flex flex-col gap-6">
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
               Navigation
             </h4>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Services (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
+          <div className="col-span-1 lg:col-span-3 flex flex-col gap-6">
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
               Services
             </h4>
@@ -89,7 +89,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4: Contact (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
+          <div className="col-span-2 lg:col-span-3 flex flex-col gap-6">
             <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
               Get In Touch
             </h4>
