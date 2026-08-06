@@ -189,7 +189,7 @@ export default function OurWork() {
   };
 
   return (
-    <section className="relative flex flex-col items-center py-20 bg-[#061917] overflow-hidden">
+    <section className="relative flex flex-col items-center py-12 md:py-20 bg-[#061917] overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#82C21C]/[0.02] rounded-[100%] blur-[120px]" />
@@ -245,14 +245,14 @@ export default function OurWork() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-          className="w-full overflow-x-auto no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0"
+          className="w-[calc(100%+3rem)] -mx-6 overflow-x-auto no-scrollbar pb-8 md:w-full md:mx-0"
           ref={carouselRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
         >
-          <div className="flex gap-6 w-max items-center">
+          <div className="flex gap-6 w-max items-center px-6 md:px-0 after:content-[''] after:w-px md:after:hidden">
             {[...REEL_LINKS, ...REEL_LINKS].map((link, index) => (
               <ReelCard key={index} link={link} index={index} />
             ))}

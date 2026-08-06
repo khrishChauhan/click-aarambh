@@ -169,7 +169,7 @@ export default function WebsitesCarousel() {
   };
 
   return (
-    <div className="container relative z-10 w-full max-w-[1400px] mx-auto px-6 mt-32">
+    <div className="container relative z-10 w-full max-w-[1400px] mx-auto px-6 mt-16 md:mt-32">
       {/* Header Section */}
       <div className="flex items-end justify-between mb-12">
         <div>
@@ -219,14 +219,14 @@ export default function WebsitesCarousel() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
-        className="w-full overflow-x-auto no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0"
+        className="w-[calc(100%+3rem)] -mx-6 overflow-x-auto no-scrollbar pb-8 md:w-full md:mx-0"
         ref={carouselRef}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onTouchStart={() => setIsHovered(true)}
         onTouchEnd={() => setIsHovered(false)}
       >
-        <div className="flex gap-6 w-max items-center">
+        <div className="flex gap-6 w-max items-center px-6 md:px-0 after:content-[''] after:w-px md:after:hidden">
           {[...WEBSITES, ...WEBSITES, ...WEBSITES].map((website, index) => (
             <WebsiteCard key={index} website={website} />
           ))}
