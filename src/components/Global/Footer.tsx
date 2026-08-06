@@ -46,9 +46,9 @@ export default function Footer() {
               <Image 
                 src="/logo.png" 
                 alt="Click Aarambh Ventures Logo" 
-                width={240} 
-                height={80} 
-                className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90" 
+                width={280} 
+                height={100} 
+                className="h-16 md:h-20 w-auto object-contain transition-opacity group-hover:opacity-90" 
               />
             </Link>
             <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-white/40 leading-relaxed">

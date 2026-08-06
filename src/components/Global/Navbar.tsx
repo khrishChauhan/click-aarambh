@@ -68,9 +68,9 @@ export default function Navbar() {
             <Image 
               src="/logo.png" 
               alt="Click Aarambh Ventures Logo" 
-              width={200} 
-              height={60} 
-              className="h-12 md:h-14 w-auto object-contain transition-opacity group-hover:opacity-90" 
+              width={240} 
+              height={80} 
+              className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90" 
               priority 
             />
           </Link>
