@@ -72,7 +72,7 @@ function MagneticCard({ children }: { children: React.ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-white/[0.02] backdrop-blur-[24px] p-8 transition-all duration-300 ease-apple border border-white/5"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-white/[0.02] backdrop-blur-[24px] p-8 transition-all duration-300 ease-apple border border-white/5 h-full"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleMouseLeave}
@@ -106,6 +106,7 @@ export default function ContactChannels() {
               initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: EASE, delay: 0.2 + i * 0.1 }}
+              className="h-full"
             >
               <MagneticCard>
                 <div className="relative z-10 flex flex-col h-full gap-12">
@@ -116,7 +117,7 @@ export default function ContactChannels() {
                     <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#82C21C] mb-2">
                       {channel.title}
                     </h3>
-                    <p className="text-lg font-bold text-white tracking-[-0.02em]">
+                    <p className={`font-bold text-white tracking-[-0.02em] ${channel.id === 'location' ? 'text-sm md:text-base leading-relaxed' : 'text-lg'}`}>
                       {channel.value}
                     </p>
                   </div>
