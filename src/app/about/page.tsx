@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/About/AboutHero";
-import Mission from "@/components/About/Mission";
 import Founders from "@/components/About/Founders";
 import Pillars from "@/components/About/Pillars";
 import AboutCTA from "@/components/About/AboutCTA";
@@ -16,9 +15,6 @@ export default function AboutPage() {
     <main className="noise bg-[#001715]" aria-label="About Page">
       {/* 1 — Hero */}
       <AboutHero />
-
-      {/* 2 — Our Mission */}
-      <Mission />
 
       {/* 3 — Meet The Team (Founder Showcase) */}
       <Founders />
