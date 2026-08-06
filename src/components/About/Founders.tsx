@@ -43,7 +43,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <figure
       ref={containerRef}
-      className="relative overflow-hidden aspect-square sm:aspect-[4/5] md:aspect-[3/4]"
+      className="relative overflow-hidden aspect-[3/4]"
       style={
         {
           "--mouse-x": "50%",
@@ -72,7 +72,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
       <motion.img
         src="/about/founder.png"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-top pointer-events-none z-10 scale-[1.75] origin-[50%_15%] md:scale-100 md:origin-center"
+        className="absolute inset-0 h-full w-full object-cover object-bottom pointer-events-none z-10 scale-[1.15] origin-bottom md:scale-[1.05] md:origin-bottom"
         initial={{ filter: "grayscale(100%)" }}
         animate={{ filter: hovered || reducedMotion ? "grayscale(0%)" : "grayscale(100%)" }}
         transition={{ duration: 0.8, ease: EASE }}
