@@ -78,23 +78,23 @@ const BentoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
-      className="group relative flex flex-col p-8 md:p-10 bg-white rounded-2xl border border-white/[0.05] overflow-hidden cursor-default noise"
+      className="group relative flex flex-col p-8 md:p-10 bg-white rounded-2xl border border-[#0D2E26]/5 overflow-hidden cursor-default noise shadow-sm"
       style={{ transition: "border-color 0.3s ease, box-shadow 0.3s ease" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(130,194,28,0.12)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 1px rgba(130,194,28,0.08), 0 32px 64px rgba(0,0,0,0.4)";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(112,186,40,0.3)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 0 0 1px rgba(112,186,40,0.2), 0 12px 32px rgba(0,0,0,0.08)";
       }}
       onMouseLeave={e => {
-        (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.05)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+        (e.currentTarget as HTMLElement).style.borderColor = "rgba(13,46,38,0.05)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 4px rgba(0,0,0,0.02)";
       }}
     >
       {/* Mouse-tracking radial gradient */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100"
         style={{
-          background: useMotionTemplate`radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(130,194,28,0.08), transparent 70%)`,
+          background: useMotionTemplate`radial-gradient(320px circle at ${mouseX}px ${mouseY}px, rgba(112,186,40,0.06), transparent 70%)`,
           transition: "opacity 0.3s ease",
         }}
       />
