@@ -74,23 +74,17 @@ export default function Hero() {
           {/* 6 — CTAs: 1.05s */}
           <motion.div {...reveal(1.05, 16)} className="flex flex-col sm:flex-row gap-4">
             <button
-              className="group relative px-8 py-4 text-sm font-bold tracking-wider uppercase bg-[#70BA28] text-[#061917] rounded-lg overflow-hidden focus-visible:ring-2 focus-visible:ring-[#82C21C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
-              style={{ transition: "box-shadow 0.3s ease" }}
-              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(130,194,28,0.55)")}
+              className="group relative px-8 py-4 text-sm font-semibold tracking-wider uppercase bg-[#70BA28] text-[#0D2E26] hover:bg-[#62A422] rounded-lg overflow-hidden focus-visible:ring-2 focus-visible:ring-[#70BA28] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              style={{ transition: "background-color 0.3s ease, box-shadow 0.3s ease" }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(112,186,40,0.4)")}
               onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}
             >
-              <div
-                className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                style={{ transition: "transform 0.6s ease" }}
-              />
               <span className="relative z-10">Initiate Partnership</span>
             </button>
 
             <button
-              className="px-8 py-4 text-sm font-semibold tracking-wider uppercase text-[#0D2E26]/70 rounded-lg border border-[#0D2E26]/10 hover:border-white/25 hover:text-[#0D2E26] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
-              style={{ transition: "border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease" }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.04)")}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = "transparent")}
+              className="px-8 py-4 text-sm font-semibold tracking-wider uppercase border-2 border-[#0D2E26] text-[#0D2E26] hover:bg-[#0D2E26] hover:text-white rounded-lg focus-visible:ring-2 focus-visible:ring-[#0D2E26] focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              style={{ transition: "all 0.2s ease" }}
             >
               View Our Work
             </button>
