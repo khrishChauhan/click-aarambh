@@ -62,17 +62,16 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       href={website.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="website-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-[#0D2E26]/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-[calc((min(100vw,1400px)-96px)/3)] aspect-[4/3]"
+      className="website-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer border border-[#0D2E26]/10 overflow-hidden bg-white w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-[calc((min(100vw,1400px)-96px)/3)] aspect-[4/3] transition-all duration-500 hover:scale-[1.02]"
       style={{
-         // Glass card highlights
-         boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4)"
+         boxShadow: "0 4px 20px -2px rgba(13, 46, 38, 0.05), 0 2px 6px -1px rgba(13, 46, 38, 0.03)"
       }}
     >
       {/* Thumbnail Image */}
       <img
         src={website.image}
         alt={website.title}
-        className="w-full h-full object-cover opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
       
       {/* Gradient Overlay for bottom text legibility */}

@@ -53,7 +53,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-apple ${
           scrolled
-            ? "bg-white/70 backdrop-blur-[24px] border-b border-[#0D2E26]/10 shadow-[0_1px_0_rgba(112,186,40,0.15)]"
+            ? "bg-white/80 backdrop-blur-md border-b border-[#0D2E26]/8 shadow-none"
             : "bg-transparent border-b border-transparent shadow-none"
         }`}
       >
@@ -83,17 +83,22 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-4 py-2 rounded-full outline-none group transition-all duration-300 ${
-                    isActive ? "bg-[#70BA28]/15" : "hover:bg-[#70BA28]/5"
-                  }`}
+                  className="relative px-2 py-1 outline-none group"
                 >
                   <span 
-                    className={`font-mono text-[13px] tracking-wider transition-colors duration-300 ${
-                      isActive ? "text-[#0D2E26] font-semibold" : "text-[#4B635D] font-medium group-hover:text-[#0D2E26]"
+                    className={`font-mono text-[13px] font-bold uppercase tracking-wider transition-colors duration-300 ${
+                      isActive ? "text-[#0D2E26]" : "text-[#4B635D] group-hover:text-[#0D2E26]"
                     }`}
                   >
                     {link.label}
                   </span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#70BA28]"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
                 </Link>
               );
             })}

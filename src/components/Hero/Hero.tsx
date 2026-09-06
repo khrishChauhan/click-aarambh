@@ -19,9 +19,7 @@ export default function Hero() {
 
       {/* ── Layered depth backgrounds ── */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#70BA28]/[0.035] rounded-full blur-[200px] translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#0d3b36]/60 rounded-full blur-[160px] -translate-x-1/3 translate-y-1/3" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-transparent to-white/80" />
+        {/* Removed heavy Gaussian blurs and gradients to keep grid-overlay crisp */}
       </div>
 
       <div className="container relative z-10 grid items-center grid-cols-1 lg:grid-cols-2 gap-8 px-6 pt-32 pb-20 mx-auto max-w-7xl lg:gap-0">
