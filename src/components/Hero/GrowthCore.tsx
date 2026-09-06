@@ -257,11 +257,11 @@ export const GrowthCore = () => {
               <div
                 className="px-3 py-1.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-wider whitespace-nowrap border transition-all duration-300"
                 style={{
-                  background: activeNode === node.id ? "rgba(130,194,28,0.15)" : "rgba(8,34,32,0.6)",
-                  borderColor: activeNode === node.id ? "rgba(130,194,28,0.45)" : "rgba(255,255,255,0.07)",
-                  color: activeNode === node.id ? "#ffffff" : "rgba(255,255,255,0.65)",
+                  background: activeNode === node.id ? "rgba(112,186,40,0.15)" : "rgba(255,255,255,0.8)",
+                  borderColor: activeNode === node.id ? "rgba(112,186,40,0.45)" : "rgba(13,46,38,0.1)",
+                  color: activeNode === node.id ? "#0D2E26" : "#2E4D45",
                   backdropFilter: "blur(12px)",
-                  boxShadow: activeNode === node.id ? "0 0 24px rgba(130,194,28,0.18), inset 0 0 16px rgba(130,194,28,0.06)" : "none",
+                  boxShadow: activeNode === node.id ? "0 0 24px rgba(112,186,40,0.18), inset 0 0 16px rgba(112,186,40,0.06)" : "0 2px 8px rgba(0,0,0,0.05)",
                 }}
               >
                 {node.label}
@@ -275,8 +275,8 @@ export const GrowthCore = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 5, scale: 0.92 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full mt-2 px-3 py-1.5 rounded-lg border border-[#0D2E26]/10 text-[10px] text-[#0D2E26]/55 whitespace-nowrap shadow-2xl z-10"
-                    style={{ background: "rgba(6,25,23,0.85)", backdropFilter: "blur(16px)" }}
+                    className="absolute top-full mt-2 px-3 py-1.5 rounded-lg border border-[#0D2E26]/10 text-[10px] text-[#0D2E26] whitespace-nowrap shadow-xl z-10 font-medium"
+                    style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(16px)" }}
                   >
                     {node.desc}
                   </motion.div>
@@ -304,15 +304,15 @@ export const GrowthCore = () => {
         />
         {/* Core orb — reduced shadow vs original */}
         <motion.div
-          className="relative flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-[#A8F23A] to-[#5a8c0a]"
+          className="relative flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-[#70BA28] to-[#62A422]"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
           style={{
-            boxShadow: "0 0 0 1px rgba(130,194,28,0.22), 0 0 22px rgba(130,194,28,0.35), 0 0 55px rgba(130,194,28,0.10)",
+            boxShadow: "0 0 0 1px rgba(112,186,40,0.22), 0 0 22px rgba(112,186,40,0.35), 0 0 55px rgba(112,186,40,0.10)",
           }}
         >
-          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/18 to-transparent" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/30 to-transparent" />
           <div className="w-2.5 h-2.5 rounded-full bg-white/90" style={{ boxShadow: "0 0 6px rgba(255,255,255,0.9)" }} />
         </motion.div>
       </motion.div>
@@ -335,14 +335,15 @@ export const GrowthCore = () => {
             <div
               style={{
                 animation: `float-y ${m.dur}s ease-in-out infinite ${i * 0.55}s`,
-                background: "rgba(8,34,32,0.55)",
+                background: "rgba(255,255,255,0.85)",
                 backdropFilter: "blur(16px)",
                 WebkitBackdropFilter: "blur(16px)",
-                border: "1px solid rgba(255,255,255,0.07)",
+                border: "1px solid rgba(13,46,38,0.07)",
                 borderRadius: "12px",
                 padding: "8px 12px",
                 minWidth: "88px",
                 textAlign: "center",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.05)"
               }}
             >
               <div className="text-[#70BA28] font-bold text-sm tracking-tight leading-tight">
