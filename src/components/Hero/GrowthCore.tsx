@@ -89,7 +89,7 @@ export const GrowthCore = () => {
         {/* Deep radial gradient */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(130,194,28,0.04)_0%,transparent_70%)]" />
         {/* Corner depth glows */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#82C21C]/[0.015] rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#70BA28]/[0.015] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0d3b36]/40 rounded-full blur-[80px]" />
       </motion.div>
 
@@ -235,7 +235,7 @@ export const GrowthCore = () => {
               {/* Pulsing indicator dot */}
               <div className="relative">
                 <div
-                  className="w-2.5 h-2.5 rounded-full bg-[#82C21C] transition-all duration-300"
+                  className="w-2.5 h-2.5 rounded-full bg-[#70BA28] transition-all duration-300"
                   style={{
                     transform: activeNode === node.id ? "scale(1.6)" : "scale(1)",
                     boxShadow: activeNode === node.id
@@ -245,7 +245,7 @@ export const GrowthCore = () => {
                 />
                 {activeNode === node.id && (
                   <motion.div
-                    className="absolute inset-0 rounded-full bg-[#82C21C]"
+                    className="absolute inset-0 rounded-full bg-[#70BA28]"
                     initial={{ scale: 1, opacity: 0.6 }}
                     animate={{ scale: 3.5, opacity: 0 }}
                     transition={{ duration: 0.9, repeat: Infinity, ease: "easeOut" }}
@@ -275,7 +275,7 @@ export const GrowthCore = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 5, scale: 0.92 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full mt-2 px-3 py-1.5 rounded-lg border border-white/10 text-[10px] text-white/55 whitespace-nowrap shadow-2xl z-10"
+                    className="absolute top-full mt-2 px-3 py-1.5 rounded-lg border border-[#0D2E26]/10 text-[10px] text-[#0D2E26]/55 whitespace-nowrap shadow-2xl z-10"
                     style={{ background: "rgba(6,25,23,0.85)", backdropFilter: "blur(16px)" }}
                   >
                     {node.desc}
@@ -294,12 +294,12 @@ export const GrowthCore = () => {
       >
         {/* Outermost atmospheric glow — reduced opacity vs original */}
         <div
-          className="absolute w-40 h-40 bg-[#82C21C]/[0.02] rounded-full blur-[60px]"
+          className="absolute w-40 h-40 bg-[#70BA28]/[0.02] rounded-full blur-[60px]"
           style={{ animation: "pulse-glow 7s ease-in-out infinite" }}
         />
         {/* Mid glow */}
         <div
-          className="absolute w-20 h-20 bg-[#82C21C]/[0.06] rounded-full blur-[28px]"
+          className="absolute w-20 h-20 bg-[#70BA28]/[0.06] rounded-full blur-[28px]"
           style={{ animation: "pulse-glow 4.5s ease-in-out infinite 1.5s" }}
         />
         {/* Core orb — reduced shadow vs original */}
@@ -345,10 +345,10 @@ export const GrowthCore = () => {
                 textAlign: "center",
               }}
             >
-              <div className="text-[#82C21C] font-bold text-sm tracking-tight leading-tight">
+              <div className="text-[#70BA28] font-bold text-sm tracking-tight leading-tight">
                 {m.value}
               </div>
-              <div className="text-white/40 text-[10px] tracking-wide mt-0.5 whitespace-nowrap">
+              <div className="text-[#4B635D] text-[10px] tracking-wide mt-0.5 whitespace-nowrap">
                 {m.label}
               </div>
             </div>

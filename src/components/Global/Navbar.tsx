@@ -53,7 +53,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-apple ${
           scrolled
-            ? "bg-[#061917]/70 backdrop-blur-[24px] border-b border-white/5 shadow-[0_1px_0_rgba(156,223,59,0.15)]"
+            ? "bg-white/70 backdrop-blur-[24px] border-b border-[#0D2E26]/10 shadow-[0_1px_0_rgba(156,223,59,0.15)]"
             : "bg-transparent border-b border-transparent shadow-none"
         }`}
       >
@@ -87,7 +87,7 @@ export default function Navbar() {
                 >
                   <span 
                     className={`font-mono text-[13px] font-bold uppercase tracking-wider transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-white/50 group-hover:text-white"
+                      isActive ? "text-[#0D2E26]" : "text-[#4B635D] group-hover:text-[#0D2E26]"
                     }`}
                   >
                     {link.label}
@@ -108,9 +108,9 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden md:inline-flex group relative items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/5 px-8 py-3 transition-all duration-300 hover:border-[#9CDF3B]/50 hover:bg-[#9CDF3B]/10 hover:shadow-[0_0_20px_rgba(156,223,59,0.3)] outline-none focus-visible:ring-2 focus-visible:ring-[#9CDF3B]"
+              className="hidden md:inline-flex group relative items-center justify-center overflow-hidden rounded-xl border border-[#0D2E26]/20 bg-[#0D2E26]/5 px-8 py-3 transition-all duration-300 hover:border-[#9CDF3B]/50 hover:bg-[#9CDF3B]/10 hover:shadow-[0_0_20px_rgba(156,223,59,0.3)] outline-none focus-visible:ring-2 focus-visible:ring-[#9CDF3B]"
             >
-              <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-white transition-colors group-hover:text-[#9CDF3B]">
+              <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0D2E26] transition-colors group-hover:text-[#9CDF3B]">
                 Start Your Growth Journey
               </span>
             </Link>
@@ -118,7 +118,7 @@ export default function Navbar() {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-full bg-white/5 border border-white/10 outline-none"
+              className="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-full bg-[#0D2E26]/5 border border-[#0D2E26]/10 outline-none"
               aria-label="Toggle Menu"
             >
               <motion.div 
@@ -144,7 +144,7 @@ export default function Navbar() {
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             exit={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.5, ease: EASE }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#04110F] px-6 pt-20 pb-12"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-[#F4F7F5] px-6 pt-20 pb-12"
           >
             {/* Architectural Grid Background */}
             <div
@@ -169,11 +169,11 @@ export default function Navbar() {
                   >
                     <Link
                       href={link.href}
-                      className="group flex items-center justify-between border-b border-white/10 pb-4 outline-none"
+                      className="group flex items-center justify-between border-b border-[#0D2E26]/10 pb-4 outline-none"
                     >
                       <span 
                         className={`text-4xl font-extrabold tracking-[-0.03em] transition-colors ${
-                          isActive ? "text-white" : "text-white/50"
+                          isActive ? "text-[#0D2E26]" : "text-[#4B635D]"
                         }`}
                       >
                         {link.label}

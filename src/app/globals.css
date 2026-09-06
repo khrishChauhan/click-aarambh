@@ -3,14 +3,14 @@
 /* ── Premium Visual System ───────────────────────────────────── */
 
 :root {
-  --brand: #82C21C;
-  --brand-bright: #A8F23A;
-  --brand-glow: rgba(130, 194, 28, 0.3);
-  --bg-base: #061917;
-  --bg-elevated: #082220;
-  --bg-glass: rgba(8, 34, 32, 0.6);
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-brand: rgba(130, 194, 28, 0.2);
+  --brand: #70BA28;
+  --brand-bright: #62A422;
+  --brand-glow: rgba(112, 186, 40, 0.1);
+  --bg-base: #FFFFFF;
+  --bg-elevated: #F8FAF8;
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --border-subtle: rgba(13, 46, 38, 0.1);
+  --border-brand: rgba(112, 186, 40, 0.2);
 }
 
 @layer utilities {
@@ -92,16 +92,16 @@ html {
 }
 
 body {
-  color: #ffffff;
-  background: #061917;
+  color: #0D2E26;
+  background: #FFFFFF;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: rgba(130, 194, 28, 0.25);
-  color: #ffffff;
+  background: rgba(112, 186, 40, 0.25);
+  color: #0D2E26;
 }
 
 /* ── Custom scrollbar ──────────────────────────────────────── */

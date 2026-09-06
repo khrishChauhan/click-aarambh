@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased bg-[#061917] text-white min-h-screen flex flex-col selection:bg-[#82C21C]/30`} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased bg-white text-[#0D2E26] min-h-screen flex flex-col selection:bg-[#70BA28]/30`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <div className="flex flex-col min-h-screen">
             <ScrollProgress />

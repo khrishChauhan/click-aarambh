@@ -82,10 +82,10 @@ export default function FeaturedCaseStudy() {
   }, [reducedMotion]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#04110F] pb-[10vh]">
+    <section ref={sectionRef} className="relative w-full bg-[#F4F7F5] pb-[10vh]">
       
       {/* Structural divider */}
-      <div className="w-full border-t border-white/5" />
+      <div className="w-full border-t border-[#0D2E26]/10" />
 
       {/* Intro Header */}
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 lg:px-24">
@@ -98,7 +98,7 @@ export default function FeaturedCaseStudy() {
           <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CDF3B]">
             Featured Architecture
           </p>
-          <h2 className="max-w-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-white" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
+          <h2 className="max-w-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0D2E26]" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
             Project Nexus: Systemic Scale for Enterprise Fintech.
           </h2>
         </motion.div>
@@ -121,13 +121,13 @@ export default function FeaturedCaseStudy() {
                     style={{ opacity: isActive ? 1 : 0.2 }}
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="font-mono text-[14px] font-bold text-white/50">0{index + 1}</span>
-                      <span className={`font-mono text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isActive ? "text-[#9CDF3B]" : "text-white/30"}`}>
+                      <span className="font-mono text-[14px] font-bold text-[#4B635D]">0{index + 1}</span>
+                      <span className={`font-mono text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isActive ? "text-[#9CDF3B]" : "text-[#0D2E26]/30"}`}>
                         {phase.label}
                       </span>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3 tracking-[-0.02em]">{phase.title}</h3>
-                    <p className="text-[0.95rem] leading-[1.6] text-white/60">{phase.body}</p>
+                    <h3 className="text-xl font-bold text-[#0D2E26] mb-3 tracking-[-0.02em]">{phase.title}</h3>
+                    <p className="text-[0.95rem] leading-[1.6] text-[#2E4D45]">{phase.body}</p>
                   </div>
                 );
               })}
@@ -159,15 +159,15 @@ export default function FeaturedCaseStudy() {
                     }}
                   >
                     {/* Placeholder structural elements simulating UI density */}
-                    <div className="absolute inset-4 border border-white/5 rounded-lg">
-                      <div className="h-8 border-b border-white/5 flex items-center px-4 gap-2">
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
+                    <div className="absolute inset-4 border border-[#0D2E26]/10 rounded-lg">
+                      <div className="h-8 border-b border-[#0D2E26]/10 flex items-center px-4 gap-2">
+                        <div className="w-2 h-2 rounded-full bg-[#0D2E26]/10" />
+                        <div className="w-2 h-2 rounded-full bg-[#0D2E26]/10" />
+                        <div className="w-2 h-2 rounded-full bg-[#0D2E26]/10" />
                       </div>
                       {/* Slow pan effect on hover */}
                       <div className="absolute inset-0 top-8 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] transition-transform duration-[10s] ease-linear group-hover:scale-110 group-hover:translate-x-4" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/20 font-mono text-xs tracking-widest uppercase">
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#0D2E26]/20 font-mono text-xs tracking-widest uppercase">
                         [ VISUAL: {phase.label} ARCHITECTURE ]
                       </div>
                     </div>

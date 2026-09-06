@@ -62,7 +62,7 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       href={website.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="website-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-[calc((min(100vw,1400px)-96px)/3)] aspect-[4/3]"
+      className="website-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-[#0D2E26]/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-[calc((min(100vw,1400px)-96px)/3)] aspect-[4/3]"
       style={{
          // Glass card highlights
          boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4)"
@@ -76,11 +76,11 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       />
       
       {/* Gradient Overlay for bottom text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#061917]/95 via-[#061917]/30 to-transparent opacity-100 transition-opacity duration-500 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/30 to-transparent opacity-100 transition-opacity duration-500 z-10" />
       
       {/* Button Overlay on Hover */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none">
-        <div className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-white/20 text-white font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1]">
+        <div className="px-6 py-3 rounded-full bg-[#0D2E26]/10 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-[#0D2E26]/20 text-[#0D2E26] font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1]">
           Visit Website
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
         </div>
@@ -89,11 +89,11 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       {/* Meta Info */}
       <div className="absolute bottom-6 left-6 right-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1] z-30">
         <div className="flex items-center gap-3 mb-3">
-          <span className="px-2 py-0.5 rounded-full bg-[#82C21C]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#82C21C] backdrop-blur-md">
+          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
             WEB DESIGN
           </span>
         </div>
-        <h3 className="text-white text-[1.2rem] font-bold leading-tight mb-1 drop-shadow-sm">
+        <h3 className="text-[#0D2E26] text-[1.2rem] font-bold leading-tight mb-1 drop-shadow-sm">
           {website.title}
         </h3>
       </div>
@@ -179,10 +179,10 @@ export default function WebsitesCarousel() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-white mb-3 tracking-tight">
+            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-[#0D2E26] mb-3 tracking-tight">
               Websites
             </h2>
-            <p className="text-white/50 text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
+            <p className="text-[#4B635D] text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
               High-performance, beautifully crafted web experiences built to convert and captivate.
             </p>
           </motion.div>
@@ -198,14 +198,14 @@ export default function WebsitesCarousel() {
         >
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:border-[#82C21C]/50 hover:bg-[#82C21C]/10 transition-all duration-300 group"
+            className="w-12 h-12 rounded-full border border-[#0D2E26]/10 bg-[#0D2E26]/5 backdrop-blur-md flex items-center justify-center text-[#0D2E26]/70 hover:text-[#0D2E26] hover:border-[#70BA28]/50 hover:bg-[#70BA28]/10 transition-all duration-300 group"
             aria-label="Previous website"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform duration-300"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-center text-white/70 hover:text-white hover:border-[#82C21C]/50 hover:bg-[#82C21C]/10 transition-all duration-300 group"
+            className="w-12 h-12 rounded-full border border-[#0D2E26]/10 bg-[#0D2E26]/5 backdrop-blur-md flex items-center justify-center text-[#0D2E26]/70 hover:text-[#0D2E26] hover:border-[#70BA28]/50 hover:bg-[#70BA28]/10 transition-all duration-300 group"
             aria-label="Next website"
           >
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300"><path d="m9 18 6-6-6-6"/></svg>

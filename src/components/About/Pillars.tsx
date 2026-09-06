@@ -95,7 +95,7 @@ function PillarStack({ reducedMotion }: { reducedMotion: boolean }) {
           ref={(el) => {
             cardRefs.current[i] = el;
           }}
-          className="mb-6 rounded-3xl border border-white/5 p-8 lg:p-10"
+          className="mb-6 rounded-3xl border border-[#0D2E26]/10 p-8 lg:p-10"
           style={{
             /* CSS-native sticky stacking — no GSAP pin needed.
                All cards share the same `top` so each new card
@@ -122,7 +122,7 @@ function PillarStack({ reducedMotion }: { reducedMotion: boolean }) {
         >
           {/* Numeral watermark — constrained to prevent content overlap */}
           <div
-            className="absolute right-6 top-4 select-none overflow-hidden font-mono font-black text-white/5"
+            className="absolute right-6 top-4 select-none overflow-hidden font-mono font-black text-[#0D2E26]/5"
             style={{
               fontSize: "clamp(3rem, 6vw, 5.5rem)",
               lineHeight: 1,
@@ -151,12 +151,12 @@ function PillarStack({ reducedMotion }: { reducedMotion: boolean }) {
               {pillar.numeral}
             </p>
             <h3
-              className="mb-5 font-extrabold leading-[1.1] tracking-[-0.02em] text-white"
+              className="mb-5 font-extrabold leading-[1.1] tracking-[-0.02em] text-[#0D2E26]"
               style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
             >
               {pillar.title}
             </h3>
-            <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] text-white/55">
+            <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] text-[#0D2E26]/55">
               {pillar.body}
             </p>
           </div>
@@ -199,7 +199,7 @@ function PillarAccordion() {
                   {pillar.numeral}
                 </span>
                 <span
-                  className="font-bold leading-tight text-white"
+                  className="font-bold leading-tight text-[#0D2E26]"
                   style={{ fontSize: "clamp(1.1rem, 3vw, 1.35rem)" }}
                 >
                   {pillar.title}
@@ -229,8 +229,8 @@ function PillarAccordion() {
                   transition={{ duration: 0.4, ease: EASE }}
                   style={{ overflow: "hidden" }}
                 >
-                  <div className="border-t border-white/5 px-6 pb-6 pt-4">
-                    <p className="text-[clamp(0.95rem,2.5vw,1.05rem)] leading-[1.7] text-white/55">
+                  <div className="border-t border-[#0D2E26]/10 px-6 pb-6 pt-4">
+                    <p className="text-[clamp(0.95rem,2.5vw,1.05rem)] leading-[1.7] text-[#0D2E26]/55">
                       {pillar.body}
                     </p>
                   </div>
@@ -291,14 +291,14 @@ export default function Pillars() {
           </div>
           <h2
             id="pillars-heading"
-            className="mb-4 font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
+            className="mb-4 font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0D2E26]"
             style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
           >
             Why Businesses Choose{" "}
             <span className="text-[#9CDF3B]">Click Aarambh Ventures</span>
           </h2>
           <p
-            className="max-w-lg text-[clamp(0.95rem,1.3vw,1.05rem)] leading-[1.7] text-white/50"
+            className="max-w-lg text-[clamp(0.95rem,1.3vw,1.05rem)] leading-[1.7] text-[#4B635D]"
           >
             Four principles that differentiate an interconnected growth system
             from a collection of disconnected services.
@@ -311,14 +311,14 @@ export default function Pillars() {
           {/* Left: decorative anchor (no h2 — heading is above) */}
           <div className="col-span-4">
             <div className="sticky top-[80px]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/20">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/20">
                 Built on four non-negotiable principles.
               </p>
               <div className="mt-8 space-y-3">
                 {PILLARS.map((p) => (
                   <div key={p.id} className="flex items-center gap-3">
                     <div className="h-px w-4 bg-[#9CDF3B] opacity-30" />
-                    <span className="font-mono text-[10px] text-white/30">
+                    <span className="font-mono text-[10px] text-[#0D2E26]/30">
                       {p.numeral} — {p.title}
                     </span>
                   </div>

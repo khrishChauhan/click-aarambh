@@ -101,7 +101,7 @@ export const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     role="menuitem"
-                    className="relative text-sm font-medium text-white/60 hover:text-white rounded px-1 py-0.5 focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                    className="relative text-sm font-medium text-[#2E4D45] hover:text-[#0D2E26] rounded px-1 py-0.5 focus-visible:ring-2 focus-visible:ring-[#82C21C]"
                     style={{ transition: "color 0.2s ease" }}
                   >
                     {link.name}
@@ -109,7 +109,7 @@ export const Navbar = () => {
                     {isActive && (
                       <motion.div
                         layoutId="nav-active-dot"
-                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#82C21C]"
+                        className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#70BA28]"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
@@ -128,7 +128,7 @@ export const Navbar = () => {
                   handleCtaMouseLeave();
                   e.currentTarget.style.boxShadow = "none";
                 }}
-                className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider bg-[#82C21C] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
+                className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
                 style={{ transition: "transform 0.15s ease, box-shadow 0.3s ease" }}
               >
                 Start Growth
@@ -139,7 +139,7 @@ export const Navbar = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden p-2 text-white/70 hover:text-white rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+              className="md:hidden p-2 text-[#0D2E26]/70 hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
             >
@@ -158,7 +158,7 @@ export const Navbar = () => {
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[60] bg-[#061917]/70 backdrop-blur-sm"
+              className="fixed inset-0 z-[60] bg-white/70 backdrop-blur-sm"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
             />
@@ -166,14 +166,14 @@ export const Navbar = () => {
             <motion.div
               initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[320px] bg-[#082220] border-l border-white/5 p-8 flex flex-col shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[320px] bg-white border-l border-[#0D2E26]/10 p-8 flex flex-col shadow-2xl"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile menu"
             >
               <button
                 onClick={() => setMobileOpen(false)}
-                className="self-end mb-10 p-2 text-white/50 hover:text-white rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                className="self-end mb-10 p-2 text-[#4B635D] hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
                 aria-label="Close menu"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -187,7 +187,7 @@ export const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-bold text-white/80 hover:text-[#82C21C] rounded focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                    className="text-2xl font-bold text-[#0D2E26]/80 hover:text-[#70BA28] rounded focus-visible:ring-2 focus-visible:ring-[#82C21C]"
                     style={{ transition: "color 0.2s ease" }}
                   >
                     {link.name}
@@ -195,8 +195,8 @@ export const Navbar = () => {
                 ))}
               </nav>
 
-              <div className="mt-auto pt-8 border-t border-white/5">
-                <button className="w-full py-4 text-sm font-bold uppercase tracking-wider bg-[#82C21C] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]">
+              <div className="mt-auto pt-8 border-t border-[#0D2E26]/10">
+                <button className="w-full py-4 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]">
                   Start Growth
                 </button>
               </div>

@@ -30,7 +30,7 @@ export default function Marquee() {
         Height fixed to 100px. Obsidian background with noise and grid.
       */}
       <div 
-        className="group relative flex h-[100px] w-full items-center overflow-hidden border-y border-white/5 bg-[#061917] noise grid-overlay shadow-brand-intense"
+        className="group relative flex h-[100px] w-full items-center overflow-hidden border-y border-[#0D2E26]/10 bg-white noise grid-overlay shadow-brand-intense"
         aria-label="Live System Status"
       >
         {/* Top Border Light Pulse */}
@@ -55,10 +55,10 @@ export default function Marquee() {
         >
           {MARQUEE_CONTENT.map((item, idx) => (
             <div key={`bg-${idx}`} className="flex items-center">
-              <span className="mx-8 font-mono text-[clamp(4rem,8vw,6rem)] font-extrabold uppercase leading-none text-white">
+              <span className="mx-8 font-mono text-[clamp(4rem,8vw,6rem)] font-extrabold uppercase leading-none text-[#0D2E26]">
                 {item.split(" ")[0]} {/* Just use the first word for massive background impact */}
               </span>
-              <span className="mx-8 text-[#82C21C]">✦</span>
+              <span className="mx-8 text-[#70BA28]">✦</span>
             </div>
           ))}
         </div>
@@ -73,10 +73,10 @@ export default function Marquee() {
         >
           {MARQUEE_CONTENT.map((item, idx) => (
             <div key={`fg-${idx}`} className="flex items-center transition-opacity duration-300 group-hover:opacity-70 hover:!opacity-100 cursor-default">
-              <span className="mx-12 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-white/70">
+              <span className="mx-12 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#0D2E26]/70">
                 {item}
               </span>
-              <span className="text-[10px] text-[#82C21C]">✦</span>
+              <span className="text-[10px] text-[#70BA28]">✦</span>
             </div>
           ))}
         </div>
@@ -85,7 +85,7 @@ export default function Marquee() {
 
       {/* Trust Indicator Bridge */}
       <div className="mt-6 flex w-full justify-center">
-        <p className="font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-white/30">
+        <p className="font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-[#0D2E26]/30">
           Trusted By Growing Businesses Across India
         </p>
       </div>

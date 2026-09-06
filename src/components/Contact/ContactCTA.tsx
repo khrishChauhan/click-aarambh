@@ -8,7 +8,7 @@ export default function ContactCTA() {
   const reducedMotion = useReducedMotion() ?? false;
 
   return (
-    <section className="relative flex min-h-[80vh] w-full items-center justify-center bg-[#04110F] px-6 py-24 md:px-12 lg:px-24 overflow-hidden border-t border-white/5">
+    <section className="relative flex min-h-[80vh] w-full items-center justify-center bg-[#F4F7F5] px-6 py-24 md:px-12 lg:px-24 overflow-hidden border-t border-[#0D2E26]/10">
       
       {/* Structural background grid */}
       <div
@@ -24,7 +24,7 @@ export default function ContactCTA() {
       {/* Harsh Ambient Radial Base for Button */}
       <div 
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#82C21C] opacity-10 blur-[80px]" 
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#70BA28] opacity-10 blur-[80px]" 
       />
 
       <motion.div 
@@ -34,7 +34,7 @@ export default function ContactCTA() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1.5, ease: EASE }}
       >
-        <h2 className="mb-12 font-extrabold leading-[1.05] tracking-[-0.04em] text-white" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
+        <h2 className="mb-12 font-extrabold leading-[1.05] tracking-[-0.04em] text-[#0D2E26]" style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" }}>
           Ready To Turn Ideas <br className="hidden md:block" />
           Into Infrastructure?
         </h2>
@@ -48,13 +48,13 @@ export default function ContactCTA() {
           }}
         >
           {/* Subtle directional bottom glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#82C21C] opacity-40 shadow-[0_0_20px_rgba(130,194,28,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#70BA28] opacity-40 shadow-[0_0_20px_rgba(130,194,28,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
           
           {/* Border Snap on Hover */}
           <div className="absolute inset-0 rounded-xl border border-[#82C21C] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {/* Text with tightening letter-spacing on hover */}
-          <span className="relative z-10 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#82C21C] transition-all duration-300 group-hover:tracking-[0.18em]">
+          <span className="relative z-10 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#70BA28] transition-all duration-300 group-hover:tracking-[0.18em]">
             Start Your Growth Journey
           </span>
         </Link>

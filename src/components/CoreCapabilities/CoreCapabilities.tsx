@@ -84,12 +84,12 @@ export const CoreCapabilities = () => {
     <section
       ref={sectionRef}
       id="capabilities"
-      className="relative w-full bg-[#061917] overflow-hidden flex items-center md:h-screen min-h-screen noise"
+      className="relative w-full bg-white overflow-hidden flex items-center md:h-screen min-h-screen noise"
       aria-label="Core Capabilities"
     >
       {/* Section label — fixed top-left */}
       <div className="absolute top-8 left-8 md:top-12 md:left-16 z-20 flex flex-col gap-4">
-        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-white/30">Core Capabilities</span>
+        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#0D2E26]/30">Core Capabilities</span>
         {/* Progress dots */}
         <div className="flex gap-2">
           {CAPABILITIES.map((_, i) => (
@@ -118,38 +118,38 @@ export const CoreCapabilities = () => {
             className="flex-shrink-0 w-full md:w-screen h-screen flex items-center justify-center relative overflow-hidden group"
           >
             {/* Panel background gradient per panel */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#061917] via-[#082220] to-[#061917] opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white via-[#082220] to-white opacity-80" />
             {/* Ambient glow bottom-right */}
-            <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] bg-[#82C21C]/[0.03] blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[60vw] h-[60vw] bg-[#70BA28]/[0.03] blur-[120px] rounded-full pointer-events-none" />
 
             {/* Main content — cinematic, Apple-style */}
             <div className="relative z-10 max-w-5xl mx-auto px-10 md:px-24 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center w-full">
               {/* Left: Text */}
               <div>
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-5 h-px bg-[#82C21C]" />
-                  <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#82C21C]/70">{cap.tag}</span>
+                  <div className="w-5 h-px bg-[#70BA28]" />
+                  <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#70BA28]/70">{cap.tag}</span>
                 </div>
                 <h2
-                  className="text-[clamp(3rem,7vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.03em] text-white mb-8 whitespace-pre-line"
+                  className="text-[clamp(3rem,7vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.03em] text-[#0D2E26] mb-8 whitespace-pre-line"
                 >
                   {cap.title}
                 </h2>
-                <p className="text-[clamp(1rem,1.5vw,1.15rem)] text-white/50 leading-relaxed max-w-md">
+                <p className="text-[clamp(1rem,1.5vw,1.15rem)] text-[#4B635D] leading-relaxed max-w-md">
                   {cap.desc}
                 </p>
               </div>
 
               {/* Right: Metric card */}
               <div className="flex flex-col items-start md:items-end">
-                <div className="glass rounded-3xl border border-white/5 p-8 md:p-10 shadow-[0_32px_80px_rgba(0,0,0,0.5)] noise relative overflow-hidden w-full max-w-sm">
+                <div className="glass rounded-3xl border border-[#0D2E26]/10 p-8 md:p-10 shadow-[0_32px_80px_rgba(0,0,0,0.5)] noise relative overflow-hidden w-full max-w-sm">
                   {/* Noise texture rendered via CSS .noise::after */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#82C21C]/5 via-transparent to-transparent pointer-events-none rounded-3xl" />
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-white/30 mb-4">{cap.tag} · {cap.id}</span>
-                  <div className="text-[clamp(3rem,5vw,4.5rem)] font-bold tracking-[-0.04em] text-[#82C21C] leading-none mb-2 whitespace-nowrap">
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-[#0D2E26]/30 mb-4">{cap.tag} · {cap.id}</span>
+                  <div className="text-[clamp(3rem,5vw,4.5rem)] font-bold tracking-[-0.04em] text-[#70BA28] leading-none mb-2 whitespace-nowrap">
                     {cap.metric}
                   </div>
-                  <div className="text-sm text-white/40 font-medium">{cap.metricLabel}</div>
+                  <div className="text-sm text-[#4B635D] font-medium">{cap.metricLabel}</div>
 
                   {/* Subtle bottom border glow */}
                   <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#82C21C]/30 to-transparent" />
@@ -158,7 +158,7 @@ export const CoreCapabilities = () => {
             </div>
 
             {/* Panel number — giant watermark */}
-            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-16 text-[8rem] md:text-[12rem] font-bold text-white/[0.02] leading-none select-none pointer-events-none tracking-tighter">
+            <div className="absolute bottom-8 right-8 md:bottom-12 md:right-16 text-[8rem] md:text-[12rem] font-bold text-[#0D2E26]/[0.02] leading-none select-none pointer-events-none tracking-tighter">
               {cap.id}
             </div>
           </div>

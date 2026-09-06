@@ -151,7 +151,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
 
       {/* Name */}
       <motion.h2
-        className="mb-2 font-extrabold leading-[1] tracking-[-0.04em] text-white"
+        className="mb-2 font-extrabold leading-[1] tracking-[-0.04em] text-[#0D2E26]"
         style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
         variants={itemVariants}
       >
@@ -168,23 +168,23 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
 
       {/* Background */}
       <motion.div
-        className="mb-12 border-t border-white/5 pt-8"
+        className="mb-12 border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
           Background
         </p>
-        <p className="text-[clamp(1rem,1.3vw,1.1rem)] leading-[1.7] text-white/60">
+        <p className="text-[clamp(1rem,1.3vw,1.1rem)] leading-[1.7] text-[#2E4D45]">
           {FOUNDER.shortStory}
         </p>
       </motion.div>
 
       {/* Expertise */}
       <motion.div
-        className="mb-12 border-t border-white/5 pt-8"
+        className="mb-12 border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+        <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
           Expertise
         </p>
         <ul className="space-y-2">
@@ -194,7 +194,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
                 className="h-px w-4 flex-shrink-0"
                 style={{ background: "rgba(156,223,59,0.5)" }}
               />
-              <span className="text-[0.95rem] text-white/70">{item}</span>
+              <span className="text-[0.95rem] text-[#0D2E26]/70">{item}</span>
             </li>
           ))}
         </ul>
@@ -202,13 +202,13 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
 
       {/* Vision */}
       <motion.div
-        className="border-t border-white/5 pt-8"
+        className="border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
           Vision
         </p>
-        <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] italic text-white/50">
+        <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] italic text-[#4B635D]">
           &ldquo;{FOUNDER.vision}&rdquo;
         </p>
       </motion.div>

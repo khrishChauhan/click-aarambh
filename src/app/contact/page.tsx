@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="noise bg-[#061917]" aria-label="Contact Page">
+    <main className="noise bg-white" aria-label="Contact Page">
       {/* 1 — Contact Hero */}
       <ContactHero />
 

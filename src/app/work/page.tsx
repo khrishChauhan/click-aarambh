@@ -18,7 +18,7 @@ export default function WorkPage() {
   redirect("/");
 
   return (
-    <main className="noise bg-[#04110F]" aria-label="Work Page">
+    <main className="noise bg-[#F4F7F5]" aria-label="Work Page">
       {/* 1 — Hero */}
       <WorkHero />
 

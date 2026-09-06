@@ -72,7 +72,7 @@ function MagneticCard({ children }: { children: React.ReactNode }) {
   return (
     <div
       ref={containerRef}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-white/[0.02] backdrop-blur-[24px] p-8 transition-all duration-300 ease-apple border border-white/5 h-full"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0D2E26]/[0.02] backdrop-blur-[24px] p-8 transition-all duration-300 ease-apple border border-[#0D2E26]/10 h-full"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleMouseLeave}
@@ -110,14 +110,14 @@ export default function ContactChannels() {
             >
               <MagneticCard>
                 <div className="relative z-10 flex flex-col h-full gap-12">
-                  <div className="text-white/40 transition-transform duration-500 ease-apple group-hover:scale-110 group-hover:text-[#82C21C] origin-left">
+                  <div className="text-[#4B635D] transition-transform duration-500 ease-apple group-hover:scale-110 group-hover:text-[#70BA28] origin-left">
                     {channel.icon}
                   </div>
                   <div>
-                    <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#82C21C] mb-2">
+                    <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#70BA28] mb-2">
                       {channel.title}
                     </h3>
-                    <p className={`font-bold text-white tracking-[-0.02em] ${channel.id === 'location' ? 'text-sm md:text-base leading-relaxed' : 'text-lg'}`}>
+                    <p className={`font-bold text-[#0D2E26] tracking-[-0.02em] ${channel.id === 'location' ? 'text-sm md:text-base leading-relaxed' : 'text-lg'}`}>
                       {channel.value}
                     </p>
                   </div>

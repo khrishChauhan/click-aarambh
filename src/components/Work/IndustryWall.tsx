@@ -48,11 +48,11 @@ export default function IndustryWall() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section className="w-full bg-[#04110F] py-[15vh]">
+    <section className="w-full bg-[#F4F7F5] py-[15vh]">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         {/* Massive Typographic Grid */}
-        <div className="flex flex-col border-y border-white/5">
+        <div className="flex flex-col border-y border-[#0D2E26]/10">
           {INDUSTRIES.map((industry) => {
             const isHovered = hoveredId === industry.id;
             const isOtherHovered = hoveredId !== null && hoveredId !== industry.id;
@@ -60,7 +60,7 @@ export default function IndustryWall() {
             return (
               <div 
                 key={industry.id}
-                className="group relative cursor-pointer border-b border-white/5 last:border-b-0 py-8 transition-opacity duration-300"
+                className="group relative cursor-pointer border-b border-[#0D2E26]/10 last:border-b-0 py-8 transition-opacity duration-300"
                 style={{ opacity: isOtherHovered ? 0.15 : 1 }}
                 onMouseEnter={() => setHoveredId(industry.id)}
                 onMouseLeave={() => setHoveredId(null)}

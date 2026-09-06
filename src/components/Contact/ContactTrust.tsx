@@ -26,7 +26,7 @@ export default function ContactTrust() {
   const reducedMotion = useReducedMotion() ?? false;
 
   return (
-    <section className="w-full bg-[#04110F] py-[10vh] border-t border-white/5">
+    <section className="w-full bg-[#F4F7F5] py-[10vh] border-t border-[#0D2E26]/10">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -37,17 +37,17 @@ export default function ContactTrust() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, ease: EASE, delay: i * 0.1 }}
-              className="group relative flex flex-col justify-start overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur-[24px] transition-all duration-300 hover:border-[#82C21C]/30 hover:bg-white/[0.04]"
+              className="group relative flex flex-col justify-start overflow-hidden rounded-2xl border border-[#0D2E26]/10 bg-[#0D2E26]/[0.02] p-8 backdrop-blur-[24px] transition-all duration-300 hover:border-[#82C21C]/30 hover:bg-white/[0.04]"
             >
               {/* Subtle hover glow inside the card */}
               <div className="pointer-events-none absolute inset-0 opacity-0 bg-[radial-gradient(circle_at_top_right,rgba(130,194,28,0.1),transparent_50%)] transition-opacity duration-300 group-hover:opacity-100" />
               
-              <div className="mb-4 h-1 w-8 rounded-full bg-[#82C21C]/50 transition-all duration-300 group-hover:w-12 group-hover:bg-[#82C21C]" />
+              <div className="mb-4 h-1 w-8 rounded-full bg-[#70BA28]/50 transition-all duration-300 group-hover:w-12 group-hover:bg-[#70BA28]" />
               
-              <h3 className="mb-4 text-xl font-bold tracking-tight text-white">
+              <h3 className="mb-4 text-xl font-bold tracking-tight text-[#0D2E26]">
                 {point.title}
               </h3>
-              <p className="text-[0.95rem] leading-relaxed text-white/50">
+              <p className="text-[0.95rem] leading-relaxed text-[#4B635D]">
                 {point.body}
               </p>
             </motion.div>

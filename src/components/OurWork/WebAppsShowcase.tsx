@@ -27,7 +27,7 @@ function WebAppCard({ app }: { app: typeof WEB_APPS[0] }) {
       href={app.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="webapp-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-full aspect-[4/3]"
+      className="webapp-card relative block rounded-2xl flex-none shrink-0 group cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-[#0D2E26]/10 overflow-hidden bg-[#0a201d]/60 backdrop-blur-xl w-[calc(min(100vw,1400px)-48px)] md:w-[calc((min(100vw,1400px)-72px)/2)] lg:w-full aspect-[4/3]"
       style={{
          // Glass card highlights
          boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.4)"
@@ -40,11 +40,11 @@ function WebAppCard({ app }: { app: typeof WEB_APPS[0] }) {
       />
       
       {/* Gradient Overlay for bottom text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#061917]/95 via-[#061917]/20 to-transparent opacity-100 transition-opacity duration-500 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/20 to-transparent opacity-100 transition-opacity duration-500 z-10" />
 
       {/* Hover Overlay Button */}
       <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-        <div className="px-6 py-3 rounded-full bg-[#82C21C]/90 backdrop-blur-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-[0.23,1,0.32,1] shadow-[0_0_30px_rgba(130,194,28,0.4)] text-[#061917] font-bold">
+        <div className="px-6 py-3 rounded-full bg-[#70BA28]/90 backdrop-blur-md flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-[0.23,1,0.32,1] shadow-[0_0_30px_rgba(130,194,28,0.4)] text-[#061917] font-bold">
           <span>Visit Web App</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </div>
@@ -53,11 +53,11 @@ function WebAppCard({ app }: { app: typeof WEB_APPS[0] }) {
       {/* Meta Info */}
       <div className="absolute bottom-6 left-6 right-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1] z-30">
         <div className="flex items-center gap-3 mb-3">
-          <span className="px-2 py-0.5 rounded-full bg-[#82C21C]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#82C21C] backdrop-blur-md">
+          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
             WEB APP
           </span>
         </div>
-        <h3 className="text-white text-[1.2rem] font-bold leading-tight mb-1 drop-shadow-sm">
+        <h3 className="text-[#0D2E26] text-[1.2rem] font-bold leading-tight mb-1 drop-shadow-sm">
           {app.title}
         </h3>
       </div>
@@ -105,10 +105,10 @@ export default function WebAppsShowcase() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-white mb-3 tracking-tight">
+            <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-[#0D2E26] mb-3 tracking-tight">
               Web Apps
             </h2>
-            <p className="text-white/50 text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
+            <p className="text-[#4B635D] text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
               Complex logic meets beautiful design. Custom platforms engineered for scale and performance.
             </p>
           </motion.div>

@@ -141,13 +141,13 @@ export const ParadigmShift = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full bg-[#061917] flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full bg-white flex items-center justify-center overflow-hidden"
       aria-label="The Paradigm Shift"
     >
       {/* Green radial that warms in on chapter 2 */}
       <div
         ref={bgGlowRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[#82C21C] blur-[180px] rounded-full pointer-events-none opacity-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[#70BA28] blur-[180px] rounded-full pointer-events-none opacity-0"
         aria-hidden="true"
       />
 
@@ -157,12 +157,12 @@ export const ParadigmShift = () => {
         className="absolute inset-0 flex flex-col items-center justify-center"
         aria-hidden="false"
       >
-        <p className="text-xs font-mono uppercase tracking-[0.3em] text-white/25 mb-6">
+        <p className="text-xs font-mono uppercase tracking-[0.3em] text-[#0D2E26]/25 mb-6">
           The Old Way
         </p>
         <h2
           ref={ch1TitleRef}
-          className="text-4xl md:text-6xl font-bold tracking-tighter text-white/70 mb-10"
+          className="text-4xl md:text-6xl font-bold tracking-tighter text-[#0D2E26]/70 mb-10"
         >
           Traditional Agency.
         </h2>
@@ -178,7 +178,7 @@ export const ParadigmShift = () => {
               {/* Team label */}
               <div
                 ref={(el) => { ch1ItemRefs.current[i] = el; }}
-                className="px-6 py-2.5 rounded-full bg-white/5 border border-white/8 text-white/50 text-sm font-medium tracking-wide whitespace-nowrap"
+                className="px-6 py-2.5 rounded-full bg-[#0D2E26]/5 border border-white/8 text-[#4B635D] text-sm font-medium tracking-wide whitespace-nowrap"
               >
                 {team}
               </div>
@@ -197,10 +197,10 @@ export const ParadigmShift = () => {
 
           {/* Disconnected results */}
           <div ref={ch1ResultRef} className="text-center mt-2">
-            <p className="text-xl md:text-2xl font-bold text-white/25">
+            <p className="text-xl md:text-2xl font-bold text-[#0D2E26]/25">
               Disconnected Systems.
             </p>
-            <p className="text-lg md:text-xl font-medium text-white/18 mt-1">
+            <p className="text-lg md:text-xl font-medium text-[#0D2E26]/18 mt-1">
               Disconnected Results.
             </p>
           </div>
@@ -219,14 +219,14 @@ export const ParadigmShift = () => {
         ref={ch2Ref}
         className="absolute inset-0 flex flex-col items-center justify-center"
       >
-        <p className="text-xs font-mono uppercase tracking-[0.3em] text-[#82C21C]/50 mb-6">
+        <p className="text-xs font-mono uppercase tracking-[0.3em] text-[#70BA28]/50 mb-6">
           The Growth Engine
         </p>
         <h2
           ref={ch2TitleRef}
-          className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-10"
+          className="text-4xl md:text-6xl font-bold tracking-tighter text-[#0D2E26] mb-10"
         >
-          Click <span className="text-[#82C21C]">Aarambh</span> Engine.
+          Click <span className="text-[#70BA28]">Aarambh</span> Engine.
         </h2>
 
         {/* Engine nodes — horizontal row with sparks */}
@@ -236,11 +236,11 @@ export const ParadigmShift = () => {
         >
           {ENGINE_NODES.map((node, i) => (
             <div key={i} className="flex items-center">
-              <span className="px-4 py-2 rounded-full bg-[#82C21C]/10 border border-[#82C21C]/25 text-[#82C21C] text-sm font-semibold tracking-wide whitespace-nowrap shadow-[0_0_16px_rgba(130,194,28,0.08)]">
+              <span className="px-4 py-2 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/25 text-[#70BA28] text-sm font-semibold tracking-wide whitespace-nowrap shadow-[0_0_16px_rgba(130,194,28,0.08)]">
                 {node}
               </span>
               {i < ENGINE_NODES.length - 1 && (
-                <span className="mx-2 md:mx-3 text-[#82C21C]/40 text-lg font-bold select-none">✦</span>
+                <span className="mx-2 md:mx-3 text-[#70BA28]/40 text-lg font-bold select-none">✦</span>
               )}
             </div>
           ))}
@@ -254,7 +254,7 @@ export const ParadigmShift = () => {
 
         {/* Connected Systems */}
         <div ref={ch2ConnectedRef} className="text-center">
-          <p className="text-xl md:text-2xl font-bold text-white">
+          <p className="text-xl md:text-2xl font-bold text-[#0D2E26]">
             Connected Systems.
           </p>
         </div>
@@ -267,7 +267,7 @@ export const ParadigmShift = () => {
 
         {/* Measurable Growth — emotional peak */}
         <div ref={ch2GrowthRef} className="text-center">
-          <p className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[#82C21C] drop-shadow-[0_0_40px_rgba(130,194,28,0.5)]">
+          <p className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[#70BA28] drop-shadow-[0_0_40px_rgba(130,194,28,0.5)]">
             Measurable Growth.
           </p>
         </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="noise bg-[#001715]" aria-label="About Page">
+    <main className="noise bg-[#F8FAF8]" aria-label="About Page">
       {/* 1 — Hero */}
       <AboutHero />
 

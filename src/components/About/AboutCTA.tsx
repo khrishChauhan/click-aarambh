@@ -51,7 +51,7 @@ export default function AboutCTA() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#001715] pb-[20vh] pt-[25vh]"
+      className="relative w-full overflow-hidden bg-[#F8FAF8] pb-[20vh] pt-[25vh]"
       aria-label="Final Call to Action"
     >
       {/* ── Animated grid texture ──────────────────────────── */}
@@ -93,7 +93,7 @@ export default function AboutCTA() {
 
           {/* Headline */}
           <motion.h2
-            className="mb-8 font-extrabold leading-[1.05] tracking-[-0.03em] text-white"
+            className="mb-8 font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0D2E26]"
             style={{ fontSize: "clamp(2.8rem, 6vw, 5rem)" }}
             variants={itemVariants}
           >
@@ -112,7 +112,7 @@ export default function AboutCTA() {
 
           {/* Subheadline */}
           <motion.p
-            className="mb-14 text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-white/50"
+            className="mb-14 text-[clamp(1.05rem,1.6vw,1.2rem)] leading-relaxed text-[#4B635D]"
             variants={itemVariants}
           >
             Whether you&apos;re building from scratch, scaling operations, or

@@ -17,7 +17,7 @@ const SERVICES = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#04110F] pt-24 pb-8 border-t border-white/5">
+    <footer className="relative w-full overflow-hidden bg-[#F4F7F5] pt-24 pb-8 border-t border-[#0D2E26]/10">
       
       {/* Background Architectural Elements */}
       <div
@@ -51,14 +51,14 @@ export default function Footer() {
                 className="h-16 md:h-20 w-auto object-contain transition-opacity group-hover:opacity-90" 
               />
             </Link>
-            <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-white/40 leading-relaxed">
+            <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-[#4B635D] leading-relaxed">
               Technology-Driven<br />Growth Partner
             </p>
           </div>
 
           {/* Col 2: Navigation (Span 2) */}
           <div className="col-span-1 lg:col-span-2 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
               Navigation
             </h4>
             <nav className="flex flex-col gap-4">
@@ -66,7 +66,7 @@ export default function Footer() {
                 <Link 
                   key={link.href} 
                   href={link.href}
-                  className="text-[14px] text-white/70 transition-colors hover:text-[#9CDF3B] w-fit"
+                  className="text-[14px] text-[#0D2E26]/70 transition-colors hover:text-[#9CDF3B] w-fit"
                 >
                   {link.label}
                 </Link>
@@ -76,12 +76,12 @@ export default function Footer() {
 
           {/* Col 3: Services (Span 3) */}
           <div className="col-span-1 lg:col-span-3 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
               Services
             </h4>
             <ul className="flex flex-col gap-4">
               {SERVICES.map((service) => (
-                <li key={service} className="text-[14px] text-white/70">
+                <li key={service} className="text-[14px] text-[#0D2E26]/70">
                   {service}
                 </li>
               ))}
@@ -90,27 +90,27 @@ export default function Footer() {
 
           {/* Col 4: Contact (Span 3) */}
           <div className="col-span-2 lg:col-span-3 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
               Get In Touch
             </h4>
             <div className="flex flex-col gap-4">
               <a 
                 href="mailto:support@clickaarambh.com" 
-                className="text-[14px] text-white/70 transition-colors hover:text-white"
+                className="text-[14px] text-[#0D2E26]/70 transition-colors hover:text-[#0D2E26]"
               >
                 support@clickaarambh.com
               </a>
-              <p className="text-[14px] text-white/50 italic">
+              <p className="text-[14px] text-[#4B635D] italic">
                 Let&apos;s build systems that scale.
               </p>
               <Link 
                 href="/contact"
                 className="group mt-2 inline-flex items-center gap-2 w-fit"
               >
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[#9CDF3B] transition-colors group-hover:text-white">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[#9CDF3B] transition-colors group-hover:text-[#0D2E26]">
                   Start Your Growth Journey
                 </span>
-                <span className="text-[#9CDF3B] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-white">
+                <span className="text-[#9CDF3B] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#0D2E26]">
                   →
                 </span>
               </Link>
@@ -120,8 +120,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 md:flex-row">
-          <p className="font-mono text-[10px] tracking-[0.1em] text-white/30 uppercase">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-[#0D2E26]/10 pt-8 md:flex-row">
+          <p className="font-mono text-[10px] tracking-[0.1em] text-[#0D2E26]/30 uppercase">
             © 2026 Click Aarambh Ventures
           </p>
           <p className="font-mono text-[10px] tracking-[0.1em] text-[#9CDF3B]/70 uppercase">

@@ -28,17 +28,17 @@ const BENTO_ITEMS = [
 
 export const BentoGrid = () => {
   return (
-    <section id="approach" className="py-32 bg-[#061917] noise" aria-label="Ecosystem Services">
+    <section id="approach" className="py-32 bg-white noise" aria-label="Ecosystem Services">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section header */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-5 h-px bg-[#82C21C]" />
-            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#82C21C]/70">The Ecosystem</span>
+            <div className="w-5 h-px bg-[#70BA28]" />
+            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#70BA28]/70">The Ecosystem</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] text-white leading-[0.9]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] text-[#0D2E26] leading-[0.9]">
             One Engine.<br />
-            <span className="text-white/30">Four Disciplines.</span>
+            <span className="text-[#0D2E26]/30">Four Disciplines.</span>
           </h2>
         </div>
 
@@ -78,7 +78,7 @@ const BentoCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.23, 1, 0.32, 1] }}
-      className="group relative flex flex-col p-8 md:p-10 bg-[#082220] rounded-2xl border border-white/[0.05] overflow-hidden cursor-default noise"
+      className="group relative flex flex-col p-8 md:p-10 bg-white rounded-2xl border border-white/[0.05] overflow-hidden cursor-default noise"
       style={{ transition: "border-color 0.3s ease, box-shadow 0.3s ease" }}
       onMouseMove={handleMouseMove}
       onMouseEnter={e => {
@@ -106,21 +106,21 @@ const BentoCard = ({
       <div className="relative z-10 flex flex-col h-full">
         {/* Tag + title row */}
         <div className="flex items-start justify-between mb-5">
-          <span className="text-[10px] font-mono text-white/20 tracking-widest">{tag}</span>
+          <span className="text-[10px] font-mono text-[#0D2E26]/20 tracking-widest">{tag}</span>
         </div>
 
-        <h3 className="text-xl md:text-2xl font-semibold text-white mb-4 tracking-tight leading-snug group-hover:text-white transition-colors duration-200">
+        <h3 className="text-xl md:text-2xl font-semibold text-[#0D2E26] mb-4 tracking-tight leading-snug group-hover:text-[#0D2E26] transition-colors duration-200">
           {title}
         </h3>
-        <p className="text-white/50 leading-relaxed text-sm flex-grow">{desc}</p>
+        <p className="text-[#4B635D] leading-relaxed text-sm flex-grow">{desc}</p>
 
         {/* CTA arrow */}
         <div className="mt-8 flex items-center gap-2">
-          <div className="w-6 h-px bg-[#82C21C]/40 group-hover:w-10 group-hover:bg-[#82C21C]"
+          <div className="w-6 h-px bg-[#70BA28]/40 group-hover:w-10 group-hover:bg-[#70BA28]"
                style={{ transition: "all 0.3s ease" }} />
           <a
             href="#contact"
-            className="text-xs font-semibold text-[#82C21C]/60 group-hover:text-[#82C21C] tracking-wider uppercase focus:outline-none focus-visible:underline"
+            className="text-xs font-semibold text-[#70BA28]/60 group-hover:text-[#70BA28] tracking-wider uppercase focus:outline-none focus-visible:underline"
             style={{ transition: "color 0.2s ease" }}
           >
             Explore

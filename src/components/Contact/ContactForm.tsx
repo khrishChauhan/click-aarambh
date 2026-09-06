@@ -74,21 +74,21 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-white/10 bg-black/20 p-4 text-white placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-[#82C21C] focus:bg-[#82C21C]/5 focus:outline-none focus:ring-1 focus:ring-[#82C21C]/50";
+    "w-full rounded-lg border border-[#0D2E26]/10 bg-white p-4 text-[#0D2E26] placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-[#82C21C] focus:bg-[#70BA28]/5 focus:outline-none focus:ring-1 focus:ring-[#70BA28]/50";
 
   const inputErrorClass =
-    "w-full rounded-lg border border-red-500/50 bg-red-500/5 p-4 text-white placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500/50";
+    "w-full rounded-lg border border-red-500/50 bg-red-500/5 p-4 text-[#0D2E26] placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500/50";
 
   return (
-    <section className="relative w-full bg-[#04110F] py-24 border-t border-white/5">
+    <section className="relative w-full bg-[#F4F7F5] py-24 border-t border-[#0D2E26]/10">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         <div className="mx-auto max-w-2xl">
 
           <div className="mb-12">
-            <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-white md:text-4xl mb-4">
+            <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-[#0D2E26] md:text-4xl mb-4">
               Initiate Discovery.
             </h2>
-            <p className="text-white/60 leading-relaxed max-w-lg">
+            <p className="text-[#2E4D45] leading-relaxed max-w-lg">
               Provide us with the context of your current bottleneck. We will review your infrastructure and reach out to schedule a technical assessment.
             </p>
           </div>
@@ -111,9 +111,9 @@ export default function ContactForm() {
               <div className="group relative">
                 <label
                   htmlFor="name"
-                  className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+                  className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#4B635D] transition-colors group-focus-within:text-[#70BA28]"
                 >
-                  Full Name <span className="text-[#82C21C]">*</span>
+                  Full Name <span className="text-[#70BA28]">*</span>
                 </label>
                 <input
                   type="text"
@@ -130,9 +130,9 @@ export default function ContactForm() {
               <div className="group relative">
                 <label
                   htmlFor="phone"
-                  className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+                  className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#4B635D] transition-colors group-focus-within:text-[#70BA28]"
                 >
-                  Phone Number <span className="text-[#82C21C]">*</span>
+                  Phone Number <span className="text-[#70BA28]">*</span>
                 </label>
                 <input
                   type="tel"
@@ -150,7 +150,7 @@ export default function ContactForm() {
             <div className="group relative">
               <label
                 htmlFor="email"
-                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#4B635D] transition-colors group-focus-within:text-[#70BA28]"
               >
                 Work Email
               </label>
@@ -168,7 +168,7 @@ export default function ContactForm() {
             <div className="group relative">
               <label
                 htmlFor="scope"
-                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-white/50 transition-colors group-focus-within:text-[#82C21C]"
+                className="mb-2 block font-mono text-[10px] uppercase tracking-[0.2em] text-[#4B635D] transition-colors group-focus-within:text-[#70BA28]"
               >
                 Project Scope / Bottleneck
               </label>
@@ -186,9 +186,9 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={formState === "submitting"}
-                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/5 px-8 py-4 transition-all duration-300 hover:border-[#82C21C]/50 hover:bg-[#82C21C]/10 hover:shadow-[0_0_20px_rgba(130,194,28,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#82C21C] disabled:opacity-50 md:w-auto"
+                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-[#0D2E26]/20 bg-[#0D2E26]/5 px-8 py-4 transition-all duration-300 hover:border-[#70BA28]/50 hover:bg-[#70BA28]/10 hover:shadow-[0_0_20px_rgba(130,194,28,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#82C21C] disabled:opacity-50 md:w-auto"
               >
-                <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-white transition-colors group-hover:text-[#82C21C]">
+                <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0D2E26] transition-colors group-hover:text-[#70BA28]">
                   {formState === "submitting" ? "Transmitting..." : "Submit Discovery Request"}
                 </span>
               </button>

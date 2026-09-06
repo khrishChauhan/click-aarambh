@@ -16,7 +16,7 @@ export default function AboutHero() {
 
   return (
     <section
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#001715]"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#F8FAF8]"
       aria-label="About Hero"
     >
       {/* ── Layer 1: Ambient Emerald Glow ── */}
@@ -100,7 +100,7 @@ export default function AboutHero() {
 
         {/* Headline — T=0.30s */}
         <motion.h1
-          className="mb-10 text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-white flex flex-wrap justify-center gap-x-4"
+          className="mb-10 text-[clamp(3rem,8vw,7.5rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-[#0D2E26] flex flex-wrap justify-center gap-x-4"
           initial="initial"
           animate="animate"
           variants={{
@@ -127,7 +127,7 @@ export default function AboutHero() {
         {/* Subheadline — T=1.00s */}
         <motion.p
           {...fadeUp(reducedMotion ? 0 : 1.0, 16)}
-          className="max-w-[600px] text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-white/50"
+          className="max-w-[600px] text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-[#4B635D]"
         >
           Beyond websites, campaigns, and automation.{" "}
           <br className="hidden sm:block" />
@@ -141,10 +141,10 @@ export default function AboutHero() {
           className="mt-20 hidden flex-col items-center gap-2 md:flex"
           aria-hidden="true"
         >
-          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white/20">
+          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#0D2E26]/20">
             scroll
           </span>
-          <div className="h-8 w-px overflow-hidden bg-white/5">
+          <div className="h-8 w-px overflow-hidden bg-[#0D2E26]/5">
             <div
               className="h-1/2 w-full bg-[#9CDF3B]/40"
               style={{

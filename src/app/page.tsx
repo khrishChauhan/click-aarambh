@@ -11,7 +11,7 @@ import { Footer } from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#061917]">
+    <main className="bg-white">
       {/* Act 1: Hook */}
       <Hero />
       <Marquee />

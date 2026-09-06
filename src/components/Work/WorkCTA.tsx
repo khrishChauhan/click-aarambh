@@ -8,7 +8,7 @@ export default function WorkCTA() {
   const reducedMotion = useReducedMotion() ?? false;
 
   return (
-    <section className="relative flex min-h-[70vh] w-full items-center justify-center bg-[#04110F] px-6 py-24 md:px-12 lg:px-24 overflow-hidden">
+    <section className="relative flex min-h-[70vh] w-full items-center justify-center bg-[#F4F7F5] px-6 py-24 md:px-12 lg:px-24 overflow-hidden">
       
       {/* Structural background grid */}
       <div
@@ -28,7 +28,7 @@ export default function WorkCTA() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1.5, ease: EASE }}
       >
-        <h2 className="mb-12 font-extrabold leading-[1.05] tracking-[-0.04em] text-white" style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}>
+        <h2 className="mb-12 font-extrabold leading-[1.05] tracking-[-0.04em] text-[#0D2E26]" style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}>
           Ready to scale?
         </h2>
 

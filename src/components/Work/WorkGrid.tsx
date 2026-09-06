@@ -58,7 +58,7 @@ export default function WorkGrid() {
   };
 
   return (
-    <section className="w-full bg-[#04110F] py-[10vh] border-t border-white/5">
+    <section className="w-full bg-[#F4F7F5] py-[10vh] border-t border-[#0D2E26]/10">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         {/* Section Header */}
@@ -66,7 +66,7 @@ export default function WorkGrid() {
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CDF3B]">
             Systemic Implementations
           </p>
-          <h2 className="text-3xl font-extrabold text-white tracking-[-0.03em] md:text-5xl">
+          <h2 className="text-3xl font-extrabold text-[#0D2E26] tracking-[-0.03em] md:text-5xl">
             Repeatable Outcomes.
           </h2>
         </div>
@@ -104,7 +104,7 @@ export default function WorkGrid() {
                   className="absolute inset-0 transition-opacity duration-500 ease-apple flex items-center justify-center overflow-hidden"
                   style={{ opacity: isHovered ? 1 : 0 }}
                 >
-                  <div className="absolute inset-0 bg-[#061917]/80" />
+                  <div className="absolute inset-0 bg-white/80" />
                   {/* Harsh Radial Spotlight */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(156,223,59,0.1)_0%,transparent_60%)]" />
                   {/* Fake Code / Wireframe Pattern */}
@@ -113,7 +113,7 @@ export default function WorkGrid() {
 
                 {/* Content */}
                 <div className="relative z-10 flex h-full flex-col justify-between p-8 md:p-10">
-                  <h3 className="text-3xl md:text-4xl font-extrabold text-white tracking-[-0.03em] max-w-sm leading-[1.05]">
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-[#0D2E26] tracking-[-0.03em] max-w-sm leading-[1.05]">
                     {item.outcome}
                   </h3>
                   
@@ -132,7 +132,7 @@ export default function WorkGrid() {
                           {item.client}
                         </span>
                       </div>
-                      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40 pl-7">
+                      <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-[#4B635D] pl-7">
                         Stack: {item.tech}
                       </span>
                     </div>

@@ -78,11 +78,11 @@ export default function ImpactMetrics() {
   }, [reducedMotion]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#04110F] py-[10vh] border-t border-white/5">
+    <section ref={sectionRef} className="w-full bg-[#F4F7F5] py-[10vh] border-t border-[#0D2E26]/10">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         {/* The Brutalist 6/3/3 Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 lg:gap-8 border border-white/5 brutal-glass rounded-3xl p-8 lg:p-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 lg:gap-8 border border-[#0D2E26]/10 brutal-glass rounded-3xl p-8 lg:p-12">
           
           {METRICS.map((metric, index) => {
             const isHovered = hoveredId === metric.id;
@@ -92,14 +92,14 @@ export default function ImpactMetrics() {
               <div 
                 key={metric.id}
                 className={`relative flex flex-col justify-end transition-opacity duration-300 ease-apple ${
-                  metric.isHero ? "md:col-span-6 border-b md:border-b-0 md:border-r border-white/5 pb-8 md:pb-0 md:pr-8" : "md:col-span-3"
+                  metric.isHero ? "md:col-span-6 border-b md:border-b-0 md:border-r border-[#0D2E26]/10 pb-8 md:pb-0 md:pr-8" : "md:col-span-3"
                 }`}
                 style={{ opacity: isOtherHovered ? 0.3 : 1 }}
                 onMouseEnter={() => setHoveredId(metric.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
                 {/* Metric Value */}
-                <div className="flex items-baseline font-extrabold leading-none tracking-[-0.04em] text-white">
+                <div className="flex items-baseline font-extrabold leading-none tracking-[-0.04em] text-[#0D2E26]">
                   <span 
                     ref={(el) => { numberRefs.current[index] = el; }}
                     style={{ fontSize: metric.isHero ? "clamp(5rem, 10vw, 9rem)" : "clamp(3.5rem, 6vw, 5rem)" }}
@@ -125,7 +125,7 @@ export default function ImpactMetrics() {
                 </div>
 
                 {/* Label */}
-                <p className="text-[1rem] leading-snug text-white/70 font-semibold tracking-tight">
+                <p className="text-[1rem] leading-snug text-[#0D2E26]/70 font-semibold tracking-tight">
                   {metric.label}
                 </p>
               </div>

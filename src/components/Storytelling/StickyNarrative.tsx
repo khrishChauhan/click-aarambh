@@ -8,25 +8,25 @@ const ACTS = [
   {
     text: "Most tools don't fail because of bad technology.",
     sub: null,
-    color: "text-white",
+    color: "text-[#0D2E26]",
     glowColor: null,
   },
   {
     text: "They fail because they were never connected.",
     sub: null,
-    color: "text-white/80",
+    color: "text-[#0D2E26]/80",
     glowColor: null,
   },
   {
     text: "Software. Marketing. Automation. Expansion.",
     sub: "Four disciplines. One engine.",
-    color: "text-white",
+    color: "text-[#0D2E26]",
     glowColor: null,
   },
   {
     text: "That's what a Growth System looks like.",
     sub: null,
-    color: "text-[#82C21C]",
+    color: "text-[#70BA28]",
     glowColor: "drop-shadow-[0_0_40px_rgba(130,194,28,0.4)]",
   },
 ];
@@ -105,13 +105,13 @@ export const StickyNarrative = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full bg-[#061917] flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full bg-white flex items-center justify-center overflow-hidden"
       aria-label="Growth System Philosophy"
     >
       {/* Background glow that warms as we progress */}
       <div
         ref={bgGlowRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-[#82C21C] blur-[160px] rounded-full pointer-events-none opacity-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-[#70BA28] blur-[160px] rounded-full pointer-events-none opacity-0"
         aria-hidden="true"
       />
 
@@ -129,7 +129,7 @@ export const StickyNarrative = () => {
               {act.text}
             </p>
             {act.sub && (
-              <p className="mt-6 text-[clamp(1.1rem,3vw,2rem)] font-medium text-white/60 tracking-wide">
+              <p className="mt-6 text-[clamp(1.1rem,3vw,2rem)] font-medium text-[#2E4D45] tracking-wide">
                 {act.sub}
               </p>
             )}

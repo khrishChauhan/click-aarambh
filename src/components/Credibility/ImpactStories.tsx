@@ -21,16 +21,16 @@ const STORIES = [
 
 export const ImpactStories = () => {
   return (
-    <section className="py-32 bg-[#061917]" aria-label="Architecture Outcomes">
+    <section className="py-32 bg-white" aria-label="Architecture Outcomes">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-20">
-          <p className="text-[#82C21C] uppercase tracking-[0.2em] text-xs font-bold mb-4">
+          <p className="text-[#70BA28] uppercase tracking-[0.2em] text-xs font-bold mb-4">
             Proof of Architecture
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#0D2E26] mb-6">
             We don't build features.
             <br />
-            <span className="text-white/50">We build revenue infrastructure.</span>
+            <span className="text-[#4B635D]">We build revenue infrastructure.</span>
           </h2>
         </div>
 
@@ -42,7 +42,7 @@ export const ImpactStories = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative bg-[#082220] border border-white/5 rounded-3xl p-10 md:p-14 overflow-hidden group focus-within:ring-2 focus-within:ring-[#82C21C] focus-within:ring-offset-2 focus-within:ring-offset-[#061917]"
+              className="relative bg-white border border-[#0D2E26]/10 rounded-3xl p-10 md:p-14 overflow-hidden group focus-within:ring-2 focus-within:ring-[#82C21C] focus-within:ring-offset-2 focus-within:ring-offset-[#061917]"
             >
               {/* Blueprint grid background */}
               <div
@@ -58,12 +58,12 @@ export const ImpactStories = () => {
 
               <div className="relative z-10 flex flex-col h-full">
                 {/* Sector label */}
-                <span className="text-xs font-mono uppercase tracking-[0.25em] text-white/40 block mb-8">
+                <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#4B635D] block mb-8">
                   {story.sector}
                 </span>
 
                 {/* System description */}
-                <p className="text-sm text-[#82C21C]/80 font-medium mb-6 leading-relaxed">
+                <p className="text-sm text-[#70BA28]/80 font-medium mb-6 leading-relaxed">
                   System: {story.system}
                 </p>
 
@@ -71,19 +71,19 @@ export const ImpactStories = () => {
                 <div className="flex-grow space-y-3 mb-10">
                   <div className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0" />
-                    <span className="text-white/40 text-sm line-through">{story.before}</span>
+                    <span className="text-[#4B635D] text-sm line-through">{story.before}</span>
                   </div>
                   <div className="w-px h-6 bg-gradient-to-b from-white/10 to-[#82C21C]/40 ml-[2px]" />
                   <div className="flex items-start gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#82C21C] flex-shrink-0 mt-1.5" />
-                    <span className="text-white text-base leading-relaxed font-medium">{story.after}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#70BA28] flex-shrink-0 mt-1.5" />
+                    <span className="text-[#0D2E26] text-base leading-relaxed font-medium">{story.after}</span>
                   </div>
                 </div>
 
                 {/* CTA */}
                 <a
                   href="#contact"
-                  className="inline-flex items-center text-sm font-semibold text-[#82C21C] hover:text-[#A8F23A] focus:outline-none focus:underline"
+                  className="inline-flex items-center text-sm font-semibold text-[#70BA28] hover:text-[#A8F23A] focus:outline-none focus:underline"
                   style={{ transition: "color 0.2s ease" }}
                 >
                   Discuss Your Architecture

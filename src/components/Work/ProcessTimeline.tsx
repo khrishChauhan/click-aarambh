@@ -78,7 +78,7 @@ export default function ProcessTimeline() {
   }, [reducedMotion]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#04110F] py-[15vh]">
+    <section ref={sectionRef} className="relative w-full bg-[#F4F7F5] py-[15vh]">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
         
         {/* Section Header */}
@@ -86,7 +86,7 @@ export default function ProcessTimeline() {
           <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CDF3B]">
             Systemic Methodology
           </p>
-          <h2 className="text-3xl font-extrabold text-white tracking-[-0.03em] md:text-5xl max-w-2xl">
+          <h2 className="text-3xl font-extrabold text-[#0D2E26] tracking-[-0.03em] md:text-5xl max-w-2xl">
             Engineering Growth.
           </h2>
         </div>
@@ -98,7 +98,7 @@ export default function ProcessTimeline() {
             {/* The base dimmed line */}
             <div 
               ref={lineRef}
-              className="absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"
+              className="absolute left-1/2 top-0 bottom-0 w-px bg-[#0D2E26]/10 -translate-x-1/2"
             >
               {/* The bright green progress line that grows down */}
               <div 
@@ -113,7 +113,7 @@ export default function ProcessTimeline() {
               return (
                 <div 
                   key={`node-${index}`}
-                  className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border bg-[#04110F] transition-colors duration-300 z-10"
+                  className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border bg-[#F4F7F5] transition-colors duration-300 z-10"
                   style={{
                     top: `${(index / (TIMELINE_STEPS.length - 1)) * 100}%`,
                     // Move the nodes slightly down so they align with the top of the cards
@@ -142,16 +142,16 @@ export default function ProcessTimeline() {
                   }}
                 >
                   {/* Subtle hover state to peek at past cards */}
-                  <div className="absolute -inset-4 z-0 rounded-2xl transition-colors duration-300 group-hover:bg-white/[0.02]" />
+                  <div className="absolute -inset-4 z-0 rounded-2xl transition-colors duration-300 group-hover:bg-[#0D2E26]/[0.02]" />
                   
                   <div className="relative z-10 max-w-2xl pl-4 md:pl-0 pt-6 md:pt-8">
                     <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#9CDF3B]/70">
                       {step.meta}
                     </p>
-                    <h3 className="mb-4 text-2xl md:text-3xl font-bold text-white tracking-[-0.02em]">
+                    <h3 className="mb-4 text-2xl md:text-3xl font-bold text-[#0D2E26] tracking-[-0.02em]">
                       {step.title}
                     </h3>
-                    <p className="text-[1rem] leading-[1.7] text-white/60">
+                    <p className="text-[1rem] leading-[1.7] text-[#2E4D45]">
                       {step.body}
                     </p>
                   </div>
