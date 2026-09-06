@@ -27,7 +27,7 @@ const ACTS = [
     text: "That's what a Growth System looks like.",
     sub: null,
     color: "text-[#70BA28]",
-    glowColor: "drop-shadow-[0_0_40px_rgba(130,194,28,0.4)]",
+    glowColor: "drop-shadow-[0_0_40px_rgba(112,186,40,0.4)]",
   },
 ];
 

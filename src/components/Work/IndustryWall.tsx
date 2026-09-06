@@ -82,9 +82,9 @@ export default function IndustryWall() {
                   <div 
                     className="hidden md:block w-4 h-4 rounded-full border transition-all duration-300"
                     style={{
-                      borderColor: isHovered ? "#9CDF3B" : "transparent",
-                      backgroundColor: isHovered ? "#9CDF3B" : "rgba(255,255,255,0.05)",
-                      boxShadow: isHovered ? "0 0 15px rgba(156,223,59,0.5)" : "none",
+                      borderColor: isHovered ? "#70BA28" : "transparent",
+                      backgroundColor: isHovered ? "#70BA28" : "rgba(255,255,255,0.05)",
+                      boxShadow: isHovered ? "0 0 15px rgba(112,186,40,0.5)" : "none",
                     }}
                   />
                 </div>
@@ -109,8 +109,8 @@ export default function IndustryWall() {
                             transition={{ duration: 0.3, delay: i * 0.05, ease: EASE }}
                             className="flex items-center gap-3"
                           >
-                            <span className="text-[#9CDF3B]">→</span>
-                            <span className="font-mono text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[#9CDF3B]">
+                            <span className="text-[#70BA28]">→</span>
+                            <span className="font-mono text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[#70BA28]">
                               {cap}
                             </span>
                           </motion.div>

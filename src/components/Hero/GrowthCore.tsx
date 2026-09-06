@@ -87,7 +87,7 @@ export const GrowthCore = () => {
         style={{ x: l1x, y: l1y }}
       >
         {/* Deep radial gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(130,194,28,0.04)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_50%,rgba(112,186,40,0.04)_0%,transparent_70%)]" />
         {/* Corner depth glows */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#70BA28]/[0.015] rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0d3b36]/40 rounded-full blur-[80px]" />
@@ -108,7 +108,7 @@ export const GrowthCore = () => {
         />
         {/* Middle ring — counter-clockwise, brand colour */}
         <div
-          className="absolute rounded-full border border-[#82C21C]/[0.05]"
+          className="absolute rounded-full border border-[#70BA28]/[0.05]"
           style={{
             width: "60%", aspectRatio: "1",
             animation: "spin-slow-reverse 35s linear infinite, ring-pulse 6s ease-in-out infinite",
@@ -116,7 +116,7 @@ export const GrowthCore = () => {
         />
         {/* Inner ring — fast clockwise */}
         <div
-          className="absolute rounded-full border border-[#82C21C]/[0.09]"
+          className="absolute rounded-full border border-[#70BA28]/[0.09]"
           style={{
             width: "34%", aspectRatio: "1",
             animation: "spin-slow 20s linear infinite, ring-pulse 4s ease-in-out infinite 1.5s",
@@ -166,7 +166,7 @@ export const GrowthCore = () => {
                 {/* Base dim line */}
                 <path
                   d={`M ${node.x} ${node.y} L 50 50`}
-                  stroke="rgba(130,194,28,0.06)"
+                  stroke="rgba(112,186,40,0.06)"
                   strokeWidth="0.18"
                   fill="none"
                   strokeLinecap="round"
@@ -174,7 +174,7 @@ export const GrowthCore = () => {
                 {/* Active / hover line */}
                 <path
                   d={`M ${node.x} ${node.y} L 50 50`}
-                  stroke={isActive ? "rgba(130,194,28,0.45)" : "rgba(130,194,28,0.10)"}
+                  stroke={isActive ? "rgba(112,186,40,0.45)" : "rgba(112,186,40,0.10)"}
                   strokeWidth={isActive ? "0.45" : "0.15"}
                   fill="none"
                   strokeLinecap="round"
@@ -187,7 +187,7 @@ export const GrowthCore = () => {
                   <circle
                     key={pi}
                     r="0.72"
-                    fill="#82C21C"
+                    fill="#70BA28"
                     opacity={isActive ? 1 : 0.45}
                     filter="url(#particleGlow)"
                     style={{ transition: "opacity 0.3s ease" }}
@@ -239,8 +239,8 @@ export const GrowthCore = () => {
                   style={{
                     transform: activeNode === node.id ? "scale(1.6)" : "scale(1)",
                     boxShadow: activeNode === node.id
-                      ? "0 0 20px #82C21C, 0 0 40px rgba(130,194,28,0.4)"
-                      : "0 0 8px rgba(130,194,28,0.6)",
+                      ? "0 0 20px #70BA28, 0 0 40px rgba(112,186,40,0.4)"
+                      : "0 0 8px rgba(112,186,40,0.6)",
                   }}
                 />
                 {activeNode === node.id && (

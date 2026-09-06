@@ -77,7 +77,7 @@ function MagneticCard({ children }: { children: React.ReactNode }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{
-        boxShadow: hovered ? "0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(130,194,28,0.5)" : "0 4px 6px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(255,255,255,0.05)",
+        boxShadow: hovered ? "0 20px 40px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(112,186,40,0.5)" : "0 4px 6px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(255,255,255,0.05)",
       }}
     >
       {/* The Magnetic Spotlight (only visible on hover) */}
@@ -85,7 +85,7 @@ function MagneticCard({ children }: { children: React.ReactNode }) {
         className="pointer-events-none absolute -inset-px rounded-2xl transition-opacity duration-300"
         style={{
           opacity: hovered ? 1 : 0,
-          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(130,194,28,0.15), transparent 40%)`
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(112,186,40,0.15), transparent 40%)`
         }}
       />
       {children}

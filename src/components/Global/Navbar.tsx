@@ -53,7 +53,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-apple ${
           scrolled
-            ? "bg-white/70 backdrop-blur-[24px] border-b border-[#0D2E26]/10 shadow-[0_1px_0_rgba(156,223,59,0.15)]"
+            ? "bg-white/70 backdrop-blur-[24px] border-b border-[#0D2E26]/10 shadow-[0_1px_0_rgba(112,186,40,0.15)]"
             : "bg-transparent border-b border-transparent shadow-none"
         }`}
       >
@@ -83,22 +83,17 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative px-2 py-1 outline-none group"
+                  className={`relative px-4 py-2 rounded-full outline-none group transition-all duration-300 ${
+                    isActive ? "bg-[#70BA28]/15" : "hover:bg-[#70BA28]/5"
+                  }`}
                 >
                   <span 
-                    className={`font-mono text-[13px] font-bold uppercase tracking-wider transition-colors duration-300 ${
-                      isActive ? "text-[#0D2E26]" : "text-[#4B635D] group-hover:text-[#0D2E26]"
+                    className={`font-mono text-[13px] tracking-wider transition-colors duration-300 ${
+                      isActive ? "text-[#0D2E26] font-semibold" : "text-[#4B635D] font-medium group-hover:text-[#0D2E26]"
                     }`}
                   >
                     {link.label}
                   </span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#70BA28]"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
                 </Link>
               );
             })}
@@ -179,7 +174,7 @@ export default function Navbar() {
                         {link.label}
                       </span>
                       {isActive && (
-                        <div className="h-3 w-3 rounded-full bg-[#9CDF3B] shadow-[0_0_10px_rgba(156,223,59,0.5)]" />
+                        <div className="h-3 w-3 rounded-full bg-[#70BA28] shadow-[0_0_10px_rgba(112,186,40,0.5)]" />
                       )}
                     </Link>
                   </motion.div>
@@ -194,9 +189,9 @@ export default function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="flex w-full items-center justify-center border border-[#9CDF3B]/30 bg-[#9CDF3B]/5 py-4 transition-colors hover:bg-[#9CDF3B]/10"
+                  className="flex w-full items-center justify-center border border-[#70BA28]/30 bg-[#70BA28]/5 py-4 transition-colors hover:bg-[#70BA28]/10"
                 >
-                  <span className="font-mono text-[12px] font-bold uppercase tracking-[0.15em] text-[#9CDF3B]">
+                  <span className="font-mono text-[12px] font-bold uppercase tracking-[0.15em] text-[#70BA28]">
                     Start Your Growth Journey
                   </span>
                 </Link>

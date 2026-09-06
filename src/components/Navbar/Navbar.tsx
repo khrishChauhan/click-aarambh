@@ -81,7 +81,7 @@ export const Navbar = () => {
           <div className="flex items-center justify-between max-w-7xl mx-auto">
 
             {/* Logo */}
-            <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#82C21C] outline-none" aria-label="Click Aarambh Ventures Home">
+            <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#70BA28] outline-none" aria-label="Click Aarambh Ventures Home">
               <Image 
                 src="/logo.png" 
                 alt="Click Aarambh Ventures Logo" 
@@ -101,7 +101,7 @@ export const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     role="menuitem"
-                    className="relative text-sm font-medium text-[#2E4D45] hover:text-[#0D2E26] rounded px-1 py-0.5 focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                    className="relative text-sm font-medium text-[#2E4D45] hover:text-[#0D2E26] rounded px-1 py-0.5 focus-visible:ring-2 focus-visible:ring-[#70BA28]"
                     style={{ transition: "color 0.2s ease" }}
                   >
                     {link.name}
@@ -123,12 +123,12 @@ export const Navbar = () => {
               <button
                 ref={ctaBtnRef}
                 onMouseMove={handleCtaMouseMove}
-                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 30px rgba(130,194,28,0.5)")}
+                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 30px rgba(112,186,40,0.5)")}
                 onMouseLeave={e => {
                   handleCtaMouseLeave();
                   e.currentTarget.style.boxShadow = "none";
                 }}
-                className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
+                className="px-5 py-2.5 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#70BA28] focus-visible:ring-offset-2 focus-visible:ring-offset-[#061917]"
                 style={{ transition: "transform 0.15s ease, box-shadow 0.3s ease" }}
               >
                 Start Growth
@@ -139,7 +139,7 @@ export const Navbar = () => {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="md:hidden p-2 text-[#0D2E26]/70 hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+              className="md:hidden p-2 text-[#0D2E26]/70 hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#70BA28]"
               aria-label="Open menu"
               aria-expanded={mobileOpen}
             >
@@ -173,7 +173,7 @@ export const Navbar = () => {
             >
               <button
                 onClick={() => setMobileOpen(false)}
-                className="self-end mb-10 p-2 text-[#4B635D] hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                className="self-end mb-10 p-2 text-[#4B635D] hover:text-[#0D2E26] rounded-lg focus-visible:ring-2 focus-visible:ring-[#70BA28]"
                 aria-label="Close menu"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -187,7 +187,7 @@ export const Navbar = () => {
                     key={link.name}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-bold text-[#0D2E26]/80 hover:text-[#70BA28] rounded focus-visible:ring-2 focus-visible:ring-[#82C21C]"
+                    className="text-2xl font-bold text-[#0D2E26]/80 hover:text-[#70BA28] rounded focus-visible:ring-2 focus-visible:ring-[#70BA28]"
                     style={{ transition: "color 0.2s ease" }}
                   >
                     {link.name}
@@ -196,7 +196,7 @@ export const Navbar = () => {
               </nav>
 
               <div className="mt-auto pt-8 border-t border-[#0D2E26]/10">
-                <button className="w-full py-4 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#82C21C]">
+                <button className="w-full py-4 text-sm font-bold uppercase tracking-wider bg-[#70BA28] text-[#061917] rounded-lg focus-visible:ring-2 focus-visible:ring-[#70BA28]">
                   Start Growth
                 </button>
               </div>

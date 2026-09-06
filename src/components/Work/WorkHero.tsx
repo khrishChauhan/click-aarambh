@@ -71,9 +71,9 @@ export default function WorkHero() {
       {/* Pinned Data Ticker at the bottom edge */}
       <div className="absolute bottom-0 left-0 right-0 z-20 flex h-16 items-center border-t border-[#0D2E26]/10 bg-[#F4F7F5]/80 px-6 backdrop-blur-md md:px-12 lg:px-24">
         <div className="flex w-full items-center justify-between font-mono text-[11px] font-bold tracking-[0.2em]">
-          <span className="text-[#0D2E26]/30 uppercase hidden md:inline-block">Live Telemetry</span>
-          <span className="text-[#9CDF3B]">{scrambledTicker}</span>
-          <span className="text-[#0D2E26]/30 uppercase hidden md:inline-block">System Status: Optimal</span>
+          <span className="text-[#2E4D45] uppercase hidden md:inline-block">Live Telemetry</span>
+          <span className="text-[#70BA28]">{scrambledTicker}</span>
+          <span className="text-[#2E4D45] uppercase hidden md:inline-block">System Status: Optimal</span>
         </div>
       </div>
     </section>

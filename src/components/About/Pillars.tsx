@@ -140,14 +140,14 @@ function PillarStack({ reducedMotion }: { reducedMotion: boolean }) {
             className="absolute left-0 right-0 top-0 h-px rounded-t-3xl"
             style={{
               background:
-                "linear-gradient(90deg, transparent 0%, rgba(156,223,59,0.25) 50%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, rgba(112,186,40,0.25) 50%, transparent 100%)",
             }}
             aria-hidden="true"
           />
 
           {/* Card content — z-index above watermark */}
           <div className="relative z-10">
-            <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#9CDF3B]/70">
+            <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[#2E4D45]">
               {pillar.numeral}
             </p>
             <h3
@@ -180,7 +180,7 @@ function PillarAccordion() {
             className="overflow-hidden rounded-2xl border transition-colors duration-300"
             style={{
               borderColor: isOpen
-                ? "rgba(156,223,59,0.25)"
+                ? "rgba(112,186,40,0.25)"
                 : "rgba(255,255,255,0.06)",
               background: "rgba(8,34,32,0.6)",
               backdropFilter: "blur(16px)",
@@ -195,7 +195,7 @@ function PillarAccordion() {
               className="flex w-full items-center justify-between px-6 py-5 text-left"
             >
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] font-bold tracking-[0.25em] text-[#9CDF3B]/70">
+                <span className="font-mono text-[10px] font-bold tracking-[0.25em] text-[#2E4D45]">
                   {pillar.numeral}
                 </span>
                 <span
@@ -212,8 +212,8 @@ function PillarAccordion() {
                 aria-hidden="true"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <line x1="8" y1="2" x2="8" y2="14" stroke="rgba(156,223,59,0.7)" strokeWidth="1.5" strokeLinecap="round" />
-                  <line x1="2" y1="8" x2="14" y2="8" stroke="rgba(156,223,59,0.7)" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="8" y1="2" x2="8" y2="14" stroke="rgba(112,186,40,0.7)" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="2" y1="8" x2="14" y2="8" stroke="rgba(112,186,40,0.7)" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </motion.div>
             </button>
@@ -264,7 +264,7 @@ export default function Pillars() {
           className="absolute left-1/2 top-1/2 h-[80vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
           style={{
             background:
-              "radial-gradient(circle, rgba(156,223,59,0.04) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(112,186,40,0.04) 0%, transparent 65%)",
             filter: "blur(100px)",
           }}
         />
@@ -284,8 +284,8 @@ export default function Pillars() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <div className="mb-6 flex items-center gap-3">
-            <div className="h-px w-6 bg-[#9CDF3B] opacity-50" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#9CDF3B]/60">
+            <div className="h-px w-6 bg-[#70BA28] opacity-50" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#2E4D45]">
               [ Why Choose Us ]
             </span>
           </div>
@@ -295,7 +295,7 @@ export default function Pillars() {
             style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
           >
             Why Businesses Choose{" "}
-            <span className="text-[#9CDF3B]">Click Aarambh Ventures</span>
+            <span className="text-[#70BA28]">Click Aarambh Ventures</span>
           </h2>
           <p
             className="max-w-lg text-[clamp(0.95rem,1.3vw,1.05rem)] leading-[1.7] text-[#4B635D]"
@@ -311,14 +311,14 @@ export default function Pillars() {
           {/* Left: decorative anchor (no h2 — heading is above) */}
           <div className="col-span-4">
             <div className="sticky top-[80px]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/20">
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#2E4D45]">
                 Built on four non-negotiable principles.
               </p>
               <div className="mt-8 space-y-3">
                 {PILLARS.map((p) => (
                   <div key={p.id} className="flex items-center gap-3">
-                    <div className="h-px w-4 bg-[#9CDF3B] opacity-30" />
-                    <span className="font-mono text-[10px] text-[#0D2E26]/30">
+                    <div className="h-px w-4 bg-[#70BA28] opacity-30" />
+                    <span className="font-mono text-[10px] text-[#2E4D45]">
                       {p.numeral} — {p.title}
                     </span>
                   </div>

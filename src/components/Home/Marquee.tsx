@@ -35,12 +35,12 @@ export default function Marquee() {
       >
         {/* Top Border Light Pulse */}
         {!reducedMotion && (
-          <div className="absolute top-0 left-0 h-px w-[200px] bg-gradient-to-r from-transparent via-[#82C21C] to-transparent animate-border-pulse" />
+          <div className="absolute top-0 left-0 h-px w-[200px] bg-gradient-to-r from-transparent via-[#70BA28] to-transparent animate-border-pulse" />
         )}
 
         {/* Soft Moving Light Sweep */}
         {!reducedMotion && (
-          <div className="pointer-events-none absolute inset-y-0 w-[400px] bg-[radial-gradient(ellipse_at_center,rgba(130,194,28,0.15)_0%,transparent_70%)] mix-blend-screen animate-light-sweep" />
+          <div className="pointer-events-none absolute inset-y-0 w-[400px] bg-[radial-gradient(ellipse_at_center,rgba(112,186,40,0.15)_0%,transparent_70%)] mix-blend-screen animate-light-sweep" />
         )}
 
         {/* 
@@ -85,7 +85,7 @@ export default function Marquee() {
 
       {/* Trust Indicator Bridge */}
       <div className="mt-6 flex w-full justify-center">
-        <p className="font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-[#0D2E26]/30">
+        <p className="font-mono text-[9px] font-bold uppercase tracking-[0.3em] text-[#2E4D45]">
           Trusted By Growing Businesses Across India
         </p>
       </div>

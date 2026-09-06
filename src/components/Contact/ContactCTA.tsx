@@ -44,14 +44,14 @@ export default function ContactCTA() {
           href="/contact"
           className="group relative inline-flex items-center justify-center overflow-hidden bg-black px-12 py-5 rounded-xl transition-all duration-300"
           style={{
-            boxShadow: "inset 0 0 0 1px rgba(130,194,28,0.4), 0 0 30px rgba(130,194,28,0.1)",
+            boxShadow: "inset 0 0 0 1px rgba(112,186,40,0.4), 0 0 30px rgba(112,186,40,0.1)",
           }}
         >
           {/* Subtle directional bottom glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#70BA28] opacity-40 shadow-[0_0_20px_rgba(130,194,28,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#70BA28] opacity-40 shadow-[0_0_20px_rgba(112,186,40,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
           
           {/* Border Snap on Hover */}
-          <div className="absolute inset-0 rounded-xl border border-[#82C21C] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 rounded-xl border border-[#70BA28] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {/* Text with tightening letter-spacing on hover */}
           <span className="relative z-10 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#70BA28] transition-all duration-300 group-hover:tracking-[0.18em]">

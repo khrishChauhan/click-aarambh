@@ -37,17 +37,17 @@ export default function WorkCTA() {
           href="/contact"
           className="group relative inline-flex items-center justify-center overflow-hidden bg-black px-12 py-5 transition-all duration-300"
           style={{
-            boxShadow: "inset 0 0 0 1px rgba(156,223,59,0.4)",
+            boxShadow: "inset 0 0 0 1px rgba(112,186,40,0.4)",
           }}
         >
           {/* Subtle directional bottom glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#9CDF3B] opacity-40 shadow-[0_0_20px_rgba(156,223,59,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-[#70BA28] opacity-40 shadow-[0_0_20px_rgba(112,186,40,0.8)] transition-opacity duration-300 group-hover:opacity-100" />
           
           {/* Border Snap on Hover */}
-          <div className="absolute inset-0 border border-[#9CDF3B] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 border border-[#70BA28] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
           {/* Text with tightening letter-spacing on hover */}
-          <span className="relative z-10 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#9CDF3B] transition-all duration-300 group-hover:tracking-[0.18em]">
+          <span className="relative z-10 font-mono text-[13px] font-bold uppercase tracking-[0.2em] text-[#70BA28] transition-all duration-300 group-hover:tracking-[0.18em]">
             Initiate Project
           </span>
         </Link>

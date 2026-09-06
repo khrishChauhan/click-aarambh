@@ -44,7 +44,7 @@ export default function ThankYouPage() {
             <div className="w-10 h-10 rounded-full bg-[#13221F] border-2 border-[#061917] flex items-center justify-center text-[#70BA28]/80">
               <User size={20} />
             </div>
-            <div className="w-10 h-10 rounded-full bg-[#0D1815] border-2 border-[#061917] flex items-center justify-center text-[#70BA28]/60">
+            <div className="w-10 h-10 rounded-full bg-[#0D1815] border-2 border-[#061917] flex items-center justify-center text-[#2E4D45]">
               <User size={20} />
             </div>
           </div>

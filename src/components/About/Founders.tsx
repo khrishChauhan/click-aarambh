@@ -87,7 +87,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
           style={{
             opacity: hovered ? 1 : 0,
             background:
-              "radial-gradient(circle 150px at var(--mouse-x) var(--mouse-y), rgba(156,223,59,0.07) 0%, transparent 70%)",
+              "radial-gradient(circle 150px at var(--mouse-x) var(--mouse-y), rgba(112,186,40,0.07) 0%, transparent 70%)",
           }}
         />
       )}
@@ -99,7 +99,7 @@ function FounderPortrait({ reducedMotion }: { reducedMotion: boolean }) {
         animate={{
           borderColor:
             hovered && !reducedMotion
-              ? "rgba(156,223,59,0.3)"
+              ? "rgba(112,186,40,0.3)"
               : "rgba(255,255,255,0.05)",
         }}
         transition={{ duration: 0.4 }}
@@ -143,8 +143,8 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
         className="mb-10 flex items-center gap-3"
         variants={itemVariants}
       >
-        <div className="h-px w-6 bg-[#9CDF3B] opacity-50" />
-        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#9CDF3B]/60">
+        <div className="h-px w-6 bg-[#70BA28] opacity-50" />
+        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#2E4D45]">
           [ Meet The Team ]
         </span>
       </motion.div>
@@ -160,7 +160,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
 
       {/* Title */}
       <motion.p
-        className="mb-10 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#9CDF3B]"
+        className="mb-10 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#70BA28]"
         variants={itemVariants}
       >
         {FOUNDER.title}
@@ -171,7 +171,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
         className="mb-12 border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#2E4D45]">
           Background
         </p>
         <p className="text-[clamp(1rem,1.3vw,1.1rem)] leading-[1.7] text-[#2E4D45]">
@@ -184,7 +184,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
         className="mb-12 border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+        <p className="mb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#2E4D45]">
           Expertise
         </p>
         <ul className="space-y-2">
@@ -192,7 +192,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
             <li key={item} className="flex items-center gap-3">
               <span
                 className="h-px w-4 flex-shrink-0"
-                style={{ background: "rgba(156,223,59,0.5)" }}
+                style={{ background: "rgba(112,186,40,0.5)" }}
               />
               <span className="text-[0.95rem] text-[#0D2E26]/70">{item}</span>
             </li>
@@ -205,7 +205,7 @@ function FounderData({ reducedMotion }: { reducedMotion: boolean }) {
         className="border-t border-[#0D2E26]/10 pt-8"
         variants={itemVariants}
       >
-        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+        <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.2em] text-[#2E4D45]">
           Vision
         </p>
         <p className="text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.7] italic text-[#4B635D]">
@@ -234,7 +234,7 @@ export default function Founders() {
           className="absolute right-[-5%] top-[10%] h-[70vh] w-[50vw] rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(156,223,59,0.05) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(112,186,40,0.05) 0%, transparent 65%)",
             filter: "blur(80px)",
             animation: reducedMotion
               ? "none"

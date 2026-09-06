@@ -12,7 +12,7 @@ const CAPABILITIES = [
     desc: "Highly available, scalable platforms and bespoke applications engineered to handle aggressive scaling without fracturing under load.",
     metric: "99.99%",
     metricLabel: "Uptime SLA",
-    accent: "#82C21C",
+    accent: "#70BA28",
   },
   {
     id: "02",
@@ -21,7 +21,7 @@ const CAPABILITIES = [
     desc: "Algorithmic customer acquisition built on data architecture, not guesswork. Precision-targeted campaigns tied to revenue outcomes.",
     metric: "3–5×",
     metricLabel: "CAC Reduction",
-    accent: "#82C21C",
+    accent: "#70BA28",
   },
   {
     id: "03",
@@ -30,7 +30,7 @@ const CAPABILITIES = [
     desc: "Strategic scaling blueprints. From penetrating new demographics to automating fulfillment — built as a connected system, not a project.",
     metric: "∞",
     metricLabel: "Compounding Loops",
-    accent: "#82C21C",
+    accent: "#70BA28",
   },
 ];
 
@@ -89,7 +89,7 @@ export const CoreCapabilities = () => {
     >
       {/* Section label — fixed top-left */}
       <div className="absolute top-8 left-8 md:top-12 md:left-16 z-20 flex flex-col gap-4">
-        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#0D2E26]/30">Core Capabilities</span>
+        <span className="text-[10px] md:text-xs font-mono uppercase tracking-[0.25em] text-[#2E4D45]">Core Capabilities</span>
         {/* Progress dots */}
         <div className="flex gap-2">
           {CAPABILITIES.map((_, i) => (
@@ -99,7 +99,7 @@ export const CoreCapabilities = () => {
               style={{
                 width:  i === activeIdx ? "24px" : "6px",
                 height: "6px",
-                background: i === activeIdx ? "#82C21C" : "rgba(255,255,255,0.15)",
+                background: i === activeIdx ? "#70BA28" : "rgba(255,255,255,0.15)",
               }}
             />
           ))}
@@ -128,7 +128,7 @@ export const CoreCapabilities = () => {
               <div>
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-5 h-px bg-[#70BA28]" />
-                  <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#70BA28]/70">{cap.tag}</span>
+                  <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-[#2E4D45]">{cap.tag}</span>
                 </div>
                 <h2
                   className="text-[clamp(3rem,7vw,6.5rem)] font-bold leading-[0.88] tracking-[-0.03em] text-[#0D2E26] mb-8 whitespace-pre-line"
@@ -144,15 +144,15 @@ export const CoreCapabilities = () => {
               <div className="flex flex-col items-start md:items-end">
                 <div className="glass rounded-3xl border border-[#0D2E26]/10 p-8 md:p-10 shadow-[0_32px_80px_rgba(0,0,0,0.5)] noise relative overflow-hidden w-full max-w-sm">
                   {/* Noise texture rendered via CSS .noise::after */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#82C21C]/5 via-transparent to-transparent pointer-events-none rounded-3xl" />
-                  <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-[#0D2E26]/30 mb-4">{cap.tag} · {cap.id}</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#70BA28]/5 via-transparent to-transparent pointer-events-none rounded-3xl" />
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-[#2E4D45] mb-4">{cap.tag} · {cap.id}</span>
                   <div className="text-[clamp(3rem,5vw,4.5rem)] font-bold tracking-[-0.04em] text-[#70BA28] leading-none mb-2 whitespace-nowrap">
                     {cap.metric}
                   </div>
                   <div className="text-sm text-[#4B635D] font-medium">{cap.metricLabel}</div>
 
                   {/* Subtle bottom border glow */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#82C21C]/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#70BA28]/30 to-transparent" />
                 </div>
               </div>
             </div>

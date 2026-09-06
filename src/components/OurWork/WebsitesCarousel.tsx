@@ -80,7 +80,7 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       
       {/* Button Overlay on Hover */}
       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none">
-        <div className="px-6 py-3 rounded-full bg-[#0D2E26]/10 backdrop-blur-md shadow-[0_0_40px_rgba(0,0,0,0.3)] border border-[#0D2E26]/20 text-[#0D2E26] font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1]">
+        <div className="px-6 py-3 rounded-full bg-[#0D2E26]/10 backdrop-blur-md shadow-[0_10px_30px_-10px_rgba(13,46,38,0.08),0_4px_6px_-2px_rgba(13,46,38,0.04)] border border-[#0D2E26]/20 text-[#0D2E26] font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1]">
           Visit Website
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
         </div>
@@ -89,7 +89,7 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       {/* Meta Info */}
       <div className="absolute bottom-6 left-6 right-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1] z-30">
         <div className="flex items-center gap-3 mb-3">
-          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
+          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#70BA28]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
             WEB DESIGN
           </span>
         </div>

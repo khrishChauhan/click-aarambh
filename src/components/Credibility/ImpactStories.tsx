@@ -42,7 +42,7 @@ export const ImpactStories = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative bg-white border border-[#0D2E26]/10 rounded-3xl p-10 md:p-14 overflow-hidden group focus-within:ring-2 focus-within:ring-[#82C21C] focus-within:ring-offset-2 focus-within:ring-offset-[#061917]"
+              className="relative bg-white border border-[#0D2E26]/10 rounded-3xl p-10 md:p-14 overflow-hidden group focus-within:ring-2 focus-within:ring-[#70BA28] focus-within:ring-offset-2 focus-within:ring-offset-[#061917]"
             >
               {/* Blueprint grid background */}
               <div
@@ -73,7 +73,7 @@ export const ImpactStories = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-white/20 flex-shrink-0" />
                     <span className="text-[#4B635D] text-sm line-through">{story.before}</span>
                   </div>
-                  <div className="w-px h-6 bg-gradient-to-b from-white/10 to-[#82C21C]/40 ml-[2px]" />
+                  <div className="w-px h-6 bg-gradient-to-b from-white/10 to-[#70BA28]/40 ml-[2px]" />
                   <div className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#70BA28] flex-shrink-0 mt-1.5" />
                     <span className="text-[#0D2E26] text-base leading-relaxed font-medium">{story.after}</span>

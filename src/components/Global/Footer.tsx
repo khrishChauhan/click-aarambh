@@ -32,7 +32,7 @@ export default function Footer() {
       {/* Soft corner glow anchored to bottom right */}
       <div 
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-[20%] -right-[10%] h-[50vh] w-[50vh] rounded-full bg-[#9CDF3B] opacity-[0.03] blur-[100px]" 
+        className="pointer-events-none absolute -bottom-[20%] -right-[10%] h-[50vh] w-[50vh] rounded-full bg-[#70BA28] opacity-[0.03] blur-[100px]" 
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-24">
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Col 2: Navigation (Span 2) */}
           <div className="col-span-1 lg:col-span-2 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#2E4D45]">
               Navigation
             </h4>
             <nav className="flex flex-col gap-4">
@@ -66,7 +66,7 @@ export default function Footer() {
                 <Link 
                   key={link.href} 
                   href={link.href}
-                  className="text-[14px] text-[#0D2E26]/70 transition-colors hover:text-[#9CDF3B] w-fit"
+                  className="text-[14px] text-[#0D2E26]/70 transition-colors hover:text-[#70BA28] w-fit"
                 >
                   {link.label}
                 </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
 
           {/* Col 3: Services (Span 3) */}
           <div className="col-span-1 lg:col-span-3 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#2E4D45]">
               Services
             </h4>
             <ul className="flex flex-col gap-4">
@@ -90,7 +90,7 @@ export default function Footer() {
 
           {/* Col 4: Contact (Span 3) */}
           <div className="col-span-2 lg:col-span-3 flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#0D2E26]/30">
+            <h4 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#2E4D45]">
               Get In Touch
             </h4>
             <div className="flex flex-col gap-4">
@@ -107,10 +107,10 @@ export default function Footer() {
                 href="/contact"
                 className="group mt-2 inline-flex items-center gap-2 w-fit"
               >
-                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[#9CDF3B] transition-colors group-hover:text-[#0D2E26]">
+                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[#70BA28] transition-colors group-hover:text-[#0D2E26]">
                   Start Your Growth Journey
                 </span>
-                <span className="text-[#9CDF3B] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#0D2E26]">
+                <span className="text-[#70BA28] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#0D2E26]">
                   →
                 </span>
               </Link>
@@ -121,10 +121,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-[#0D2E26]/10 pt-8 md:flex-row">
-          <p className="font-mono text-[10px] tracking-[0.1em] text-[#0D2E26]/30 uppercase">
+          <p className="font-mono text-[10px] tracking-[0.1em] text-[#2E4D45] uppercase">
             © 2026 Click Aarambh Ventures
           </p>
-          <p className="font-mono text-[10px] tracking-[0.1em] text-[#9CDF3B]/70 uppercase">
+          <p className="font-mono text-[10px] tracking-[0.1em] text-[#2E4D45] uppercase">
             Technology. Growth. Systems.
           </p>
         </div>

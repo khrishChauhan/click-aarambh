@@ -63,7 +63,7 @@ export default function AboutCTA() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(156,223,59,0.08) 0%, transparent 60%)",
+            "radial-gradient(circle, rgba(112,186,40,0.08) 0%, transparent 60%)",
           filter: "blur(80px)",
           animation: reducedMotion
             ? "none"
@@ -84,11 +84,11 @@ export default function AboutCTA() {
             className="mb-10 flex items-center justify-center gap-3"
             variants={itemVariants}
           >
-            <div className="h-px w-8 bg-[#9CDF3B] opacity-40" />
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#9CDF3B]/50">
+            <div className="h-px w-8 bg-[#70BA28] opacity-40" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#2E4D45]">
               [ Ready To Build ]
             </span>
-            <div className="h-px w-8 bg-[#9CDF3B] opacity-40" />
+            <div className="h-px w-8 bg-[#70BA28] opacity-40" />
           </motion.div>
 
           {/* Headline */}
@@ -99,11 +99,11 @@ export default function AboutCTA() {
           >
             Let&apos;s Build Something{" "}
             <span
-              className="text-[#9CDF3B]"
+              className="text-[#70BA28]"
               style={{
                 textShadow: reducedMotion
                   ? "none"
-                  : "0 0 40px rgba(156,223,59,0.25)",
+                  : "0 0 40px rgba(112,186,40,0.25)",
               }}
             >
               That Scales.
@@ -125,33 +125,22 @@ export default function AboutCTA() {
             <Link
               href="/contact"
               id="about-cta-button"
-              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl px-8 py-4 text-[1.05rem] font-semibold transition-all duration-300"
+              className="group relative inline-flex items-center gap-3 overflow-hidden rounded-2xl px-8 py-4 text-[1.05rem] font-bold transition-all duration-300 shadow-md"
               style={{
-                background: "rgba(8,34,32,0.5)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                border: "1px solid rgba(156,223,59,0.25)",
-                boxShadow:
-                  "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 0 rgba(156,223,59,0)",
-                color: "#9CDF3B",
+                background: "#70BA28",
+                color: "#0D2E26",
               }}
               onMouseEnter={(e) => {
                 if (reducedMotion) return;
                 const el = e.currentTarget;
-                el.style.borderColor = "rgba(156,223,59,0.6)";
-                el.style.boxShadow =
-                  "inset 0 1px 0 rgba(255,255,255,0.12), 0 0 30px rgba(156,223,59,0.15)";
-                el.style.color = "#ffffff";
-                el.style.background = "rgba(8,34,32,0.75)";
+                el.style.background = "#62A422";
+                el.style.boxShadow = "0 8px 24px -8px rgba(13,46,38,0.15)";
               }}
               onMouseLeave={(e) => {
                 if (reducedMotion) return;
                 const el = e.currentTarget;
-                el.style.borderColor = "rgba(156,223,59,0.25)";
-                el.style.boxShadow =
-                  "inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 0 rgba(156,223,59,0)";
-                el.style.color = "#9CDF3B";
-                el.style.background = "rgba(8,34,32,0.5)";
+                el.style.background = "#70BA28";
+                el.style.boxShadow = "0 4px 6px -1px rgba(0,0,0,0.1)";
               }}
             >
               Start Your Growth Journey
@@ -177,7 +166,7 @@ export default function AboutCTA() {
 
           {/* Micro-trust label */}
           <motion.p
-            className="mt-6 font-mono text-[9px] uppercase tracking-[0.2em] text-[#9CDF3B]/30"
+            className="mt-6 font-mono text-[9px] uppercase tracking-[0.2em] text-[#2E4D45]"
             variants={itemVariants}
           >
             [ Secure Enterprise Consultation ]

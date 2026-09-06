@@ -95,7 +95,7 @@ export default function FeaturedCaseStudy() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: EASE }}
         >
-          <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CDF3B]">
+          <p className="mb-6 font-mono text-[10px] uppercase tracking-[0.2em] text-[#70BA28]">
             Featured Architecture
           </p>
           <h2 className="max-w-3xl font-extrabold leading-[1.05] tracking-[-0.03em] text-[#0D2E26]" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}>
@@ -122,7 +122,7 @@ export default function FeaturedCaseStudy() {
                   >
                     <div className="flex items-center gap-4 mb-4">
                       <span className="font-mono text-[14px] font-bold text-[#4B635D]">0{index + 1}</span>
-                      <span className={`font-mono text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isActive ? "text-[#9CDF3B]" : "text-[#0D2E26]/30"}`}>
+                      <span className={`font-mono text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-500 ${isActive ? "text-[#70BA28]" : "text-[#2E4D45]"}`}>
                         {phase.label}
                       </span>
                     </div>
@@ -155,7 +155,7 @@ export default function FeaturedCaseStudy() {
                       background: index === 0 ? "radial-gradient(circle at 20% 30%, #082220 0%, #000 80%)" :
                                   index === 1 ? "radial-gradient(circle at 80% 20%, #061917 0%, #000 80%)" :
                                   index === 2 ? "linear-gradient(135deg, #020f0d 0%, #000 100%)" :
-                                  "radial-gradient(circle at 50% 50%, rgba(156,223,59,0.05) 0%, #000 70%)"
+                                  "radial-gradient(circle at 50% 50%, rgba(112,186,40,0.05) 0%, #000 70%)"
                     }}
                   >
                     {/* Placeholder structural elements simulating UI density */}
@@ -167,7 +167,7 @@ export default function FeaturedCaseStudy() {
                       </div>
                       {/* Slow pan effect on hover */}
                       <div className="absolute inset-0 top-8 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] transition-transform duration-[10s] ease-linear group-hover:scale-110 group-hover:translate-x-4" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#0D2E26]/20 font-mono text-xs tracking-widest uppercase">
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#2E4D45] font-mono text-xs tracking-widest uppercase">
                         [ VISUAL: {phase.label} ARCHITECTURE ]
                       </div>
                     </div>

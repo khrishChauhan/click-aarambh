@@ -210,7 +210,7 @@ export const ParadigmShift = () => {
       {/* ── MORPH SWEEP LINE ── */}
       <div
         ref={morphLineRef}
-        className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#82C21C] to-transparent opacity-0 pointer-events-none z-20"
+        className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#70BA28] to-transparent opacity-0 pointer-events-none z-20"
         aria-hidden="true"
       />
 
@@ -219,7 +219,7 @@ export const ParadigmShift = () => {
         ref={ch2Ref}
         className="absolute inset-0 flex flex-col items-center justify-center"
       >
-        <p className="text-xs font-mono uppercase tracking-[0.3em] text-[#70BA28]/50 mb-6">
+        <p className="text-xs font-mono uppercase tracking-[0.3em] text-[#2E4D45] mb-6">
           The Growth Engine
         </p>
         <h2
@@ -236,11 +236,11 @@ export const ParadigmShift = () => {
         >
           {ENGINE_NODES.map((node, i) => (
             <div key={i} className="flex items-center">
-              <span className="px-4 py-2 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/25 text-[#70BA28] text-sm font-semibold tracking-wide whitespace-nowrap shadow-[0_0_16px_rgba(130,194,28,0.08)]">
+              <span className="px-4 py-2 rounded-full bg-[#70BA28]/10 border border-[#70BA28]/25 text-[#70BA28] text-sm font-semibold tracking-wide whitespace-nowrap shadow-[0_0_16px_rgba(112,186,40,0.08)]">
                 {node}
               </span>
               {i < ENGINE_NODES.length - 1 && (
-                <span className="mx-2 md:mx-3 text-[#70BA28]/40 text-lg font-bold select-none">✦</span>
+                <span className="mx-2 md:mx-3 text-[#2E4D45] text-lg font-bold select-none">✦</span>
               )}
             </div>
           ))}
@@ -249,7 +249,7 @@ export const ParadigmShift = () => {
         {/* Converging line — the unification beam */}
         <div
           ref={ch2ConvergeLineRef}
-          className="w-px h-12 mt-2 bg-gradient-to-b from-[#82C21C]/30 to-[#82C21C] shadow-[0_0_12px_#82C21C]"
+          className="w-px h-12 mt-2 bg-gradient-to-b from-[#70BA28]/30 to-[#70BA28] shadow-[0_0_12px_#70BA28]"
         />
 
         {/* Connected Systems */}
@@ -262,12 +262,12 @@ export const ParadigmShift = () => {
         {/* Final line — bold, glowing */}
         <div
           ref={ch2FinalLineRef}
-          className="w-px h-10 bg-gradient-to-b from-[#82C21C] to-[#82C21C]/60 shadow-[0_0_20px_#82C21C]"
+          className="w-px h-10 bg-gradient-to-b from-[#70BA28] to-[#70BA28]/60 shadow-[0_0_20px_#70BA28]"
         />
 
         {/* Measurable Growth — emotional peak */}
         <div ref={ch2GrowthRef} className="text-center">
-          <p className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[#70BA28] drop-shadow-[0_0_40px_rgba(130,194,28,0.5)]">
+          <p className="text-3xl md:text-5xl font-extrabold tracking-tighter text-[#70BA28] drop-shadow-[0_0_40px_rgba(112,186,40,0.5)]">
             Measurable Growth.
           </p>
         </div>

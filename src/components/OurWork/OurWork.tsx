@@ -74,7 +74,7 @@ function ReelCard({ link, index }: { link: string; index: number }) {
       {/* Thumbnail Image */}
       {loading ? (
         <div className="absolute inset-0 z-0 bg-white animate-pulse flex items-center justify-center">
-           <div className="w-8 h-8 rounded-full border-2 border-[#0D2E26]/10 border-t-[#82C21C] animate-spin" />
+           <div className="w-8 h-8 rounded-full border-2 border-[#0D2E26]/10 border-t-[#70BA28] animate-spin" />
         </div>
       ) : (
         <img
@@ -98,7 +98,7 @@ function ReelCard({ link, index }: { link: string; index: number }) {
 
       {/* Play Button Overlay */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-        <div className="w-16 h-16 rounded-full bg-[#0D2E26]/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.3)] transform scale-90 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 ease-[0.23,1,0.32,1] border border-[#0D2E26]/20 text-[#0D2E26]">
+        <div className="w-16 h-16 rounded-full bg-[#0D2E26]/10 backdrop-blur-md flex items-center justify-center shadow-[0_10px_30px_-10px_rgba(13,46,38,0.08),0_4px_6px_-2px_rgba(13,46,38,0.04)] transform scale-90 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 ease-[0.23,1,0.32,1] border border-[#0D2E26]/20 text-[#0D2E26]">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="ml-1 drop-shadow-sm">
             <polygon points="6 3 20 12 6 21 6 3"/>
           </svg>
@@ -114,7 +114,7 @@ function ReelCard({ link, index }: { link: string; index: number }) {
               <span>{data.likes}</span>
             </div>
           )}
-          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#82C21C]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
+          <span className="px-2 py-0.5 rounded-full bg-[#70BA28]/10 border border-[#70BA28]/30 text-[9px] font-bold tracking-wider uppercase text-[#70BA28] backdrop-blur-md">
             SHOWCASE
           </span>
         </div>

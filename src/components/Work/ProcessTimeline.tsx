@@ -83,7 +83,7 @@ export default function ProcessTimeline() {
         
         {/* Section Header */}
         <div className="mb-24">
-          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#9CDF3B]">
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#70BA28]">
             Systemic Methodology
           </p>
           <h2 className="text-3xl font-extrabold text-[#0D2E26] tracking-[-0.03em] md:text-5xl max-w-2xl">
@@ -103,7 +103,7 @@ export default function ProcessTimeline() {
               {/* The bright green progress line that grows down */}
               <div 
                 ref={lineProgressRef}
-                className="absolute top-0 left-0 w-full h-full bg-[#9CDF3B] origin-top scale-y-0 shadow-[0_0_15px_rgba(156,223,59,0.5)]"
+                className="absolute top-0 left-0 w-full h-full bg-[#70BA28] origin-top scale-y-0 shadow-[0_0_15px_rgba(112,186,40,0.5)]"
               />
             </div>
 
@@ -118,8 +118,8 @@ export default function ProcessTimeline() {
                     top: `${(index / (TIMELINE_STEPS.length - 1)) * 100}%`,
                     // Move the nodes slightly down so they align with the top of the cards
                     marginTop: index === 0 ? "2rem" : index === TIMELINE_STEPS.length - 1 ? "-2rem" : "0",
-                    borderColor: isActive ? "#9CDF3B" : "rgba(255,255,255,0.2)",
-                    boxShadow: isActive ? "0 0 10px rgba(156,223,59,0.6)" : "none",
+                    borderColor: isActive ? "#70BA28" : "rgba(255,255,255,0.2)",
+                    boxShadow: isActive ? "0 0 10px rgba(112,186,40,0.6)" : "none",
                   }}
                 />
               );
@@ -145,7 +145,7 @@ export default function ProcessTimeline() {
                   <div className="absolute -inset-4 z-0 rounded-2xl transition-colors duration-300 group-hover:bg-[#0D2E26]/[0.02]" />
                   
                   <div className="relative z-10 max-w-2xl pl-4 md:pl-0 pt-6 md:pt-8">
-                    <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#9CDF3B]/70">
+                    <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#2E4D45]">
                       {step.meta}
                     </p>
                     <h3 className="mb-4 text-2xl md:text-3xl font-bold text-[#0D2E26] tracking-[-0.02em]">

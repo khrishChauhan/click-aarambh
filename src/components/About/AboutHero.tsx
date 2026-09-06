@@ -46,7 +46,7 @@ export default function AboutHero() {
             className="h-[700px] w-[700px] rounded-full"
             style={{
               background:
-                "radial-gradient(ellipse at center, rgba(156,223,59,0.12) 0%, rgba(156,223,59,0.04) 40%, transparent 70%)",
+                "radial-gradient(ellipse at center, rgba(112,186,40,0.12) 0%, rgba(112,186,40,0.04) 40%, transparent 70%)",
               filter: "blur(60px)",
             }}
           />
@@ -66,7 +66,7 @@ export default function AboutHero() {
             className="absolute left-0 right-0 h-[30vh]"
             style={{
               background:
-                "linear-gradient(to bottom, transparent 0%, rgba(156,223,59,0.02) 50%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, rgba(112,186,40,0.02) 50%, transparent 100%)",
               animation: "scan-line 25s linear 1.5s infinite",
               willChange: "transform",
             }}
@@ -84,16 +84,16 @@ export default function AboutHero() {
           aria-label="Eyebrow label"
         >
           <div
-            className="h-px w-8 bg-[#9CDF3B]"
+            className="h-px w-8 bg-[#70BA28]"
             style={{ opacity: 0.5 }}
           />
           <span
-            className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#9CDF3B]/70"
+            className="font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#2E4D45]"
           >
             [ SYSTEM ARCHITECTS ]
           </span>
           <div
-            className="h-px w-8 bg-[#9CDF3B]"
+            className="h-px w-8 bg-[#70BA28]"
             style={{ opacity: 0.5 }}
           />
         </motion.div>
@@ -114,7 +114,7 @@ export default function AboutHero() {
                 initial: { opacity: 0, y: reducedMotion ? 0 : 24 },
                 animate: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } }
               }}
-              className={word === "Growth" ? "text-[#9CDF3B]" : ""}
+              className={word === "Growth" ? "text-[#70BA28]" : ""}
               style={word === "Growth" && !reducedMotion ? {
                 textShadow: "0 0 40px rgba(156, 223, 59, 0.35), 0 0 80px rgba(156, 223, 59, 0.12)"
               } : {}}
@@ -141,12 +141,12 @@ export default function AboutHero() {
           className="mt-20 hidden flex-col items-center gap-2 md:flex"
           aria-hidden="true"
         >
-          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#0D2E26]/20">
+          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-[#2E4D45]">
             scroll
           </span>
           <div className="h-8 w-px overflow-hidden bg-[#0D2E26]/5">
             <div
-              className="h-1/2 w-full bg-[#9CDF3B]/40"
+              className="h-1/2 w-full bg-[#70BA28]/40"
               style={{
                 animation: reducedMotion
                   ? "none"

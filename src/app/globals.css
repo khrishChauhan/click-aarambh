@@ -48,18 +48,18 @@
   }
 
   .text-gradient-brand {
-    background: linear-gradient(135deg, #A8F23A 0%, #82C21C 60%, #5a8c0a 100%);
+    background: linear-gradient(135deg, #A8F23A 0%, #70BA28 60%, #5a8c0a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .shadow-brand {
-    box-shadow: 0 0 0 1px rgba(130,194,28,0.15), 0 8px 32px rgba(0,0,0,0.4), 0 0 80px rgba(130,194,28,0.05);
+    box-shadow: 0 0 0 1px rgba(112,186,40,0.15), 0 8px 32px rgba(0,0,0,0.4), 0 0 80px rgba(112,186,40,0.05);
   }
 
   .shadow-brand-intense {
-    box-shadow: 0 0 0 1px rgba(130,194,28,0.3), 0 0 40px rgba(130,194,28,0.15), 0 0 120px rgba(130,194,28,0.06);
+    box-shadow: 0 0 0 1px rgba(112,186,40,0.3), 0 0 40px rgba(112,186,40,0.15), 0 0 120px rgba(112,186,40,0.06);
   }
 
   .ease-apple {
@@ -118,7 +118,7 @@ body {
 
 /* ── Focus visible override ────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #82C21C;
+  outline: 2px solid #70BA28;
   outline-offset: 3px;
   border-radius: 4px;
 }

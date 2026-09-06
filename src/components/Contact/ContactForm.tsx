@@ -74,7 +74,7 @@ export default function ContactForm() {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-[#0D2E26]/10 bg-white p-4 text-[#0D2E26] placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-[#82C21C] focus:bg-[#70BA28]/5 focus:outline-none focus:ring-1 focus:ring-[#70BA28]/50";
+    "w-full rounded-lg border border-[#0D2E26]/10 bg-white p-4 text-[#0D2E26] placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-[#70BA28] focus:bg-[#70BA28]/5 focus:outline-none focus:ring-1 focus:ring-[#70BA28]/50";
 
   const inputErrorClass =
     "w-full rounded-lg border border-red-500/50 bg-red-500/5 p-4 text-[#0D2E26] placeholder-white/20 backdrop-blur-md transition-all duration-300 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500/50";
@@ -186,7 +186,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={formState === "submitting"}
-                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-[#0D2E26]/20 bg-[#0D2E26]/5 px-8 py-4 transition-all duration-300 hover:border-[#70BA28]/50 hover:bg-[#70BA28]/10 hover:shadow-[0_0_20px_rgba(130,194,28,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#82C21C] disabled:opacity-50 md:w-auto"
+                className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-xl border border-[#0D2E26]/20 bg-[#0D2E26]/5 px-8 py-4 transition-all duration-300 hover:border-[#70BA28]/50 hover:bg-[#70BA28]/10 hover:shadow-[0_0_20px_rgba(112,186,40,0.2)] outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28] disabled:opacity-50 md:w-auto"
               >
                 <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0D2E26] transition-colors group-hover:text-[#70BA28]">
                   {formState === "submitting" ? "Transmitting..." : "Submit Discovery Request"}

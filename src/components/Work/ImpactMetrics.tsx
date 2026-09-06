@@ -107,7 +107,7 @@ export default function ImpactMetrics() {
                     {reducedMotion ? metric.value : "0"}
                   </span>
                   <span 
-                    className="text-[#9CDF3B]"
+                    className="text-[#70BA28]"
                     style={{ fontSize: metric.isHero ? "clamp(2rem, 5vw, 4rem)" : "clamp(1.5rem, 3vw, 2.5rem)" }}
                   >
                     {metric.suffix}
@@ -117,8 +117,8 @@ export default function ImpactMetrics() {
                 {/* Context Tag (Pill) */}
                 <div className="mt-6 mb-4 self-start rounded-full border px-3 py-1 font-mono text-[9px] uppercase tracking-[0.2em] transition-colors duration-300"
                      style={{ 
-                       borderColor: isHovered ? "rgba(156,223,59,0.5)" : "rgba(255,255,255,0.1)",
-                       color: isHovered ? "#9CDF3B" : "rgba(255,255,255,0.5)",
+                       borderColor: isHovered ? "rgba(112,186,40,0.5)" : "rgba(255,255,255,0.1)",
+                       color: isHovered ? "#70BA28" : "rgba(255,255,255,0.5)",
                      }}
                 >
                   {metric.context}

@@ -14,7 +14,7 @@ export const MidPageCTA = () => {
           Don't wait for systems to break. Let our architects review your software stack and customer acquisition models to identify the bottlenecks holding you back.
         </p>
         <button 
-          className="px-8 py-4 text-sm font-semibold tracking-wide text-[#0D2E26] bg-transparent border border-[#82C21C] rounded hover:bg-[#70BA28] hover:text-[#061917] focus:outline-none focus:ring-2 focus:ring-[#82C21C] focus:ring-offset-2 focus:ring-offset-[#082220] uppercase"
+          className="px-8 py-4 text-sm font-semibold tracking-wide text-[#0D2E26] bg-transparent border border-[#70BA28] rounded hover:bg-[#70BA28] hover:text-[#061917] focus:outline-none focus:ring-2 focus:ring-[#70BA28] focus:ring-offset-2 focus:ring-offset-[#082220] uppercase"
           style={{ transition: "background-color 0.2s ease, color 0.2s ease" }}
         >
           Book a Free Growth Audit
