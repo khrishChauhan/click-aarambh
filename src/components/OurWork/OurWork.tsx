@@ -95,15 +95,6 @@ function ReelCard({ link, index }: { link: string; index: number }) {
         </svg>
       </div>
 
-      {/* Play Button Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-        <div className="w-16 h-16 rounded-full bg-[#0D2E26]/10 backdrop-blur-md flex items-center justify-center shadow-[0_10px_30px_-10px_rgba(13,46,38,0.08),0_4px_6px_-2px_rgba(13,46,38,0.04)] transform scale-90 group-hover:scale-110 group-hover:bg-white/20 transition-all duration-500 ease-[0.23,1,0.32,1] border border-[#0D2E26]/20 text-[#0D2E26]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="ml-1 drop-shadow-sm">
-            <polygon points="6 3 20 12 6 21 6 3"/>
-          </svg>
-        </div>
-      </div>
-
       {/* Meta Info */}
       <div className="absolute bottom-6 left-6 right-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1] z-30">
         <div className="flex items-center gap-3 mb-3">
@@ -117,10 +108,17 @@ function ReelCard({ link, index }: { link: string; index: number }) {
             SHOWCASE
           </span>
         </div>
-        <h3 className="text-[#0D2E26] text-[1.1rem] font-bold leading-tight mb-1 drop-shadow-sm">
-          {data.title}
-        </h3>
-        <p className="text-[#0D2E26]/70 text-[13px] font-medium leading-snug line-clamp-2">
+        <div className="flex items-center justify-between">
+          <h3 className="text-[#0D2E26] text-[1.1rem] font-bold leading-tight drop-shadow-sm line-clamp-1">
+            {data.title}
+          </h3>
+          <div className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-[#0D2E26]">
+              <polygon points="6 3 20 12 6 21 6 3"/>
+            </svg>
+          </div>
+        </div>
+        <p className="text-[#0D2E26]/70 text-[13px] font-medium leading-snug line-clamp-2 mt-1">
           {data.description}
         </p>
       </div>

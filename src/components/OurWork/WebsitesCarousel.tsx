@@ -77,14 +77,6 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
       {/* Gradient Overlay for bottom text legibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/30 to-transparent opacity-100 transition-opacity duration-500 z-10" />
       
-      {/* Button Overlay on Hover */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 pointer-events-none">
-        <div className="px-6 py-3 rounded-full bg-[#0D2E26]/10 backdrop-blur-md shadow-[0_10px_30px_-10px_rgba(13,46,38,0.08),0_4px_6px_-2px_rgba(13,46,38,0.04)] border border-[#0D2E26]/20 text-[#0D2E26] font-semibold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1]">
-          Visit Website
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-        </div>
-      </div>
-
       {/* Meta Info */}
       <div className="absolute bottom-6 left-6 right-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-[0.23,1,0.32,1] z-30">
         <div className="flex items-center gap-3 mb-3">
@@ -92,9 +84,14 @@ function WebsiteCard({ website }: { website: typeof WEBSITES[0] }) {
             WEB DESIGN
           </span>
         </div>
-        <h3 className="text-[#0D2E26] text-[1.2rem] font-bold leading-tight mb-1 drop-shadow-sm">
-          {website.title}
-        </h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-[#0D2E26] text-[1.2rem] font-bold leading-tight drop-shadow-sm">
+            {website.title}
+          </h3>
+          <div className="opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D2E26" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          </div>
+        </div>
       </div>
     </a>
   );
