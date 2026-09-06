@@ -70,7 +70,7 @@ export default function Navbar() {
               alt="Click Aarambh Ventures Logo" 
               width={240} 
               height={80} 
-              className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90" 
+              className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90 brightness-0 opacity-90" 
               priority 
             />
           </Link>
@@ -95,7 +95,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#9CDF3B]"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#70BA28]"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -108,9 +108,9 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden md:inline-flex group relative items-center justify-center overflow-hidden rounded-xl border border-[#0D2E26]/20 bg-[#0D2E26]/5 px-8 py-3 transition-all duration-300 hover:border-[#9CDF3B]/50 hover:bg-[#9CDF3B]/10 hover:shadow-[0_0_20px_rgba(156,223,59,0.3)] outline-none focus-visible:ring-2 focus-visible:ring-[#9CDF3B]"
+              className="hidden md:inline-flex group relative items-center justify-center overflow-hidden rounded-xl bg-[#70BA28] px-8 py-3 transition-all duration-300 hover:bg-[#62A422] shadow-sm hover:shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28]"
             >
-              <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0D2E26] transition-colors group-hover:text-[#9CDF3B]">
+              <span className="relative z-10 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0D2E26] transition-colors">
                 Start Your Growth Journey
               </span>
             </Link>
@@ -118,16 +118,16 @@ export default function Navbar() {
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-full bg-[#0D2E26]/5 border border-[#0D2E26]/10 outline-none"
+              className="md:hidden relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] rounded-full bg-[#0D2E26]/5 border border-[#0D2E26]/10 outline-none hover:bg-[#0D2E26]/10 transition-colors"
               aria-label="Toggle Menu"
             >
               <motion.div 
-                className="h-[2px] w-4 bg-white"
+                className="h-[2px] w-4 bg-[#0D2E26]"
                 animate={mobileMenuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: EASE }}
               />
               <motion.div 
-                className="h-[2px] w-4 bg-white"
+                className="h-[2px] w-4 bg-[#0D2E26]"
                 animate={mobileMenuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: EASE }}
               />
