@@ -181,9 +181,6 @@ export default function WebsitesCarousel() {
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-[#0D2E26] mb-3 tracking-tight">
               Websites
             </h2>
-            <p className="text-[#4B635D] text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
-              High-performance, beautifully crafted web experiences built to convert and captivate.
-            </p>
           </motion.div>
         </div>
 

@@ -107,9 +107,6 @@ export default function WebAppsShowcase() {
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-[#0D2E26] mb-3 tracking-tight">
               Web Apps
             </h2>
-            <p className="text-[#4B635D] text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
-              Complex logic meets beautiful design. Custom platforms engineered for scale and performance.
-            </p>
           </motion.div>
         </div>
       </div>

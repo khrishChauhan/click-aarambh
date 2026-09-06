@@ -207,9 +207,6 @@ export default function OurWork() {
               <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-[#0D2E26] mb-3 tracking-tight">
                 Our Work
               </h2>
-              <p className="text-[#4B635D] text-[clamp(1rem,1.5vw,1.1rem)] max-w-md">
-                A cinematic showcase of our premium video production projects, tailored for high-impact storytelling.
-              </p>
             </motion.div>
           </div>
 
