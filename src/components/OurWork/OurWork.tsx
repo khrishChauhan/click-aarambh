@@ -19,16 +19,26 @@ const REEL_LINKS = [
   "https://www.instagram.com/reel/DY8fboigCN1/?igsh=MXFpcncyNHIzMXVkaQ==",
 ];
 
+const igCache = new Map<string, { imageUrl: string | null; title: string; description: string; likes: string | null }>();
+
 function ReelCard({ link, index }: { link: string; index: number }) {
-  const [data, setData] = useState<{imageUrl: string | null; title: string; description: string; likes: string | null}>({
-    imageUrl: null,
-    title: "",
-    description: "",
-    likes: null
+  const [data, setData] = useState<{imageUrl: string | null; title: string; description: string; likes: string | null}>(() => {
+    return igCache.get(link) || {
+      imageUrl: null,
+      title: "",
+      description: "",
+      likes: null
+    };
   });
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !igCache.has(link));
 
   useEffect(() => {
+    if (igCache.has(link)) {
+      setData(igCache.get(link)!);
+      setLoading(false);
+      return;
+    }
+
     let isMounted = true;
     async function fetchThumbnail() {
       try {
@@ -36,13 +46,15 @@ function ReelCard({ link, index }: { link: string; index: number }) {
         const res = await fetch(`/api/ig-thumbnail?url=${encodeURIComponent(link)}`);
         if (res.ok) {
           const fetchedData = await res.json();
+          const parsed = {
+            imageUrl: fetchedData.imageUrl || null,
+            title: fetchedData.title || "Instagram Reel",
+            description: fetchedData.description || "",
+            likes: fetchedData.likes || null
+          };
+          igCache.set(link, parsed);
           if (isMounted) {
-            setData({
-              imageUrl: fetchedData.imageUrl || null,
-              title: fetchedData.title || "Instagram Reel",
-              description: fetchedData.description || "",
-              likes: fetchedData.likes || null
-            });
+            setData(parsed);
             console.log(`[ReelCard] Successfully fetched data for: ${link}`);
           }
         } else {

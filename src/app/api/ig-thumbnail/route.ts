@@ -1,11 +1,24 @@
 import { NextResponse } from 'next/server';
 
+const serverCache = new Map<string, { payload: any; timestamp: number }>();
+const CACHE_TTL = 1000 * 60 * 60 * 24; // 24 hours
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const url = searchParams.get('url');
 
   if (!url) {
     return NextResponse.json({ error: 'URL is required' }, { status: 400 });
+  }
+
+  const cached = serverCache.get(url);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return NextResponse.json(cached.payload, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    });
   }
 
   try {
@@ -44,8 +57,11 @@ export async function GET(request: Request) {
       
       console.log(`[IG Fetch] Successfully fetched data for: ${url}`);
       
+      const payload = { imageUrl, title, description, likes };
+      serverCache.set(url, { payload, timestamp: Date.now() });
+
       return NextResponse.json(
-        { imageUrl, title, description, likes },
+        payload,
         {
           status: 200,
           headers: {
