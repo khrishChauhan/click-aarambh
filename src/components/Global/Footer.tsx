@@ -4,6 +4,7 @@ import Image from "next/image";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   // TODO: Re-enable Work page in the future
   // { label: "Work", href: "/work" },
 ];
