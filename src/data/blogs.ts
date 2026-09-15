@@ -38,7 +38,7 @@ export const FEATURED_POST: BlogPost = {
   image:
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600',
   author: {
-    name: 'Khrish Chauhan',
+    name: 'Aarav Roy',
     role: 'Founding Partner & CTO',
     avatar:
       'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
@@ -75,7 +75,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image:
       'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
     author: {
-      name: 'Abhishek Raj',
+      name: 'Kabir Mehta',
       role: 'Growth Engineer',
       avatar:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
@@ -109,7 +109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image:
       'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200',
     author: {
-      name: 'Khrish Chauhan',
+      name: 'Aarav Roy',
       role: 'Founding Partner & CTO',
       avatar:
         'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
@@ -160,7 +160,7 @@ export const BLOG_POSTS: BlogPost[] = [
     image:
       'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200',
     author: {
-      name: 'Abhishek Raj',
+      name: 'Kabir Mehta',
       role: 'Growth Engineer',
       avatar:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
