@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import WebsitesCarousel from "./WebsitesCarousel";
 import WebAppsShowcase from "./WebAppsShowcase";
+import WorkBlogSection from "./WorkBlogSection";
 
 const REEL_LINKS = [
   "https://www.instagram.com/reel/Dac25Xkyz8j/?igsh=ZXo0ZTM0emMzOG95",
@@ -268,6 +269,7 @@ export default function OurWork() {
 
       <WebsitesCarousel />
       <WebAppsShowcase />
+      <WorkBlogSection />
 
       <style dangerouslySetInnerHTML={{__html: `
         .no-scrollbar::-webkit-scrollbar {
