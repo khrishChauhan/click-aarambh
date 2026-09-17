@@ -11,7 +11,13 @@ interface Props {
 export default function ConditionalVisibility({ children, hiddenRoutes }: Props) {
   const pathname = usePathname();
   
-  if (hiddenRoutes.includes(pathname)) {
+  const isHidden = hiddenRoutes.some((route) => {
+    if (pathname === route) return true;
+    if (pathname.startsWith(`${route}/`)) return true;
+    return false;
+  });
+
+  if (isHidden) {
     return null;
   }
   
