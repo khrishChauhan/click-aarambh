@@ -24,14 +24,14 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased bg-white text-[#0D2E26] min-h-screen flex flex-col selection:bg-[#70BA28]/30`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <div className="flex flex-col min-h-screen">
-            <ScrollProgress />
-            <ConditionalVisibility hiddenRoutes={["/thank-you"]}>
+            <ConditionalVisibility hiddenRoutes={["/thank-you", "/admin"]}>
+              <ScrollProgress />
               <Navbar />
             </ConditionalVisibility>
             <main className="flex-grow">
               {children}
             </main>
-            <ConditionalVisibility hiddenRoutes={["/thank-you"]}>
+            <ConditionalVisibility hiddenRoutes={["/thank-you", "/admin"]}>
               <Footer />
             </ConditionalVisibility>
           </div>
