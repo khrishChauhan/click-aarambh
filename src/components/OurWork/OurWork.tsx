@@ -73,7 +73,10 @@ function ReelCard({ link, index }: { link: string; index: number }) {
     return () => { isMounted = false; };
   }, [link]);
 
-  const finalImage = data.imageUrl || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop";
+  const finalImage =
+    data.imageUrl && !data.imageUrl.startsWith("data:image")
+      ? data.imageUrl
+      : "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop";
 
   return (
     <a
