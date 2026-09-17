@@ -13,11 +13,13 @@ const REEL_LINKS = [
   "https://www.instagram.com/reel/Dap6kreCFY8/?igsh=eXRkMWQxdGp6a3Ri",
   "https://www.instagram.com/reel/DbQp5ywTcvm/?igsh=MXI2c256bGRnY2lreQ==",
   "https://www.instagram.com/reel/DaVa9HfTvRj/?igsh=MXAwbjE3d2RxbWhvMQ==",
-  "https://www.instagram.com/reel/DbYIPFmzZtD/?igsh=cGFjZzU2MmJla281",
-  "https://www.instagram.com/reel/Dbj-_MBR4y8/?igsh=MXJmMXdyZnM5NXI0Yg==",
   "https://www.instagram.com/reel/DblFc2yP8Fx/?igsh=MXcweDAzMzF4enp5ZQ==",
   "https://www.instagram.com/reel/DYwylHRlP7h/?igsh=bnNoNjViZXY1dDE5",
   "https://www.instagram.com/reel/DY8fboigCN1/?igsh=MXFpcncyNHIzMXVkaQ==",
+  "https://www.instagram.com/reel/DczpolWRmZE/?stkn=MWJ6bGdjdWEweWphYw==",
+  "https://www.instagram.com/reel/DdOdpdJxQDE/?stkn=ZnVlZTluenZnOXln",
+  "https://www.instagram.com/reel/DcKgv2tzVut/?stkn=NnB2cHhva2drdHU1",
+  "https://www.instagram.com/reel/Dc05Uaxz7BJ/?stkn=c3Rscml3djUxcWEw",
 ];
 
 const igCache = new Map<string, { imageUrl: string | null; title: string; description: string; likes: string | null }>();
