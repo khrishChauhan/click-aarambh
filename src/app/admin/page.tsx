@@ -144,6 +144,7 @@ export default function AdminPage() {
                 width={160}
                 height={50}
                 className="h-9 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
+                unoptimized
               />
             </Link>
 

@@ -50,6 +50,7 @@ export default function Footer() {
                 width={240} 
                 height={80} 
                 className="h-10 md:h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90" 
+                unoptimized
               />
             </Link>
             <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-[#4B635D] leading-relaxed">
