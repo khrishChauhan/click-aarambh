@@ -43,13 +43,13 @@ export default function Footer() {
           
           {/* Col 1: Brand (Span 4) */}
           <div className="col-span-2 lg:col-span-4 flex flex-col gap-6">
-            <Link href="/" className="inline-block outline-none group">
+            <Link href="/" className="inline-block outline-none group" aria-label="Click Aarambh Ventures Home">
               <Image 
                 src="/logo.png" 
                 alt="Click Aarambh Ventures Logo" 
-                width={280} 
-                height={100} 
-                className="h-16 md:h-20 w-auto object-contain transition-opacity group-hover:opacity-90" 
+                width={240} 
+                height={80} 
+                className="h-10 md:h-12 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90" 
               />
             </Link>
             <p className="max-w-[250px] font-mono text-[11px] uppercase tracking-[0.1em] text-[#4B635D] leading-relaxed">

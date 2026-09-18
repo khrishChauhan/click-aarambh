@@ -143,7 +143,7 @@ export default function AdminPage() {
                 alt="Click Aarambh Ventures Logo"
                 width={160}
                 height={50}
-                className="h-9 w-auto object-contain brightness-0 opacity-90 transition-opacity group-hover:opacity-100"
+                className="h-9 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
               />
             </Link>
 
