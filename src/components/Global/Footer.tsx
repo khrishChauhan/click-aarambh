@@ -98,7 +98,7 @@ export default function Footer() {
               <div className="flex flex-col gap-2.5">
                 <a 
                   href="mailto:support@clickaarambh.com" 
-                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#70BA28] rounded-sm w-fit"
                   aria-label="Email support@clickaarambh.com"
                 >
                   <svg 
@@ -116,8 +116,8 @@ export default function Footer() {
                 {/* Primary Contact */}
                 <a 
                   href="tel:+919142030877" 
-                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
-                  aria-label="Call +91 91420 30877"
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#70BA28] rounded-sm w-fit"
+                  aria-label="Call primary contact: +91 91420 30877"
                 >
                   <svg 
                     className="w-4 h-4 text-[#70BA28] shrink-0 transition-transform duration-200 group-hover:scale-110" 
@@ -128,14 +128,14 @@ export default function Footer() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span className="font-mono text-[13px] tracking-tight">+91 91420 30877</span>
+                  <span className="font-mono text-[13px] tracking-tight tabular-nums">+91 91420 30877</span>
                 </a>
 
                 {/* Secondary Contact */}
                 <a 
                   href="tel:+917033556133" 
-                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
-                  aria-label="Call +91 70335 56133"
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#70BA28] rounded-sm w-fit"
+                  aria-label="Call secondary contact: +91 70335 56133"
                 >
                   <svg 
                     className="w-4 h-4 text-[#70BA28] shrink-0 transition-transform duration-200 group-hover:scale-110" 
@@ -146,7 +146,7 @@ export default function Footer() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span className="font-mono text-[13px] tracking-tight">+91 70335 56133</span>
+                  <span className="font-mono text-[13px] tracking-tight tabular-nums">+91 70335 56133</span>
                 </a>
               </div>
 
