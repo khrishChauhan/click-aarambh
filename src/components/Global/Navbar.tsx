@@ -71,7 +71,7 @@ export default function Navbar() {
               alt="Click Aarambh Ventures Logo" 
               width={240} 
               height={80} 
-              className="h-14 md:h-16 w-auto object-contain transition-opacity group-hover:opacity-90 brightness-0 opacity-90" 
+              className="h-9 md:h-11 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90" 
               priority 
             />
           </Link>
