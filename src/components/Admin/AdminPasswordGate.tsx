@@ -42,7 +42,7 @@ export default function AdminPasswordGate({ onUnlock }: AdminPasswordGateProps) 
         <div className="flex flex-col items-center text-center">
           <Link href="/" className="inline-block mb-6 outline-none group">
             <Image
-              src="/logo.png"
+              src="/images/click-aarambh-logo.png"
               alt="Click Aarambh Ventures Logo"
               width={200}
               height={60}

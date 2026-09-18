@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="col-span-2 lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block outline-none group" aria-label="Click Aarambh Ventures Home">
               <Image 
-                src="/logo.png" 
+                src="/images/click-aarambh-logo.png" 
                 alt="Click Aarambh Ventures Logo" 
                 width={240} 
                 height={80} 

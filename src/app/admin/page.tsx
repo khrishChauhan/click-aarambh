@@ -139,7 +139,7 @@ export default function AdminPage() {
           <div className="flex items-center gap-4">
             <Link href="/" className="group flex items-center outline-none">
               <Image
-                src="/logo.png"
+                src="/images/click-aarambh-logo.png"
                 alt="Click Aarambh Ventures Logo"
                 width={160}
                 height={50}

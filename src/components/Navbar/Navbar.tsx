@@ -83,7 +83,7 @@ export const Navbar = () => {
             {/* Logo */}
             <a href="/" className="flex items-center rounded focus-visible:ring-2 focus-visible:ring-[#70BA28] outline-none" aria-label="Click Aarambh Ventures Home">
               <Image 
-                src="/logo.png" 
+                src="/images/click-aarambh-logo.png" 
                 alt="Click Aarambh Ventures Logo" 
                 width={160} 
                 height={50} 
