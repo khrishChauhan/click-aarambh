@@ -19,7 +19,10 @@ const CHANNELS = [
   {
     id: "phone",
     title: "Direct Line",
-    value: "+91 91420 30877, +91 70335 56133",
+    numbers: [
+      { label: "+91 91420 30877", href: "tel:+919142030877" },
+      { label: "+91 70335 56133", href: "tel:+917033556133" },
+    ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -30,6 +33,7 @@ const CHANNELS = [
     id: "email",
     title: "General Inquiry",
     value: "support@clickaarambh.com",
+    href: "mailto:support@clickaarambh.com",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -117,9 +121,32 @@ export default function ContactChannels() {
                     <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#70BA28] mb-2">
                       {channel.title}
                     </h3>
-                    <p className={`font-bold text-[#0D2E26] tracking-[-0.02em] ${channel.id === 'location' ? 'text-sm md:text-base leading-relaxed' : 'text-lg'}`}>
-                      {channel.value}
-                    </p>
+                    {channel.id === 'phone' && channel.numbers ? (
+                      <div className="flex flex-col gap-1 font-bold text-[#0D2E26] tracking-[-0.02em] text-base md:text-lg">
+                        {channel.numbers.map((num) => (
+                          <a
+                            key={num.label}
+                            href={num.href}
+                            className="hover:text-[#70BA28] transition-colors w-fit font-mono text-[15px] md:text-[16px]"
+                            aria-label={`Call ${num.label}`}
+                          >
+                            {num.label}
+                          </a>
+                        ))}
+                      </div>
+                    ) : channel.id === 'email' && channel.href ? (
+                      <a
+                        href={channel.href}
+                        className="font-bold text-[#0D2E26] tracking-[-0.02em] text-base md:text-lg hover:text-[#70BA28] transition-colors inline-block"
+                        aria-label="Email support@clickaarambh.com"
+                      >
+                        {channel.value}
+                      </a>
+                    ) : (
+                      <p className={`font-bold text-[#0D2E26] tracking-[-0.02em] ${channel.id === 'location' ? 'text-sm md:text-base leading-relaxed' : 'text-lg'}`}>
+                        {channel.value}
+                      </p>
+                    )}
                   </div>
                 </div>
               </MagneticCard>
