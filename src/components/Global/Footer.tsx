@@ -95,18 +95,67 @@ export default function Footer() {
               Get In Touch
             </h4>
             <div className="flex flex-col gap-4">
-              <a 
-                href="mailto:support@clickaarambh.com" 
-                className="text-[14px] text-[#0D2E26]/70 transition-colors hover:text-[#0D2E26]"
-              >
-                support@clickaarambh.com
-              </a>
-              <p className="text-[14px] text-[#4B635D] italic">
+              <div className="flex flex-col gap-2.5">
+                <a 
+                  href="mailto:support@clickaarambh.com" 
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
+                  aria-label="Email support@clickaarambh.com"
+                >
+                  <svg 
+                    className="w-4 h-4 text-[#70BA28] shrink-0 transition-transform duration-200 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>support@clickaarambh.com</span>
+                </a>
+
+                {/* Primary Contact */}
+                <a 
+                  href="tel:+919142030877" 
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
+                  aria-label="Call +91 91420 30877"
+                >
+                  <svg 
+                    className="w-4 h-4 text-[#70BA28] shrink-0 transition-transform duration-200 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="font-mono text-[13px] tracking-tight">+91 91420 30877</span>
+                </a>
+
+                {/* Secondary Contact */}
+                <a 
+                  href="tel:+917033556133" 
+                  className="group inline-flex items-center gap-2.5 text-[14px] text-[#0D2E26]/75 transition-colors hover:text-[#70BA28] w-fit"
+                  aria-label="Call +91 70335 56133"
+                >
+                  <svg 
+                    className="w-4 h-4 text-[#70BA28] shrink-0 transition-transform duration-200 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="font-mono text-[13px] tracking-tight">+91 70335 56133</span>
+                </a>
+              </div>
+
+              <p className="text-[13px] text-[#4B635D] italic pt-1">
                 Let&apos;s build systems that scale.
               </p>
               <Link 
                 href="/contact"
-                className="group mt-2 inline-flex items-center gap-2 w-fit"
+                className="group mt-1 inline-flex items-center gap-2 w-fit"
               >
                 <span className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[#70BA28] transition-colors group-hover:text-[#0D2E26]">
                   Start Your Growth Journey
