@@ -2,21 +2,21 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  BLOG_POSTS,
-  FEATURED_POST,
-  BLOG_CATEGORIES,
-  BlogCategory,
-} from "@/data/blogs";
+import { BLOG_CATEGORIES, BlogCategory, BlogPost } from "@/data/blogs";
 import BlogFeatured from "./BlogFeatured";
 import BlogCard from "./BlogCard";
 
-export default function BlogList() {
+interface BlogListProps {
+  initialPosts: BlogPost[];
+  featuredPost: BlogPost | null;
+}
+
+export default function BlogList({ initialPosts, featuredPost }: BlogListProps) {
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory>("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPosts = useMemo(() => {
-    return BLOG_POSTS.filter((post) => {
+    return initialPosts.filter((post) => {
       const matchesCategory =
         selectedCategory === "All" || post.category === selectedCategory;
       const matchesSearch =
@@ -26,11 +26,12 @@ export default function BlogList() {
         post.category.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [initialPosts, selectedCategory, searchQuery]);
 
   const showFeatured =
+    featuredPost !== null &&
     searchQuery === "" &&
-    (selectedCategory === "All" || FEATURED_POST.category === selectedCategory);
+    (selectedCategory === "All" || featuredPost.category === selectedCategory);
 
   return (
     <section className="relative bg-[#F8FAF8] py-16 md:py-24">
@@ -91,8 +92,8 @@ export default function BlogList() {
           </div>
         </div>
 
-        {/* ── 1. Editorial Featured Article (Top Typographic Statement) ── */}
-        {showFeatured && <BlogFeatured post={FEATURED_POST} />}
+        {/* ── 1. Editorial Featured Article ── */}
+        {showFeatured && featuredPost && <BlogFeatured post={featuredPost} />}
 
         {/* ── Section Divider / Header ── */}
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#0D2E26]/10">
@@ -109,7 +110,7 @@ export default function BlogList() {
           </span>
         </div>
 
-        {/* ── 2. Text-Driven Article Grid (Pure Typography & Micro-interactions) ── */}
+        {/* ── 2. Article Grid ── */}
         {filteredPosts.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-[#0D2E26]/20 bg-white p-12 text-center">
             <p className="font-mono text-sm text-[#4B635D]">

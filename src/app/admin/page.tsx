@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { BLOG_POSTS, FEATURED_POST } from "@/data/blogs";
 import AdminPasswordGate from "@/components/Admin/AdminPasswordGate";
 import AdminPostList, { AdminBlogPost } from "@/components/Admin/AdminPostList";
 import AdminComposeForm from "@/components/Admin/AdminComposeForm";
@@ -15,80 +14,91 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<"posts" | "compose">("posts");
   const [editingPost, setEditingPost] = useState<AdminBlogPost | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [posts, setPosts] = useState<AdminBlogPost[]>([]);
+  const [isSaving, setIsSaving] = useState(false);
 
-  // Initialize client-side posts list from mock blogs
-  const [posts, setPosts] = useState<AdminBlogPost[]>(() => {
-    const initial: AdminBlogPost[] = [
-      { ...FEATURED_POST, status: "Published" },
-      ...BLOG_POSTS.map((p) => ({ ...p, status: "Published" as const })),
-    ];
-    return initial;
-  });
-
-  // Verify session on mount
+  // ── Auth check on mount ──────────────────────────────────────────────────
   useEffect(() => {
+    fetch("/api/admin/check-auth")
+      .then((r) => {
+        if (r.ok) setIsAuthenticated(true);
+      })
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  // ── Load posts from API ──────────────────────────────────────────────────
+  const fetchPosts = useCallback(async () => {
     try {
-      const stored = sessionStorage.getItem("ca_admin_auth");
-      if (stored === "true") {
-        setIsAuthenticated(true);
+      const res = await fetch("/api/blogs");
+      if (res.ok) {
+        const data = (await res.json()) as AdminBlogPost[];
+        setPosts(data);
       }
-    } catch {
-      // In case storage is restricted
-    } finally {
-      setIsLoading(false);
+    } catch (err) {
+      console.error("Failed to fetch posts", err);
     }
   }, []);
 
-  const handleUnlock = () => {
-    setIsAuthenticated(true);
-    try {
-      sessionStorage.setItem("ca_admin_auth", "true");
-    } catch {}
-    showToast("Access key verified: Welcome to Admin Blog Studio");
-  };
+  useEffect(() => {
+    if (isAuthenticated) fetchPosts();
+  }, [isAuthenticated, fetchPosts]);
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    try {
-      sessionStorage.removeItem("ca_admin_auth");
-    } catch {}
-  };
-
+  // ── Toast helper ─────────────────────────────────────────────────────────
   const showToast = (message: string) => {
     setToastMessage(message);
-    setTimeout(() => {
-      setToastMessage(null);
-    }, 4000);
+    setTimeout(() => setToastMessage(null), 4000);
   };
 
-  const handleSavePost = (newPost: AdminBlogPost, isDraft: boolean) => {
-    setPosts((prev) => {
-      const existsIndex = prev.findIndex((p) => p.slug === newPost.slug);
-      if (existsIndex >= 0) {
-        const updated = [...prev];
-        updated[existsIndex] = newPost;
-        return updated;
-      } else {
-        return [newPost, ...prev];
-      }
-    });
-
-    setEditingPost(null);
-    setActiveTab("posts");
-    showToast(
-      isDraft
-        ? `Draft "${newPost.title}" saved locally (Phase 1 preview)`
-        : `Article "${newPost.title}" created successfully (Phase 1 preview)`
-    );
+  // ── Auth handlers ─────────────────────────────────────────────────────────
+  const handleUnlock = () => {
+    setIsAuthenticated(true);
+    showToast("Access verified — Welcome to Admin Blog Studio");
   };
 
-  const handleDeletePost = (slug: string) => {
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
+    setIsAuthenticated(false);
+    setPosts([]);
+  };
+
+  // ── CRUD handlers ─────────────────────────────────────────────────────────
+  const handleSavePost = async (newPost: AdminBlogPost, isDraft: boolean) => {
+    setIsSaving(true);
+    try {
+      const postToSave: AdminBlogPost = { ...newPost, status: isDraft ? "Draft" : "Published" };
+      const res = await fetch("/api/blogs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postToSave),
+      });
+      if (!res.ok) throw new Error("Save failed");
+      await fetchPosts();
+      setEditingPost(null);
+      setActiveTab("posts");
+      showToast(
+        isDraft
+          ? `Draft "${newPost.title}" saved`
+          : `Article "${newPost.title}" published successfully`
+      );
+    } catch {
+      showToast("Error: Failed to save post. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const handleDeletePost = async (slug: string) => {
     const postToDelete = posts.find((p) => p.slug === slug);
     if (!postToDelete) return;
-
-    if (window.confirm(`Are you sure you want to delete "${postToDelete.title}"?`)) {
-      setPosts((prev) => prev.filter((p) => p.slug !== slug));
-      showToast(`Article "${postToDelete.title}" removed from catalog`);
+    if (!window.confirm(`Delete "${postToDelete.title}"?`)) return;
+    try {
+      const res = await fetch(`/api/blogs/${slug}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Delete failed");
+      await fetchPosts();
+      showToast(`"${postToDelete.title}" removed`);
+    } catch {
+      showToast("Error: Failed to delete post.");
     }
   };
 
@@ -97,6 +107,7 @@ export default function AdminPage() {
     setActiveTab("compose");
   };
 
+  // ── Render states ─────────────────────────────────────────────────────────
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#F8FAF8]">
@@ -153,7 +164,7 @@ export default function AdminPage() {
             <div className="hidden sm:flex items-center gap-2 font-mono text-xs font-bold text-[#0D2E26]">
               <span>Blog Studio</span>
               <span className="rounded-full bg-[#70BA28]/15 border border-[#70BA28]/30 px-2.5 py-0.5 text-[10px] font-bold text-[#0D2E26]">
-                Phase 1 · UI Mode
+                Phase 2 · Live
               </span>
             </div>
           </div>
@@ -238,6 +249,7 @@ export default function AdminPage() {
               setEditingPost(null);
               setActiveTab("posts");
             }}
+            isSaving={isSaving}
           />
         )}
       </main>

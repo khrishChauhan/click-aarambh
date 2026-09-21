@@ -8,19 +8,21 @@ interface AdminComposeFormProps {
   initialPost?: AdminBlogPost | null;
   onSave: (post: AdminBlogPost, isDraft: boolean) => void;
   onCancel: () => void;
+  isSaving?: boolean;
 }
 
 export default function AdminComposeForm({
   initialPost,
   onSave,
   onCancel,
+  isSaving = false,
 }: AdminComposeFormProps) {
   const [title, setTitle] = useState(initialPost?.title || "");
   const [category, setCategory] = useState<BlogCategory>(
     initialPost?.category || "Engineering"
   );
   const [authorName, setAuthorName] = useState(
-    initialPost?.author.name || "Aarav Roy"
+    initialPost?.author.name || "Click Aarambh"
   );
   const [readTime, setReadTime] = useState(initialPost?.readTime || "5 min read");
   const [excerpt, setExcerpt] = useState(initialPost?.excerpt || "");
@@ -62,8 +64,8 @@ export default function AdminComposeForm({
         initialPost?.image ||
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200",
       author: {
-        name: authorName.trim() || "Aarav Roy",
-        role: "Systems Architect",
+        name: authorName.trim() || "Click Aarambh",
+        role: "Click Aarambh Ventures",
       },
       status: isDraft ? "Draft" : "Published",
     };
@@ -94,23 +96,33 @@ export default function AdminComposeForm({
           <button
             type="button"
             onClick={onCancel}
-            className="rounded-xl border border-[#0D2E26]/15 bg-white px-4 py-2.5 font-mono text-xs font-semibold text-[#4B635D] hover:text-[#0D2E26] hover:bg-[#F8FAF8] transition-colors"
+            disabled={isSaving}
+            className="rounded-xl border border-[#0D2E26]/15 bg-white px-4 py-2.5 font-mono text-xs font-semibold text-[#4B635D] hover:text-[#0D2E26] hover:bg-[#F8FAF8] transition-colors disabled:opacity-50"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={() => handleSubmit(true)}
-            className="rounded-xl border border-[#0D2E26]/20 bg-[#F8FAF8] px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] hover:bg-white hover:border-[#0D2E26]/40 transition-all"
+            disabled={isSaving}
+            className="rounded-xl border border-[#0D2E26]/20 bg-[#F8FAF8] px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] hover:bg-white hover:border-[#0D2E26]/40 transition-all disabled:opacity-50"
           >
             Save Draft
           </button>
           <button
             type="button"
             onClick={() => handleSubmit(false)}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#70BA28] px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] hover:bg-[#62A422] shadow-sm transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28]"
+            disabled={isSaving}
+            className="inline-flex items-center gap-2 rounded-xl bg-[#70BA28] px-6 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] hover:bg-[#62A422] shadow-sm transition-all outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28] disabled:opacity-60"
           >
-            <span>Publish Post →</span>
+            {isSaving ? (
+              <>
+                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[#0D2E26]/30 border-t-[#0D2E26]" />
+                <span>Publishing…</span>
+              </>
+            ) : (
+              <span>Publish Post →</span>
+            )}
           </button>
         </div>
       </div>
