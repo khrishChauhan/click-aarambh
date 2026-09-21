@@ -13,14 +13,27 @@ export default function AdminPasswordGate({ onUnlock }: AdminPasswordGateProps) 
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (password === "123") {
-      setError(false);
-      onUnlock();
-    } else {
+    setIsLoading(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        onUnlock();
+      } else {
+        setError(true);
+      }
+    } catch {
       setError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -128,18 +141,23 @@ export default function AdminPasswordGate({ onUnlock }: AdminPasswordGateProps) 
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-[#70BA28] py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] shadow-sm transition-all duration-300 hover:bg-[#62A422] hover:shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28]"
+            disabled={isLoading}
+            className="w-full rounded-xl bg-[#70BA28] py-3.5 font-mono text-xs font-bold uppercase tracking-wider text-[#0D2E26] shadow-sm transition-all duration-300 hover:bg-[#62A422] hover:shadow-md outline-none focus-visible:ring-2 focus-visible:ring-[#70BA28] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            Unlock Portal →
+            {isLoading ? (
+              <>
+                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-[#0D2E26]/30 border-t-[#0D2E26]" />
+                <span>Verifying…</span>
+              </>
+            ) : (
+              "Unlock Portal →"
+            )}
           </button>
         </form>
 
-        {/* Phase 1 Helper Footer */}
+        {/* Footer */}
         <div className="mt-8 pt-6 border-t border-[#0D2E26]/10 text-center">
-          <div className="font-mono text-[11px] text-[#4B635D]">
-            Phase 1 UI Testing Key: <code className="rounded bg-[#0D2E26]/5 px-2 py-0.5 font-bold text-[#0D2E26]">123</code>
-          </div>
-          <div className="mt-3">
+          <div>
             <Link
               href="/"
               className="font-mono text-[11px] text-[#2E4D45] hover:text-[#0D2E26] transition-colors underline underline-offset-4"
