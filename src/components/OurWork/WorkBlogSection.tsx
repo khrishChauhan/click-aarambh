@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { BLOG_POSTS, FEATURED_POST } from "@/data/blogs";
 
@@ -99,29 +98,16 @@ export default function WorkBlogSection() {
               </p>
             </div>
 
-            {/* Footer Metadata */}
-            <div className="pt-4 border-t border-[#0D2E26]/10 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="relative h-6 w-6 overflow-hidden rounded-full border border-[#0D2E26]/15 bg-[#0D2E26]/5 flex-shrink-0">
-                  <Image
-                    src={post.author.avatar}
-                    alt={post.author.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-[#0D2E26] leading-none">
-                    {post.author.name}
-                  </div>
-                  <div className="text-[10px] font-mono text-[#4B635D] mt-0.5">
-                    {post.date}
-                  </div>
-                </div>
+            {/* Footer Metadata: Author Name, Publication Date, and Hover Arrow Indicator */}
+            <div className="pt-4 border-t border-[#0D2E26]/10 flex items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-[#4B635D]">
+                <span className="font-semibold text-[#0D2E26]">{post.author.name}</span>
+                <span className="text-[#0D2E26]/30">·</span>
+                <span>{post.date}</span>
               </div>
 
               {/* Arrow Indicator */}
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0D2E26]/5 text-[#0D2E26] group-hover:bg-[#70BA28] group-hover:text-[#0D2E26] transition-all duration-300">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#0D2E26]/5 text-[#0D2E26] group-hover:bg-[#70BA28] group-hover:text-[#0D2E26] transition-all duration-300 flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-3.5 w-3.5 transform transition-transform duration-300 group-hover:translate-x-1"
