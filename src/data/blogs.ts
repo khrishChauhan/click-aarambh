@@ -1,7 +1,6 @@
 export interface Author {
   name: string;
   role: string;
-  avatar: string;
 }
 
 export interface BlogPost {
@@ -40,8 +39,6 @@ export const FEATURED_POST: BlogPost = {
   author: {
     name: 'Aarav Roy',
     role: 'Founding Partner & CTO',
-    avatar:
-      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
   },
   featured: true,
 };
@@ -60,8 +57,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Ankit Sharma',
       role: 'Lead Systems Architect',
-      avatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -77,8 +72,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Kabir Mehta',
       role: 'Growth Engineer',
-      avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -94,8 +87,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Priya Varma',
       role: 'Head of Creative Strategy',
-      avatar:
-        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -111,8 +102,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Aarav Roy',
       role: 'Founding Partner & CTO',
-      avatar:
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -128,8 +117,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Rohit Nair',
       role: 'Venture Strategist',
-      avatar:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -145,8 +132,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Ankit Sharma',
       role: 'Lead Systems Architect',
-      avatar:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     },
   },
   {
@@ -162,8 +147,6 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: 'Kabir Mehta',
       role: 'Growth Engineer',
-      avatar:
-        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
     },
   },
 ];
