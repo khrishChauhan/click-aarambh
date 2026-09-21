@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { BlogPost } from "@/data/blogs";
 
@@ -64,23 +63,13 @@ export default function BlogFeatured({ post }: BlogFeaturedProps) {
 
           {/* Author Signature & Action Row */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-8 border-t border-[#0D2E26]/10">
-            {/* Author Profile */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative h-11 w-11 overflow-hidden rounded-full border border-[#0D2E26]/15 bg-[#F8FAF8]">
-                <Image
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  fill
-                  className="object-cover"
-                />
+            {/* Author Byline */}
+            <div className="flex flex-col">
+              <div className="text-sm font-bold text-[#0D2E26]">
+                {post.author.name}
               </div>
-              <div>
-                <div className="text-sm font-bold text-[#0D2E26]">
-                  {post.author.name}
-                </div>
-                <div className="font-mono text-xs text-[#4B635D]">
-                  {post.author.role}
-                </div>
+              <div className="font-mono text-xs text-[#4B635D] tracking-wide">
+                {post.author.role}
               </div>
             </div>
 
