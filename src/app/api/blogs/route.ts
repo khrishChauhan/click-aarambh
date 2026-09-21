@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { verifySessionToken, COOKIE_NAME } from "@/lib/auth";
-import { getAllBlogs, upsertBlog, StoredBlogPost } from "@/lib/blogs-store";
+import { getAllBlogs, getPublishedBlogs, upsertBlog, StoredBlogPost } from "@/lib/blogs-store";
 import { revalidatePath } from "next/cache";
 
 async function isAuthed(): Promise<boolean> {
@@ -10,11 +10,11 @@ async function isAuthed(): Promise<boolean> {
   return verifySessionToken(token);
 }
 
-/** GET /api/blogs — public, returns all published posts */
+/** GET /api/blogs — returns all posts if authenticated, or published posts if public */
 export async function GET() {
   try {
-    const { getPublishedBlogs } = await import("@/lib/blogs-store");
-    const posts = await getPublishedBlogs();
+    const authed = await isAuthed();
+    const posts = authed ? await getAllBlogs() : await getPublishedBlogs();
     return NextResponse.json(posts);
   } catch (err) {
     console.error("[GET /api/blogs]", err);
@@ -35,14 +35,15 @@ export async function POST(req: Request) {
     }
 
     const saved = await upsertBlog(body);
-    revalidatePath("/blog");
-    revalidatePath(`/blog/${saved.slug}`);
+    try {
+      revalidatePath("/blog");
+      revalidatePath(`/blog/${saved.slug}`);
+    } catch (e) {
+      console.warn("revalidatePath error:", e);
+    }
     return NextResponse.json(saved, { status: 201 });
   } catch (err) {
     console.error("[POST /api/blogs]", err);
     return NextResponse.json({ error: "Failed to save post" }, { status: 500 });
   }
 }
-
-// Suppress unused import warning — getAllBlogs used implicitly by upsertBlog
-void getAllBlogs;

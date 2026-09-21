@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs/promises";
+import os from "os";
 import { FEATURED_POST, BLOG_POSTS, BlogPost } from "@/data/blogs";
 
 export interface StoredBlogPost extends BlogPost {
@@ -7,30 +8,65 @@ export interface StoredBlogPost extends BlogPost {
   content?: string;
 }
 
-// Absolute path to the JSON file on disk
-const DATA_FILE = path.join(process.cwd(), "src", "data", "blogs.json");
+// In production (Vercel serverless), project root is read-only.
+// We use the OS temp directory for runtime writes.
+const IS_PROD = process.env.NODE_ENV === "production";
+const WRITE_FILE = IS_PROD
+  ? path.join(os.tmpdir(), "click_aarambh_blogs.json")
+  : path.join(process.cwd(), "src", "data", "blogs.json");
 
-/** Read the entire store (creates and seeds the file if it doesn't exist) */
-async function readStore(): Promise<StoredBlogPost[]> {
-  try {
-    const raw = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(raw) as StoredBlogPost[];
-  } catch {
-    // First run: seed from static mock data
-    const seed: StoredBlogPost[] = [
-      { ...FEATURED_POST, status: "Published" },
-      ...BLOG_POSTS.map((p) => ({ ...p, status: "Published" as const })),
-    ];
-    await writeStore(seed);
-    return seed;
-  }
+// Committed seed file — always readable in both dev and production
+const SEED_FILE = path.join(process.cwd(), "src", "data", "blogs.json");
+
+/** Build the default seed array from static mock data */
+function buildSeed(): StoredBlogPost[] {
+  return [
+    { ...FEATURED_POST, status: "Published" },
+    ...BLOG_POSTS.map((p) => ({ ...p, status: "Published" as const })),
+  ];
 }
 
-/** Atomically write the store (write to temp file then rename) */
+/** Read the entire store */
+async function readStore(): Promise<StoredBlogPost[]> {
+  // 1. In production, check writable temp store first (preserves runtime updates)
+  if (IS_PROD) {
+    try {
+      const raw = await fs.readFile(WRITE_FILE, "utf-8");
+      const parsed = JSON.parse(raw) as StoredBlogPost[];
+      if (Array.isArray(parsed)) return parsed;
+    } catch {
+      // Temp file does not exist yet; fall through to seed file
+    }
+  }
+
+  // 2. Read from committed seed file
+  try {
+    const raw = await fs.readFile(SEED_FILE, "utf-8");
+    const parsed = JSON.parse(raw) as StoredBlogPost[];
+    if (Array.isArray(parsed)) return parsed;
+  } catch {
+    // Fall back to in-memory seed
+  }
+
+  return buildSeed();
+}
+
+/** Write the store safely */
 async function writeStore(posts: StoredBlogPost[]): Promise<void> {
-  const tmp = DATA_FILE + ".tmp";
-  await fs.writeFile(tmp, JSON.stringify(posts, null, 2), "utf-8");
-  await fs.rename(tmp, DATA_FILE);
+  const json = JSON.stringify(posts, null, 2);
+  try {
+    await fs.mkdir(path.dirname(WRITE_FILE), { recursive: true });
+  } catch {
+    // Directory exists or cannot be created
+  }
+
+  if (IS_PROD) {
+    await fs.writeFile(WRITE_FILE, json, "utf-8");
+  } else {
+    const tmp = WRITE_FILE + ".tmp";
+    await fs.writeFile(tmp, json, "utf-8");
+    await fs.rename(tmp, WRITE_FILE);
+  }
 }
 
 /** Return all published posts, newest first */

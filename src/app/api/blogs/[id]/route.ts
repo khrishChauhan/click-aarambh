@@ -25,8 +25,12 @@ export async function DELETE(
     if (!deleted) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
-    revalidatePath("/blog");
-    revalidatePath(`/blog/${slug}`);
+    try {
+      revalidatePath("/blog");
+      revalidatePath(`/blog/${slug}`);
+    } catch (e) {
+      console.warn("revalidatePath error:", e);
+    }
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error(`[DELETE /api/blogs/${slug}]`, err);
