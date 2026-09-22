@@ -7,10 +7,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import AdminPasswordGate from "@/components/Admin/AdminPasswordGate";
 import AdminPostList, { AdminBlogPost } from "@/components/Admin/AdminPostList";
 import AdminComposeForm from "@/components/Admin/AdminComposeForm";
+import AdminReelsManager from "@/components/Admin/AdminReelsManager";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [adminSection, setAdminSection] = useState<"blogs" | "reels">("blogs");
   const [activeTab, setActiveTab] = useState<"posts" | "compose">("posts");
   const [editingPost, setEditingPost] = useState<AdminBlogPost | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -53,7 +55,7 @@ export default function AdminPage() {
   // ── Auth handlers ─────────────────────────────────────────────────────────
   const handleUnlock = () => {
     setIsAuthenticated(true);
-    showToast("Access verified — Welcome to Admin Blog Studio");
+    showToast("Access verified — Welcome to Admin Studio");
   };
 
   const handleLogout = async () => {
@@ -62,7 +64,7 @@ export default function AdminPage() {
     setPosts([]);
   };
 
-  // ── CRUD handlers ─────────────────────────────────────────────────────────
+  // ── CRUD handlers for blogs ───────────────────────────────────────────────
   const handleSavePost = async (newPost: AdminBlogPost, isDraft: boolean) => {
     setIsSaving(true);
     try {
@@ -162,51 +164,47 @@ export default function AdminPage() {
             <span className="hidden sm:block h-4 w-px bg-[#0D2E26]/15" />
 
             <div className="hidden sm:flex items-center gap-2 font-mono text-xs font-bold text-[#0D2E26]">
-              <span>Blog Studio</span>
+              <span>Admin Studio</span>
               <span className="rounded-full bg-[#70BA28]/15 border border-[#70BA28]/30 px-2.5 py-0.5 text-[10px] font-bold text-[#0D2E26]">
-                Phase 2 · Live
+                Live
               </span>
             </div>
           </div>
 
-          {/* Center: Main View Tabs */}
+          {/* Center: Top Section Switcher [ Blogs Manager | Instagram Reels ] */}
           <nav className="flex items-center gap-1 rounded-xl bg-[#F8FAF8] p-1 border border-[#0D2E26]/10">
             <button
-              onClick={() => {
-                setActiveTab("posts");
-                setEditingPost(null);
-              }}
-              className={`rounded-lg px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                activeTab === "posts"
+              onClick={() => setAdminSection("blogs")}
+              className={`flex items-center gap-2 rounded-lg px-3 sm:px-4 py-2 font-mono text-xs font-bold transition-all duration-200 ${
+                adminSection === "blogs"
                   ? "bg-white text-[#0D2E26] shadow-sm"
                   : "text-[#4B635D] hover:text-[#0D2E26]"
               }`}
             >
-              All Posts ({posts.length})
+              <span>📝</span>
+              <span>Blogs</span>
             </button>
             <button
-              onClick={() => {
-                setEditingPost(null);
-                setActiveTab("compose");
-              }}
-              className={`rounded-lg px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                activeTab === "compose"
+              onClick={() => setAdminSection("reels")}
+              className={`flex items-center gap-2 rounded-lg px-3 sm:px-4 py-2 font-mono text-xs font-bold transition-all duration-200 ${
+                adminSection === "reels"
                   ? "bg-white text-[#0D2E26] shadow-sm"
                   : "text-[#4B635D] hover:text-[#0D2E26]"
               }`}
             >
-              {editingPost ? "Edit Article" : "+ Compose"}
+              <span>🎬</span>
+              <span>Reels Manager</span>
             </button>
           </nav>
 
-          {/* Right: Live Blog Link & Logout */}
+          {/* Right: Public Links & Logout */}
           <div className="flex items-center gap-3">
             <Link
-              href="/blog"
+              href={adminSection === "reels" ? "/#work" : "/blog"}
               target="_blank"
               className="hidden md:inline-flex items-center gap-1.5 rounded-xl border border-[#0D2E26]/15 px-3.5 py-2 font-mono text-[11px] font-semibold text-[#0D2E26] hover:border-[#70BA28] hover:bg-[#70BA28]/10 transition-colors"
             >
-              <span>View Public Blog</span>
+              <span>{adminSection === "reels" ? "View Carousel" : "View Blog"}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-3 w-3"
@@ -231,26 +229,71 @@ export default function AdminPage() {
 
       {/* ── Main Content Body ── */}
       <main className="mx-auto max-w-7xl px-6 py-10 md:px-12 lg:px-24">
-        {activeTab === "posts" ? (
-          <AdminPostList
-            posts={posts}
-            onDeletePost={handleDeletePost}
-            onEditPost={handleEditPost}
-            onNewPost={() => {
-              setEditingPost(null);
-              setActiveTab("compose");
-            }}
-          />
+        {adminSection === "blogs" ? (
+          <div>
+            {/* Blogs Sub-navigation Tabs */}
+            <div className="mb-8 flex items-center justify-between border-b border-[#0D2E26]/10 pb-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#70BA28]" />
+                <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-[#2E4D45]">
+                  Editorial Post Management
+                </h2>
+              </div>
+
+              <div className="flex items-center gap-1 rounded-xl bg-[#F8FAF8] p-1 border border-[#0D2E26]/10">
+                <button
+                  onClick={() => {
+                    setActiveTab("posts");
+                    setEditingPost(null);
+                  }}
+                  className={`rounded-lg px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                    activeTab === "posts"
+                      ? "bg-white text-[#0D2E26] shadow-sm"
+                      : "text-[#4B635D] hover:text-[#0D2E26]"
+                  }`}
+                >
+                  All Posts ({posts.length})
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingPost(null);
+                    setActiveTab("compose");
+                  }}
+                  className={`rounded-lg px-3.5 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                    activeTab === "compose"
+                      ? "bg-white text-[#0D2E26] shadow-sm"
+                      : "text-[#4B635D] hover:text-[#0D2E26]"
+                  }`}
+                >
+                  {editingPost ? "Edit Article" : "+ Compose"}
+                </button>
+              </div>
+            </div>
+
+            {activeTab === "posts" ? (
+              <AdminPostList
+                posts={posts}
+                onDeletePost={handleDeletePost}
+                onEditPost={handleEditPost}
+                onNewPost={() => {
+                  setEditingPost(null);
+                  setActiveTab("compose");
+                }}
+              />
+            ) : (
+              <AdminComposeForm
+                initialPost={editingPost}
+                onSave={handleSavePost}
+                onCancel={() => {
+                  setEditingPost(null);
+                  setActiveTab("posts");
+                }}
+                isSaving={isSaving}
+              />
+            )}
+          </div>
         ) : (
-          <AdminComposeForm
-            initialPost={editingPost}
-            onSave={handleSavePost}
-            onCancel={() => {
-              setEditingPost(null);
-              setActiveTab("posts");
-            }}
-            isSaving={isSaving}
-          />
+          <AdminReelsManager onShowToast={showToast} />
         )}
       </main>
     </div>
