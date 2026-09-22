@@ -10,12 +10,19 @@ async function isAuthed(): Promise<boolean> {
   return verifySessionToken(token);
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 /** GET /api/blogs — returns all posts if authenticated, or published posts if public */
 export async function GET() {
   try {
     const authed = await isAuthed();
     const posts = authed ? await getAllBlogs() : await getPublishedBlogs();
-    return NextResponse.json(posts);
+    return NextResponse.json(posts, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      },
+    });
   } catch (err) {
     console.error("[GET /api/blogs]", err);
     return NextResponse.json({ error: "Failed to load posts" }, { status: 500 });

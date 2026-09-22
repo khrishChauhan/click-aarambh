@@ -10,6 +10,9 @@ async function isAuthed(): Promise<boolean> {
   return verifySessionToken(token);
 }
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 /** DELETE /api/blogs/[id] — protected, deletes a post by slug */
 export async function DELETE(
   _req: Request,

@@ -1,12 +1,28 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BLOG_POSTS, FEATURED_POST } from "@/data/blogs";
+import { BLOG_POSTS, FEATURED_POST, BlogPost } from "@/data/blogs";
 
 export default function WorkBlogSection() {
-  // Curate 3 flagship preview articles for the work section
-  const previewPosts = [FEATURED_POST, BLOG_POSTS[0], BLOG_POSTS[1]];
+  // Curate flagship preview articles for the work section with live API sync
+  const [previewPosts, setPreviewPosts] = useState<BlogPost[]>([
+    FEATURED_POST,
+    BLOG_POSTS[0],
+    BLOG_POSTS[1],
+  ]);
+
+  useEffect(() => {
+    fetch("/api/blogs", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: BlogPost[] | null) => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          setPreviewPosts(data.slice(0, 3));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <div className="container relative z-10 w-full max-w-[1400px] mx-auto px-6 mt-16 md:mt-32">
@@ -73,7 +89,7 @@ export default function WorkBlogSection() {
         {previewPosts.map((post) => (
           <Link
             key={post.slug}
-            href="/blog"
+            href={`/blog/${post.slug}`}
             className="group relative flex flex-col justify-between rounded-2xl border border-[#0D2E26]/10 bg-white p-7 md:p-8 transition-all duration-300 hover:bg-[#F8FAF8] hover:border-[#0D2E26]/20 shadow-[0_4px_20px_-2px_rgba(13,46,38,0.05),0_2px_6px_-1px_rgba(13,46,38,0.03)] hover:shadow-[0_12px_28px_-4px_rgba(13,46,38,0.08)] hover:-translate-y-1 outline-none"
           >
             <div>

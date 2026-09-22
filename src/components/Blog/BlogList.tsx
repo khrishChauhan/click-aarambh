@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BLOG_CATEGORIES, BlogCategory, BlogPost } from "@/data/blogs";
 import BlogFeatured from "./BlogFeatured";
@@ -12,11 +12,28 @@ interface BlogListProps {
 }
 
 export default function BlogList({ initialPosts, featuredPost }: BlogListProps) {
+  const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
+  const [featured, setFeatured] = useState<BlogPost | null>(featuredPost);
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory>("All");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Live client-side sync from API to guarantee any published, edited, or deleted blogs appear immediately
+  useEffect(() => {
+    fetch("/api/blogs", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: BlogPost[] | null) => {
+        if (data && Array.isArray(data) && data.length > 0) {
+          const feat = data.find((p) => p.featured) ?? data[0] ?? null;
+          const reg = data.filter((p) => p.slug !== feat?.slug);
+          setFeatured(feat);
+          setPosts(reg);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   const filteredPosts = useMemo(() => {
-    return initialPosts.filter((post) => {
+    return posts.filter((post) => {
       const matchesCategory =
         selectedCategory === "All" || post.category === selectedCategory;
       const matchesSearch =
@@ -26,12 +43,12 @@ export default function BlogList({ initialPosts, featuredPost }: BlogListProps) 
         post.category.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [initialPosts, selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery]);
 
   const showFeatured =
-    featuredPost !== null &&
+    featured !== null &&
     searchQuery === "" &&
-    (selectedCategory === "All" || featuredPost.category === selectedCategory);
+    (selectedCategory === "All" || featured.category === selectedCategory);
 
   return (
     <section className="relative bg-[#F8FAF8] py-16 md:py-24">
@@ -93,7 +110,7 @@ export default function BlogList({ initialPosts, featuredPost }: BlogListProps) 
         </div>
 
         {/* ── 1. Editorial Featured Article ── */}
-        {showFeatured && featuredPost && <BlogFeatured post={featuredPost} />}
+        {showFeatured && featured && <BlogFeatured post={featured} />}
 
         {/* ── Section Divider / Header ── */}
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-[#0D2E26]/10">
