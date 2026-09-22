@@ -97,11 +97,6 @@ async function extractInstagramMeta(url: string): Promise<{
     }
   }
 
-  // Fallback stock image if Instagram blocks media
-  if (!thumbnail) {
-    thumbnail = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop";
-  }
-
   return { thumbnail, title, description, likes };
 }
 

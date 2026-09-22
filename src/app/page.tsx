@@ -9,6 +9,9 @@ import { ImpactStories } from "@/components/Credibility/ImpactStories";
 import { ParadigmShift } from "@/components/Credibility/ParadigmShift";
 import { Footer } from "@/components/Footer/Footer";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="bg-white">
